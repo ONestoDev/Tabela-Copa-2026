@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   function createKnockoutService({matches, standingsService, scoreComplete}) {
     function placeholderForSpec(spec) {
       if(spec.type === 'group') return `${spec.pos}º Grupo ${spec.group}`;
@@ -29,12 +29,28 @@
     function knockoutResult(id, type, groupScores, knockoutScores) {
       const match = knockoutMatch(id);
       const score = knockoutScores[id];
-      if(!match || !scoreComplete(score) || Number(score.a) === Number(score.b)) return null;
+      if(!match || !scoreComplete(score)) return null;
       const teamA = resolveSpec(match.a, groupScores, knockoutScores);
       const teamB = resolveSpec(match.b, groupScores, knockoutScores);
-      return Number(score.a) > Number(score.b)
+      const winnerSide = winnerFromScore(score);
+      if(!winnerSide) return null;
+      return winnerSide === 'a'
         ? (type === 'winner' ? teamA : teamB)
         : (type === 'winner' ? teamB : teamA);
+    }
+
+    function winnerFromScore(score) {
+      if(Number(score.a) > Number(score.b)) return 'a';
+      if(Number(score.b) > Number(score.a)) return 'b';
+      if(score.eta !== '' && score.etb !== '') {
+        if(Number(score.eta) > Number(score.etb)) return 'a';
+        if(Number(score.etb) > Number(score.eta)) return 'b';
+      }
+      if(score.eta !== '' && score.etb !== '' && Number(score.eta) === Number(score.etb) && score.pena !== '' && score.penb !== '') {
+        if(Number(score.pena) > Number(score.penb)) return 'a';
+        if(Number(score.penb) > Number(score.pena)) return 'b';
+      }
+      return null;
     }
 
     return {

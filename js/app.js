@@ -91,10 +91,10 @@ const {
   function normalizeState(){
     window.AppState.normalize(state, RESULT_PHASES);
   }
-  function restore(s){
+  function restore(s, shouldSave = true){
     window.AppState.restoreInto(state, s, RESULT_PHASES);
     render();
-    save();
+    if(shouldSave) save();
   }
 
   async function syncNow(){
@@ -171,12 +171,15 @@ const {
     state,
     groups: GROUPS,
     matches,
+    matchDates,
+    knockoutMatches: KNOCKOUT_MATCHES,
     standingsService,
     getTeamName,
     getFlagUrl,
     escapeHtml,
     scoreComplete,
-    userPredictionTotal: predictionsController.userPredictionTotal
+    userPredictionTotal: predictionsController.userPredictionTotal,
+    resolveSpec
   });
 
   function buildJogos(){
@@ -217,7 +220,6 @@ const {
     buildPalpites();
     buildPalpitesMataMata();
     buildMataMata();
-    save();
   }
 
   window.AppController.init({

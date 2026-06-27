@@ -54,7 +54,7 @@
   async function loadSavedState({load, restore}) {
     try{
       const saved = await load();
-      if(saved && typeof saved === 'object') restore(saved);
+      if(saved && typeof saved === 'object') restore(saved, false);
     }catch(error){}
   }
 

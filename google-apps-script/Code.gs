@@ -1,4 +1,5 @@
 const SHEET_NAME = 'Storage';
+const BACKUP_SHEET_NAME = 'StorageBackups';
 
 function doGet(e) {
   const params = e && e.parameter ? e.parameter : {};
@@ -59,10 +60,22 @@ function saveState(key, state) {
     if(row === -1) {
       sheet.appendRow(values);
     } else {
+      backupState(key, sheet.getRange(row, 2).getValue());
       sheet.getRange(row, 1, 1, values.length).setValues([values]);
     }
   } finally {
     lock.releaseLock();
+  }
+}
+
+function backupState(key, rawState) {
+  if(!rawState) return;
+  const backupSheet = getBackupSheet();
+  backupSheet.appendRow([key, rawState, new Date()]);
+  const maxBackups = 100;
+  const extraRows = backupSheet.getLastRow() - 1 - maxBackups;
+  if(extraRows > 0) {
+    backupSheet.deleteRows(2, extraRows);
   }
 }
 
@@ -72,6 +85,17 @@ function getStorageSheet() {
   if(!sheet) {
     sheet = spreadsheet.insertSheet(SHEET_NAME);
     sheet.getRange(1, 1, 1, 3).setValues([['key', 'state', 'updatedAt']]);
+    sheet.setFrozenRows(1);
+  }
+  return sheet;
+}
+
+function getBackupSheet() {
+  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = spreadsheet.getSheetByName(BACKUP_SHEET_NAME);
+  if(!sheet) {
+    sheet = spreadsheet.insertSheet(BACKUP_SHEET_NAME);
+    sheet.getRange(1, 1, 1, 3).setValues([['key', 'state', 'backedUpAt']]);
     sheet.setFrozenRows(1);
   }
   return sheet;

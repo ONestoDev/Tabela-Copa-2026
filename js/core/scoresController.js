@@ -68,8 +68,32 @@
       const [matchKey, side] = event.target.dataset.koScore.split('-');
       deps.state.knockoutScores[matchKey] = deps.state.knockoutScores[matchKey] || {a:'', b:''};
       deps.state.knockoutScores[matchKey][side] = event.target.value;
+      const score = deps.state.knockoutScores[matchKey];
+      if(score.a !== '' && score.b !== '' && Number(score.a) !== Number(score.b)) {
+        score.eta = '';
+        score.etb = '';
+        score.pena = '';
+        score.penb = '';
+      }
       deps.save();
       renderPreservingPosition(null, event.target.dataset.koScore);
+    }
+
+    function onKnockoutTiebreakInput(event) {
+      const dataset = event.target.dataset;
+      const raw = dataset.koTie || dataset.koEt || dataset.koPen;
+      const [matchKey, field] = raw.split('-');
+      deps.state.knockoutScores[matchKey] = deps.state.knockoutScores[matchKey] || {a:'', b:''};
+      deps.state.knockoutScores[matchKey][field] = event.target.value;
+      const score = deps.state.knockoutScores[matchKey];
+      if(field === 'eta' || field === 'etb') {
+        if(score.eta === '' || score.etb === '' || Number(score.eta) !== Number(score.etb)) {
+          score.pena = '';
+          score.penb = '';
+        }
+      }
+      deps.save();
+      buildMataMata();
     }
 
     function onKnockoutResultEditToggle(event) {
@@ -94,6 +118,7 @@
       });
       document.querySelectorAll('input[data-ko-score]').forEach(input => input.addEventListener('input', onKnockoutScoreInput));
       document.querySelectorAll('[data-ko-result-edit]').forEach(btn => btn.addEventListener('click', onKnockoutResultEditToggle));
+      document.querySelectorAll('[data-ko-et], [data-ko-pen]').forEach(input => input.addEventListener('input', onKnockoutTiebreakInput));
     }
 
     function buildResultados() {
