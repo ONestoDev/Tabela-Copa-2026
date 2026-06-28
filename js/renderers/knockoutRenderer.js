@@ -1,7 +1,7 @@
 (function () {
   function renderMatch(match, deps) {
     const score = deps.knockoutScores[match.id] || {a:'', b:''};
-    const isComplete = knockoutScoreComplete(score);
+    const isComplete = deps.scoreComplete(score);
     const isEditing = deps.editingKnockoutResultKeys.has(String(match.id));
     const isLocked = isComplete && !isEditing;
     const teamA = deps.resolveSpec(match.a);
@@ -11,7 +11,7 @@
     const isDrawScore = score.a !== '' && score.b !== '' && Number(score.a) === Number(score.b);
     const tiebreakHtml = isDrawScore ? renderTiebreak(match.id, score, isLocked) : '';
     return `
-      <div class="match-card ${deps.matchStateClass(score)}">
+      <div class="match-card ${isComplete ? 'is-played' : 'is-pending'}">
         <div class="team-slot${deps.winnerClass(score, 'a')}">
           ${isAPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamA)}')"></div>`}
           <div class="team-info">
@@ -37,14 +37,6 @@
           </div>
         </div>
       </div>`;
-  }
-
-  function knockoutScoreComplete(score) {
-    if(!score || score.a === '' || score.b === '') return false;
-    if(Number(score.a) !== Number(score.b)) return true;
-    if(score.eta === '' || score.etb === '') return false;
-    if(Number(score.eta) !== Number(score.etb)) return true;
-    return score.pena !== '' && score.penb !== '' && Number(score.pena) !== Number(score.penb);
   }
 
   function renderTiebreak(matchId, score, isLocked) {

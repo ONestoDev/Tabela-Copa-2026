@@ -104,15 +104,15 @@
     }
 
     function buildMataMata() {
-      window.KnockoutRenderer.render(document.getElementById('mataMatoContent'), {
+      window.KnockoutRenderer.render(document.getElementById('mataMataContent'), {
         phases: deps.knockoutPhases,
         knockoutMatches: deps.knockoutMatches,
         knockoutScores: deps.state.knockoutScores,
         editingKnockoutResultKeys,
         getFlagUrl: deps.getFlagUrl,
-        scoreComplete: deps.scoreComplete,
+        scoreComplete: deps.knockoutScoreComplete,
         matchStateClass: deps.matchStateClass,
-        winnerClass: deps.winnerClass,
+        winnerClass: deps.knockoutWinnerClass,
         resolveSpec: deps.resolveSpec,
         placeholderForSpec: deps.placeholderForSpec
       });
@@ -134,8 +134,10 @@
         getTeamName: deps.getTeamName,
         getFlagUrl: deps.getFlagUrl,
         scoreComplete: deps.scoreComplete,
+        knockoutScoreComplete: deps.knockoutScoreComplete,
         matchStateClass: deps.matchStateClass,
         winnerClass: deps.winnerClass,
+        knockoutWinnerClass: deps.knockoutWinnerClass,
         resolveSpec: deps.resolveSpec,
         placeholderForSpec: deps.placeholderForSpec
       });

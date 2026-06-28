@@ -39,16 +39,17 @@
 
   function renderKnockoutMatch(match, showPending, deps) {
     const score = deps.knockoutScores[match.id];
-    if(!showPending && !deps.scoreComplete(score)) return '';
+    if(!showPending && !deps.knockoutScoreComplete(score)) return '';
     const currentScore = score || {a:'', b:''};
     const teamA = deps.resolveSpec(match.a);
     const teamB = deps.resolveSpec(match.b);
     const isAPlaceholder = teamA === deps.placeholderForSpec(match.a);
     const isBPlaceholder = teamB === deps.placeholderForSpec(match.b);
-    const scoreLabel = deps.scoreComplete(currentScore) ? `${currentScore.a} : ${currentScore.b}` : 'Pendente';
+    const scoreLabel = knockoutScoreLabel(currentScore, deps);
+    const isComplete = deps.knockoutScoreComplete(currentScore);
     return `
-      <div class="match-card ${deps.matchStateClass(currentScore)}">
-        <div class="team-slot${deps.winnerClass(currentScore, 'a')}">
+      <div class="match-card ${isComplete ? 'is-played' : 'is-pending'}">
+        <div class="team-slot${deps.knockoutWinnerClass(currentScore, 'a')}">
           ${isAPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamA)}')"></div>`}
           <div class="team-info">
             <div class="team-name">${teamA}</div>
@@ -59,7 +60,7 @@
           <div class="match-date">${match.label}</div>
           <strong>${scoreLabel}</strong>
         </div>
-        <div class="team-slot${deps.winnerClass(currentScore, 'b')}" style="flex-direction:row-reverse;text-align:right">
+        <div class="team-slot${deps.knockoutWinnerClass(currentScore, 'b')}" style="flex-direction:row-reverse;text-align:right">
           ${isBPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamB)}')"></div>`}
           <div class="team-info" style="align-items:flex-end">
             <div class="team-name">${teamB}</div>
@@ -67,6 +68,17 @@
           </div>
         </div>
       </div>`;
+  }
+
+  function knockoutScoreLabel(score, deps) {
+    if(!deps.knockoutScoreComplete(score)) return 'Pendente';
+    let label = `${score.a} : ${score.b}`;
+    if(Number(score.a) === Number(score.b)) {
+      label += ` (pror. ${score.eta}:${score.etb}`;
+      if(Number(score.eta) === Number(score.etb)) label += `, pen. ${score.pena}:${score.penb}`;
+      label += ')';
+    }
+    return label;
   }
 
   function render(container, deps) {

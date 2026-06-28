@@ -91,7 +91,7 @@
     const tiebreakHtml = isDrawPrediction ? renderPredictionTiebreak(match.id, pred, isPredictionLocked) : '';
     return `
       <div class="match-card ${deps.predictionStateClass(points)}">
-        <div class="team-slot${deps.winnerClass(result, 'a')}">
+        <div class="team-slot${deps.knockoutWinnerClass(result, 'a')}">
           ${isAPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamA)}')"></div>`}
           <div class="team-info">
             <div class="team-name">${teamA}</div>
@@ -109,7 +109,7 @@
           <div class="prediction-points" data-ko-pred-points="${match.id}">${deps.feedbackText(result, points, pred)}</div>
           ${lockedLabel ? `<div class="lock-note">${lockedLabel}</div>` : ''}
         </div>
-        <div class="team-slot${deps.winnerClass(result, 'b')}" style="flex-direction:row-reverse;text-align:right">
+        <div class="team-slot${deps.knockoutWinnerClass(result, 'b')}" style="flex-direction:row-reverse;text-align:right">
           ${isBPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamB)}')"></div>`}
           <div class="team-info" style="align-items:flex-end">
             <div class="team-name">${teamB}</div>

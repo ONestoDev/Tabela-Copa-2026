@@ -36,9 +36,13 @@
       return matches[group].every((pair, index) => scoreComplete(scores[`${group}${index+1}`]));
     }
 
+    function groupHasScores(group, scores) {
+      return matches[group].some((pair, index) => scoreComplete(scores[`${group}${index+1}`]));
+    }
+
     function thirdPlaceRank(scores) {
-      if(!groups.every(group => groupComplete(group, scores))) return [];
       return groups
+        .filter(group => groupHasScores(group, scores))
         .map(group => groupStanding(group, scores)[2])
         .filter(Boolean)
         .sort(sortTable)
@@ -49,6 +53,7 @@
       groupStanding,
       sortTable,
       groupComplete,
+      groupHasScores,
       thirdPlaceRank
     };
   }

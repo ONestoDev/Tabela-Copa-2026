@@ -88,6 +88,7 @@
         lockedPredictionLabel,
         predictionStateClass: deps.predictionStateClass,
         winnerClass: deps.winnerClass,
+        knockoutWinnerClass: deps.knockoutWinnerClass,
         resolveSpec: deps.resolveSpec,
         placeholderForSpec: deps.placeholderForSpec
       });

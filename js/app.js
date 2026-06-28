@@ -1,4 +1,4 @@
-const {
+  const {
     TEAMS,
     COUNTRY_CODES,
     GROUPS,
@@ -8,6 +8,10 @@ const {
     KNOCKOUT_MATCHES,
     KNOCKOUT_PHASES
   } = window.WorldCupData;
+  const {
+    THIRD_PLACE_HOSTS,
+    THIRD_PLACE_COMBINATIONS
+  } = window.WorldCupThirdPlaceCombinations;
   const { predictionPoints, feedbackText } = window.PredictionService;
   const {
     getTeamName,
@@ -30,7 +34,9 @@ const {
   const knockoutService = window.KnockoutService.create({
     matches: KNOCKOUT_MATCHES,
     standingsService,
-    scoreComplete
+    scoreComplete,
+    thirdPlaceHosts: THIRD_PLACE_HOSTS,
+    thirdPlaceCombinations: THIRD_PLACE_COMBINATIONS
   });
   const predictionLockService = window.PredictionService.createLockService({
     scoreComplete,
@@ -124,6 +130,14 @@ const {
     return knockoutService.resolveSpec(spec, state.scores, state.knockoutScores);
   }
 
+  function knockoutScoreComplete(score){
+    return knockoutService.knockoutScoreComplete(score);
+  }
+
+  function knockoutWinnerClass(score, side){
+    return knockoutService.knockoutWinnerClass(score, side);
+  }
+
   const scoresController = window.ScoresController.create({
     state,
     groups: GROUPS,
@@ -138,8 +152,10 @@ const {
     getTeamName,
     getFlagUrl,
     scoreComplete,
+    knockoutScoreComplete,
     matchStateClass,
     winnerClass,
+    knockoutWinnerClass,
     resolveSpec,
     placeholderForSpec
   });
@@ -163,6 +179,7 @@ const {
     feedbackText,
     predictionStateClass,
     winnerClass,
+    knockoutWinnerClass,
     resolveSpec,
     placeholderForSpec
   });
