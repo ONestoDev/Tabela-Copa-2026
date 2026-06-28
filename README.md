@@ -1,180 +1,195 @@
-# Copa do Mundo 2026 - Tabela, Resultados e Palpites
+# 🏆 Tabela Copa 2026
 
-Aplicacao web para acompanhar a Copa do Mundo FIFA 2026 com fase de grupos, mata-mata, tabela de classificacao, ranking de palpites e sincronizacao via Google Sheets.
+Aplicação web interativa para acompanhar a **Copa do Mundo FIFA 2026**, com fase de grupos, mata-mata, classificação automática, palpites por usuário e sincronização opcional com Google Sheets.
 
-O projeto nasceu como uma tabela interativa em HTML e evoluiu para uma aplicacao modular, com separacao entre estado, regras de negocio, renderizacao, controllers e persistencia.
+## 📌 Sobre o projeto
 
-## Recursos
+O projeto nasceu como uma tabela simples em HTML e evoluiu para uma aplicação modular em JavaScript, separando responsabilidades como estado da aplicação, regras de negócio, renderização, controle de telas e persistência de dados.
 
-- Cadastro e edicao dos resultados da fase de grupos.
-- Filtro de jogos por grupo, de `Grupo A` ate `Grupo L`.
-- Tabela de classificacao por grupo.
-- Ranking dos melhores terceiros colocados.
-- Estrutura completa do mata-mata.
-- Avanco automatico dos classificados conforme os resultados sao preenchidos.
-- Palpites da fase de grupos por usuario.
-- Palpites do mata-mata por usuario.
-- Pontuacao dos palpites:
-  - `50 pontos` para placar exato.
-  - `25 pontos` para acertar vencedor ou empate.
-  - `0 pontos` para erro.
-- Feedback dos palpites:
-  - `Na mosca`
-  - `Quase crava`
-  - `Que azar`
-- Bloqueio de resultados preenchidos com botao discreto `Editar`.
-- Bloqueio de palpites apos resultado lancado.
-- Indicador de sincronizacao:
-  - `Sincronizando...`
-  - `Salvo`
-  - `Erro ao salvar`
-  - `Carregando...`
-- Botao manual `Sincronizar`.
-- Temas:
-  - Escuro
-  - Brasil
-- Sincronizacao com Google Sheets via Apps Script.
-- Deploy preparado para GitHub Pages.
+A proposta é permitir que usuários acompanhem os jogos da Copa 2026, registrem resultados, façam palpites e visualizem rankings de pontuação.
 
-## Tecnologias
+---
 
-- HTML
-- CSS
-- JavaScript modular
+## 🚀 Funcionalidades
+
+- Cadastro e edição de resultados da fase de grupos
+- Filtro de jogos por grupo, do Grupo A ao Grupo L
+- Tabela de classificação automática por grupo
+- Ranking dos melhores terceiros colocados
+- Estrutura completa do mata-mata
+- Avanço automático dos classificados
+- Palpites da fase de grupos por usuário
+- Palpites do mata-mata por usuário
+- Ranking de palpites
+- Bloqueio de palpites após o lançamento do resultado
+- Botão discreto para editar resultados já preenchidos
+- Indicador visual de sincronização
+- Tema escuro
+- Tema Brasil
+- Persistência local com `localStorage`
+- Sincronização opcional com Google Sheets via Google Apps Script
+- Deploy preparado para GitHub Pages
+
+---
+
+## 🎯 Sistema de pontuação
+
+| Resultado do palpite | Pontuação |
+|---|---:|
+| Placar exato | 50 pontos |
+| Acertou vencedor ou empate | 25 pontos |
+| Errou o resultado | 0 pontos |
+
+Feedbacks exibidos:
+
+- 🎯 Na mosca
+- ⚽ Quase crava
+- 😬 Que azar
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
 - Webpack
 - GitHub Pages
 - Google Sheets
 - Google Apps Script
 
-## Estrutura
+---
+
+## 📁 Estrutura do projeto
 
 ```txt
 .
-|-- css/
-|   `-- style.css
-|-- google-apps-script/
-|   |-- Code.gs
-|   `-- README.md
-|-- js/
-|   |-- app.js
-|   |-- core/
-|   |   |-- appController.js
-|   |   |-- appState.js
-|   |   |-- overviewController.js
-|   |   |-- predictionsController.js
-|   |   |-- scoresController.js
-|   |   `-- uiHelpers.js
-|   |-- data/
-|   |   `-- worldCupData.js
-|   |-- renderers/
-|   |   |-- heroRenderer.js
-|   |   |-- knockoutRenderer.js
-|   |   |-- matchesRenderer.js
-|   |   |-- predictionsRenderer.js
-|   |   |-- resultsRenderer.js
-|   |   `-- standingsRenderer.js
-|   `-- services/
-|       |-- knockoutService.js
-|       |-- predictionService.js
-|       |-- standingsService.js
-|       `-- storageService.js
-|-- index.html
-|-- webpack.common.js
-|-- webpack.config.dev.js
-`-- webpack.config.prod.js
-```
+├── css/
+│   └── style.css
+├── google-apps-script/
+│   ├── Code.gs
+│   └── README.md
+├── js/
+│   ├── app.js
+│   ├── core/
+│   │   ├── appController.js
+│   │   ├── appState.js
+│   │   ├── overviewController.js
+│   │   ├── predictionsController.js
+│   │   ├── scoresController.js
+│   │   └── uiHelpers.js
+│   ├── data/
+│   │   └── worldCupData.js
+│   ├── renderers/
+│   │   ├── heroRenderer.js
+│   │   ├── knockoutRenderer.js
+│   │   ├── matchesRenderer.js
+│   │   ├── predictionsRenderer.js
+│   │   ├── resultsRenderer.js
+│   │   └── standingsRenderer.js
+│   └── services/
+│       ├── knockoutService.js
+│       ├── predictionService.js
+│       ├── standingsService.js
+│       └── storageService.js
+├── index.html
+├── package.json
+├── webpack.common.js
+├── webpack.config.dev.js
+└── webpack.config.prod.js
 
-## Como Rodar Localmente
+▶️ Como rodar localmente
 
-Instale as dependencias:
+Clone o repositório:
 
-```bash
+git clone https://github.com/ONestoDev/Tabela-Copa-2026.git
+
+Acesse a pasta do projeto:
+
+cd Tabela-Copa-2026
+
+Instale as dependências:
+
 npm install
-```
 
 Inicie o servidor de desenvolvimento:
 
-```bash
 npm start
-```
 
-Gere a versao de producao:
+Gere a versão de produção:
 
-```bash
 npm run build
-```
+💾 Persistência de dados
 
-## Persistencia
+O projeto possui uma camada de persistência em:
 
-O projeto usa uma camada de persistencia em `js/services/storageService.js`.
+js/services/storageService.js
 
-Ela suporta dois modos:
+Atualmente, existem dois modos de armazenamento.
 
-### Local
+LocalStorage
 
-Usa `localStorage` do navegador.
+Usa o armazenamento local do navegador.
 
-```js
 const storageConfig = {
   provider: 'local',
   key: 'copa2026-novo',
   endpoint: ''
 };
-```
+Google Sheets
 
-### Google Sheets
+Usa uma planilha Google como base de dados simples e compartilhada.
 
-Usa Google Apps Script publicado como `App da Web`.
-
-```js
 const storageConfig = {
   provider: 'googleSheets',
   key: 'copa2026-novo',
   endpoint: 'URL_DO_APPS_SCRIPT'
 };
-```
 
-O script do Google Apps Script esta em:
+O script responsável pela integração está em:
 
-```txt
 google-apps-script/Code.gs
-```
 
-As instrucoes completas estao em:
+As instruções completas estão em:
 
-```txt
 google-apps-script/README.md
-```
+🌐 Deploy
 
-## Deploy
+O projeto está preparado para deploy no GitHub Pages.
 
-O projeto possui workflow para GitHub Pages em:
+O workflow de publicação está em:
 
-```txt
 .github/workflows/static.yml
-```
 
 Fluxo recomendado:
 
-```bash
 git add .
 git commit -m "Atualiza tabela da Copa 2026"
 git push
-```
 
-Apos o push, o GitHub Pages publica a nova versao automaticamente.
+Após o push, o GitHub Pages publica automaticamente a nova versão.
 
-## Observacoes
+📌 Observações importantes
+O diretório dist/ é gerado automaticamente pelo build.
+O arquivo google-apps-script/Code.gs não roda no navegador.
+Para usar Google Sheets, o script precisa ser publicado como App da Web no Google Apps Script.
+Enquanto o provider estiver como local, os dados ficam salvos apenas no navegador atual.
+Para autenticação, permissões avançadas ou controle de usuários, uma evolução futura pode usar Firebase, Supabase ou outro backend.
+🧭 Próximas melhorias
+Melhorar experiência mobile
+Adicionar autenticação de usuários
+Criar histórico de alterações nos resultados
+Melhorar tratamento de erros da sincronização
+Adicionar tela administrativa
+Criar testes automatizados
+Melhorar acessibilidade
+Criar documentação visual com screenshots
+👨‍💻 Autor
 
-- O diretorio `dist/` e gerado pelo build e fica ignorado pelo Git.
-- O arquivo `google-apps-script/Code.gs` nao roda dentro do navegador; ele deve ser copiado para o Apps Script da planilha.
-- O Google Sheets funciona como uma persistencia simples e compartilhada. Para controle avancado de usuarios, permissoes e concorrencia, uma evolucao natural seria Firebase ou Supabase.
+Desenvolvido por ONestoDev.
 
-## Status
+GitHub: @ONestoDev
 
-Projeto em evolucao ativa, com foco em:
+📄 Licença
 
-- Experiencia mobile.
-- Sincronizacao confiavel.
-- Organizacao modular.
-- Facilidade de uso para acompanhar resultados e palpites.
+Este projeto está sob licença MIT.
