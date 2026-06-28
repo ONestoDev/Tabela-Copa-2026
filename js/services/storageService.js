@@ -27,6 +27,45 @@
     return Number(state.updatedAt) || 0;
   }
 
+  function mergeObjects(base, incoming) {
+    return {
+      ...(base && typeof base === 'object' ? base : {}),
+      ...(incoming && typeof incoming === 'object' ? incoming : {})
+    };
+  }
+
+  function mergePredictions(base, incoming) {
+    const merged = {};
+    const users = new Set([
+      ...Object.keys(base && typeof base === 'object' ? base : {}),
+      ...Object.keys(incoming && typeof incoming === 'object' ? incoming : {})
+    ]);
+    users.forEach(user => {
+      merged[user] = mergeObjects(base && base[user], incoming && incoming[user]);
+    });
+    return merged;
+  }
+
+  function mergeState(baseState, incomingState) {
+    if(!baseState) return incomingState;
+    if(!incomingState) return baseState;
+    const users = [
+      ...(Array.isArray(baseState.users) ? baseState.users : []),
+      ...(Array.isArray(incomingState.users) ? incomingState.users : [])
+    ].filter((user, index, list) => user && list.indexOf(user) === index);
+
+    return {
+      ...baseState,
+      ...incomingState,
+      scores: mergeObjects(baseState.scores, incomingState.scores),
+      knockoutScores: mergeObjects(baseState.knockoutScores, incomingState.knockoutScores),
+      predictions: mergePredictions(baseState.predictions, incomingState.predictions),
+      knockoutPredictions: mergePredictions(baseState.knockoutPredictions, incomingState.knockoutPredictions),
+      users,
+      updatedAt: Math.max(stateFreshness(baseState), stateFreshness(incomingState))
+    };
+  }
+
   function createJsonpLoader({endpoint, key, timeoutMs = 10000}) {
     return new Promise((resolve, reject) => {
       const callbackName = `copa2026Storage${Date.now()}${Math.random().toString(16).slice(2)}`;
@@ -52,7 +91,7 @@
         cleanup();
         reject(new Error('Google Sheets load failed.'));
       };
-      script.src = `${endpoint}${separator}action=load&key=${encodeURIComponent(key)}&callback=${callbackName}`;
+      script.src = `${endpoint}${separator}action=load&key=${encodeURIComponent(key)}&callback=${callbackName}&_=${Date.now()}`;
       document.body.appendChild(script);
     });
   }
@@ -93,19 +132,33 @@
       }
       if(!remoteState) return localState;
       if(!localState) return remoteState;
-      if(stateFreshness(localState) > stateFreshness(remoteState)) {
-        remoteSaveQueue = remoteSaveQueue.catch(() => {}).then(() => saveRemote(cloneState(localState)));
-        return localState;
+      const newerState = stateFreshness(localState) > stateFreshness(remoteState) ? localState : remoteState;
+      const olderState = newerState === localState ? remoteState : localState;
+      const mergedState = mergeState(olderState, newerState);
+      localStorageFallback.save(mergedState);
+      if(JSON.stringify(mergedState) !== JSON.stringify(remoteState)) {
+        remoteSaveQueue = remoteSaveQueue.catch(() => {}).then(() => saveRemote(cloneState(mergedState)));
       }
-      localStorageFallback.save(remoteState);
-      return remoteState;
+      return mergedState;
     }
 
-    async function save(state) {
+    async function save(state, options = {}) {
       ensureEndpoint();
       const snapshot = cloneState(state);
       localStorageFallback.save(snapshot);
-      remoteSaveQueue = remoteSaveQueue.catch(() => {}).then(() => saveRemote(snapshot));
+      if(options.replaceRemote) {
+        remoteSaveQueue = remoteSaveQueue.catch(() => {}).then(() => saveRemote(snapshot));
+        return remoteSaveQueue;
+      }
+      remoteSaveQueue = remoteSaveQueue.catch(() => {}).then(async () => {
+        let remoteState = null;
+        try {
+          remoteState = await createJsonpLoader({endpoint, key});
+        } catch (error) {}
+        const mergedState = mergeState(remoteState, snapshot);
+        localStorageFallback.save(mergedState);
+        return saveRemote(cloneState(mergedState));
+      });
       return remoteSaveQueue;
     }
 

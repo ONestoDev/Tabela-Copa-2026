@@ -40,7 +40,7 @@
     document.getElementById('resetBtn').onclick = () => {
       if(confirm('Tem certeza que quer limpar todos os dados?')) {
         resetState();
-        save();
+        save({replaceRemote:true});
         render();
       }
     };

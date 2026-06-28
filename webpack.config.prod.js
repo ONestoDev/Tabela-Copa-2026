@@ -3,6 +3,21 @@ const common = require('./webpack.common.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+class VersionStaticAssetsPlugin {
+  apply(compiler) {
+    compiler.hooks.thisCompilation.tap('VersionStaticAssetsPlugin', compilation => {
+      HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tap('VersionStaticAssetsPlugin', data => {
+        const version = compilation.hash;
+        data.html = data.html.replace(
+          /((?:href|src)="(?!(?:https?:|\/\/|data:|#))([^"?]+?\.(?:css|js|png|svg|ico|webmanifest)))(?:\?[^"]*)?"/g,
+          `$1?v=${version}"`
+        );
+        return data;
+      });
+    });
+  }
+}
+
 module.exports = merge(common, {
   mode: 'production',
   plugins: [
@@ -25,5 +40,6 @@ module.exports = merge(common, {
         { from: 'site.webmanifest', to: 'site.webmanifest' },
       ],
     }),
+    new VersionStaticAssetsPlugin(),
   ],
 });

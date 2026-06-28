@@ -66,11 +66,11 @@
     element.className = `sync-status is-${status}`;
   }
 
-  function save(){
+  function save(options = {}){
     state.updatedAt = Date.now();
     const sequence = ++syncSequence;
     setSyncStatus('saving', 'Sincronizando...');
-    const result = storage.save(state);
+    const result = storage.save(state, options);
     if(result && typeof result.then === 'function') {
       result
         .then(() => {
