@@ -52,7 +52,7 @@
   const storageConfig = {
     provider: 'googleSheets',
     key: 'copa2026-novo',
-    endpoint: 'https://script.google.com/macros/s/AKfycbxeM8O6Iu_8m1vyB7Fp0lltapvb2SPVeb3_a05S-NNp_TnXQC0CW2WCp2_vzV-mFQg/exec'
+    endpoint: 'https://script.google.com/macros/s/AKfycbwHnNuvkyXvfzuD3uymss15W6KbpacfiPeTJ3TPsaPVvjBi-TJ4paiKj_IMs6GfNnkg/exec'
   };
   const storage = window.StorageService.create(storageConfig);
 
