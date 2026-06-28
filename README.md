@@ -119,6 +119,7 @@ npm start
 Gere a versão de produção:
 
 npm run build
+
 💾 Persistência de dados
 
 O projeto possui uma camada de persistência em:
@@ -153,6 +154,7 @@ google-apps-script/Code.gs
 As instruções completas estão em:
 
 google-apps-script/README.md
+
 🌐 Deploy
 
 O projeto está preparado para deploy no GitHub Pages.
@@ -175,6 +177,7 @@ O arquivo google-apps-script/Code.gs não roda no navegador.
 Para usar Google Sheets, o script precisa ser publicado como App da Web no Google Apps Script.
 Enquanto o provider estiver como local, os dados ficam salvos apenas no navegador atual.
 Para autenticação, permissões avançadas ou controle de usuários, uma evolução futura pode usar Firebase, Supabase ou outro backend.
+
 🧭 Próximas melhorias
 Melhorar experiência mobile
 Adicionar autenticação de usuários
@@ -184,6 +187,7 @@ Adicionar tela administrativa
 Criar testes automatizados
 Melhorar acessibilidade
 Criar documentação visual com screenshots
+
 👨‍💻 Autor
 
 Desenvolvido por ONestoDev.
