@@ -3,6 +3,26 @@
     let groupPredictionFilter = 'all';
     let editingUser = false;
 
+    function restoreViewport(scrollX, scrollY, selector) {
+      requestAnimationFrame(() => {
+        window.scrollTo(scrollX, scrollY);
+        const input = selector ? document.querySelector(selector) : null;
+        if(input && !input.disabled) {
+          input.focus({preventScroll:true});
+          const len = input.value.length;
+          input.setSelectionRange(len, len);
+        }
+        setTimeout(() => window.scrollTo(scrollX, scrollY), 0);
+      });
+    }
+
+    function preserveViewport(callback, selector) {
+      const scrollX = window.scrollX;
+      const scrollY = window.scrollY;
+      callback();
+      restoreViewport(scrollX, scrollY, selector);
+    }
+
     function userPredictionTotal(user) {
       return deps.predictionScoreService.groupTotal(user, deps.state);
     }
@@ -25,6 +45,16 @@
 
     function lockedPredictionLabel(result, dateLabel) {
       return deps.predictionLockService.lockedLabel(result, dateLabel);
+    }
+
+    function knockoutPredictionLocked(result, dateLabel) {
+      return deps.knockoutScoreComplete(result) || deps.predictionLockService.lockedByTime(dateLabel);
+    }
+
+    function lockedKnockoutPredictionLabel(result, dateLabel) {
+      if(deps.knockoutScoreComplete(result)) return 'Palpite bloqueado: resultado lan\u00e7ado';
+      if(deps.predictionLockService.lockedByTime(dateLabel)) return 'Palpite bloqueado: prazo encerrado';
+      return '';
     }
 
     function buildGroups() {
@@ -84,12 +114,12 @@
         escapeHtml: deps.escapeHtml,
         predictionPoints: deps.predictionPoints,
         feedbackText: deps.feedbackText,
-        predictionLocked,
-        lockedPredictionLabel,
+        predictionLocked: knockoutPredictionLocked,
+        lockedPredictionLabel: lockedKnockoutPredictionLabel,
         predictionStateClass: deps.predictionStateClass,
         winnerClass: deps.winnerClass,
         knockoutWinnerClass: deps.knockoutWinnerClass,
-        resolveSpec: deps.resolveSpec,
+        resolveSpec: spec => resolvePredictionSpec(spec, userPredictions),
         placeholderForSpec: deps.placeholderForSpec
       });
       document.getElementById('koUserSelect').addEventListener('change', onUserSelect);
@@ -106,6 +136,29 @@
 
     function predictionComplete(prediction) {
       return prediction && prediction.a !== '' && prediction.b !== '';
+    }
+
+    function predictedKnockoutTeam(matchId, type, predictions) {
+      const match = deps.knockoutMatches.find(item => item.id === matchId);
+      const prediction = predictions[matchId];
+      if(!match || !deps.knockoutScoreComplete(prediction)) return null;
+      const teamA = resolvePredictionSpec(match.a, predictions);
+      const teamB = resolvePredictionSpec(match.b, predictions);
+      const winnerSide = deps.knockoutWinnerSide(prediction);
+      if(!winnerSide) return null;
+      return winnerSide === 'a'
+        ? (type === 'winner' ? teamA : teamB)
+        : (type === 'winner' ? teamB : teamA);
+    }
+
+    function resolvePredictionSpec(spec, predictions) {
+      if(spec.type === 'winner') {
+        return predictedKnockoutTeam(spec.match, 'winner', predictions) || deps.placeholderForSpec(spec);
+      }
+      if(spec.type === 'loser') {
+        return predictedKnockoutTeam(spec.match, 'loser', predictions) || deps.placeholderForSpec(spec);
+      }
+      return deps.resolveSpec(spec);
     }
 
     function onGroupPredictionFilterChange(event) {
@@ -213,7 +266,7 @@
         }
       }
       deps.save();
-      buildKnockout();
+      preserveViewport(buildKnockout, `[data-ko-pred="${event.target.dataset.koPred}"]`);
     }
 
     function onKnockoutTiebreakInput(event) {
@@ -232,7 +285,7 @@
         }
       }
       deps.save();
-      buildKnockout();
+      preserveViewport(buildKnockout, `[data-ko-pred-${dataset.koPredEt ? 'et' : 'pen'}="${raw}"]`);
     }
 
     return {

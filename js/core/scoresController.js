@@ -17,12 +17,16 @@
       });
     }
 
-    function renderPreservingPosition(scoreKey, koScoreKey) {
+    function preserveViewport(callback, selector) {
       const scrollX = window.scrollX;
       const scrollY = window.scrollY;
-      deps.render();
-      const selector = scoreKey ? `[data-score="${scoreKey}"]` : `[data-ko-score="${koScoreKey}"]`;
+      callback();
       restoreViewport(scrollX, scrollY, selector);
+    }
+
+    function renderPreservingPosition(scoreKey, koScoreKey) {
+      const selector = scoreKey ? `[data-score="${scoreKey}"]` : `[data-ko-score="${koScoreKey}"]`;
+      preserveViewport(deps.render, selector);
     }
 
     function onResultEditToggle(event) {
@@ -93,7 +97,7 @@
         }
       }
       deps.save();
-      buildMataMata();
+      preserveViewport(buildMataMata, `[data-ko-${dataset.koEt ? 'et' : 'pen'}="${raw}"]`);
     }
 
     function onKnockoutResultEditToggle(event) {

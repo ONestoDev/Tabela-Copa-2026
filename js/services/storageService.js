@@ -18,6 +18,15 @@
     };
   }
 
+  function cloneState(state) {
+    return JSON.parse(JSON.stringify(state));
+  }
+
+  function stateFreshness(state) {
+    if(!state || typeof state !== 'object') return 0;
+    return Number(state.updatedAt) || 0;
+  }
+
   function createJsonpLoader({endpoint, key, timeoutMs = 10000}) {
     return new Promise((resolve, reject) => {
       const callbackName = `copa2026Storage${Date.now()}${Math.random().toString(16).slice(2)}`;
@@ -49,17 +58,14 @@
   }
 
   function createGoogleSheetsStorage({endpoint, key = defaultKey, fetchImpl = fetch}) {
+    const localStorageFallback = createLocalStorage(key);
+    let remoteSaveQueue = Promise.resolve();
+
     function ensureEndpoint() {
       if(!endpoint) throw new Error('Google Sheets storage endpoint not configured.');
     }
 
-    async function load() {
-      ensureEndpoint();
-      return createJsonpLoader({endpoint, key});
-    }
-
-    async function save(state) {
-      ensureEndpoint();
+    async function saveRemote(snapshot) {
       await fetchImpl(endpoint, {
         method:'POST',
         mode:'no-cors',
@@ -67,10 +73,40 @@
         body:JSON.stringify({
           action:'save',
           key,
-          state
+          state:snapshot
         })
       });
       return {ok:true};
+    }
+
+    async function load() {
+      ensureEndpoint();
+      let localState = null;
+      try {
+        localState = localStorageFallback.load();
+      } catch (error) {}
+      let remoteState = null;
+      try {
+        remoteState = await createJsonpLoader({endpoint, key});
+      } catch (error) {
+        return localState;
+      }
+      if(!remoteState) return localState;
+      if(!localState) return remoteState;
+      if(stateFreshness(localState) > stateFreshness(remoteState)) {
+        remoteSaveQueue = remoteSaveQueue.catch(() => {}).then(() => saveRemote(cloneState(localState)));
+        return localState;
+      }
+      localStorageFallback.save(remoteState);
+      return remoteState;
+    }
+
+    async function save(state) {
+      ensureEndpoint();
+      const snapshot = cloneState(state);
+      localStorageFallback.save(snapshot);
+      remoteSaveQueue = remoteSaveQueue.catch(() => {}).then(() => saveRemote(snapshot));
+      return remoteSaveQueue;
     }
 
     return {

@@ -40,7 +40,7 @@
   });
   const predictionLockService = window.PredictionService.createLockService({
     scoreComplete,
-    lockMinutes: 60,
+    lockMinutes: 10,
     defaultKickoffHour: 12,
     year: 2026
   });
@@ -67,6 +67,7 @@
   }
 
   function save(){
+    state.updatedAt = Date.now();
     const sequence = ++syncSequence;
     setSyncStatus('saving', 'Sincronizando...');
     const result = storage.save(state);
@@ -180,6 +181,8 @@
     predictionStateClass,
     winnerClass,
     knockoutWinnerClass,
+    knockoutScoreComplete,
+    knockoutWinnerSide: knockoutService.winnerFromScore,
     resolveSpec,
     placeholderForSpec
   });
