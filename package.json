@@ -1,13 +1,13 @@
 {
-  "name": " ",
+  "name": "Tabela da Copa FIFA 2026 ",
   "version": "0.0.1",
-  "description": "",
+  "description": "O projeto nasceu como uma tabela simples em HTML e evoluiu para uma aplicação modular em JavaScript, separando responsabilidades como estado da aplicação, regras de negócio, renderização, controle de telas e persistência de dados. A proposta é permitir que usuários acompanhem os jogos da Copa 2026, registrem resultados, façam palpites e visualizem rankings de pontuação.",
   "private": true,
   "keywords": [
-    ""
+    "futebol, fifa, tabela, palpites, mata-mata, copa"
   ],
-  "license": "",
-  "author": "",
+  "license": "MIT",
+  "author": "Ernesto Silva",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open --config webpack.config.dev.js",
