@@ -151,12 +151,22 @@
         : (type === 'winner' ? teamB : teamA);
     }
 
+    function officialKnockoutTeam(matchId, type) {
+      const officialScore = deps.state.knockoutScores[matchId];
+      if(!deps.knockoutScoreComplete(officialScore)) return null;
+      return deps.resolveSpec({type, match: matchId});
+    }
+
     function resolvePredictionSpec(spec, predictions) {
       if(spec.type === 'winner') {
-        return predictedKnockoutTeam(spec.match, 'winner', predictions) || deps.placeholderForSpec(spec);
+        return officialKnockoutTeam(spec.match, 'winner') ||
+          predictedKnockoutTeam(spec.match, 'winner', predictions) ||
+          deps.placeholderForSpec(spec);
       }
       if(spec.type === 'loser') {
-        return predictedKnockoutTeam(spec.match, 'loser', predictions) || deps.placeholderForSpec(spec);
+        return officialKnockoutTeam(spec.match, 'loser') ||
+          predictedKnockoutTeam(spec.match, 'loser', predictions) ||
+          deps.placeholderForSpec(spec);
       }
       return deps.resolveSpec(spec);
     }
