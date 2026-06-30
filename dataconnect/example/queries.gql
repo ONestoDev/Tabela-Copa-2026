@@ -1,0 +1,26 @@
+mutation CreateLeague($name: String!) @auth(level: USER) {
+  league_insert(data: { name: $name, creatorId_expr: "auth.uid" })
+}
+
+query ListMatches @auth(level: PUBLIC) {
+  matches(orderBy: [{ date: ASC }]) {
+    date
+    stage
+    status
+    homeTeam { name }
+    awayTeam { name }
+  }
+}
+
+mutation PlacePrediction($matchId: UUID!, $homeScore: Int!, $awayScore: Int!) @auth(level: USER) {
+  prediction_insert(data: {
+    matchId: $matchId,
+    userId_expr: "auth.uid",
+    homeScoreGuess: $homeScore,
+    awayScoreGuess: $awayScore
+  })
+}
+
+mutation DeletePrediction($id: UUID!) @auth(level: USER) {
+  prediction_delete(key: { id: $id })
+}

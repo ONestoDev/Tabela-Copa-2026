@@ -50,9 +50,19 @@
     knockoutMatches: KNOCKOUT_MATCHES
   });
   const storageConfig = {
-    provider: 'googleSheets',
+    provider: 'firebase',
     key: 'copa2026-novo',
-    endpoint: 'https://script.google.com/macros/s/AKfycbwHnNuvkyXvfzuD3uymss15W6KbpacfiPeTJ3TPsaPVvjBi-TJ4paiKj_IMs6GfNnkg/exec'
+    collection: 'copa2026Storage',
+    documentId: 'shared-state',
+    firebaseConfig: {
+      apiKey: 'AIzaSyBE93ToVbVuaJzE762MTjlXnf8SBdDQD1w',
+      authDomain: 'my-first-project-ce430.firebaseapp.com',
+      projectId: 'my-first-project-ce430',
+      storageBucket: 'my-first-project-ce430.firebasestorage.app',
+      messagingSenderId: '995700253305',
+      appId: '1:995700253305:web:fe4765d85d7de0a253eaa8',
+      measurementId: 'G-VCKTXW5MML'
+    }
   };
   const storage = window.StorageService.create(storageConfig);
 
@@ -73,8 +83,8 @@
     const result = storage.save(state, options);
     if(result && typeof result.then === 'function') {
       result
-        .then(() => {
-          if(sequence === syncSequence) setSyncStatus('saved', 'Salvo');
+        .then(response => {
+          if(sequence === syncSequence) setSyncStatus('saved', response && response.fallback ? 'Salvo local' : 'Salvo');
         })
         .catch(error => {
           console.error(error);

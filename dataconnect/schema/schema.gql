@@ -1,0 +1,38 @@
+type Team @table {
+  name: String!
+  flagUrl: String!
+  group: String!
+}
+
+type Match @table {
+  date: Timestamp!
+  stage: String!
+  status: String!
+  homeTeamScore: Int
+  awayTeamScore: Int
+  homeTeam: Team!
+  awayTeam: Team!
+}
+
+type User @table {
+  displayName: String!
+  email: String!
+}
+
+type Prediction @table {
+  homeScoreGuess: Int!
+  awayScoreGuess: Int!
+  user: User!
+  match: Match!
+}
+
+type League @table {
+  name: String!
+  creator: User!
+}
+
+type LeagueMember @table(key: ["user", "league"]) {
+  joinedAt: Timestamp!
+  user: User!
+  league: League!
+}

@@ -168,9 +168,129 @@
     };
   }
 
+  function hasFirebaseConfig(config) {
+    if(!config || typeof config !== 'object') return false;
+    return Boolean(
+      config.apiKey &&
+      config.projectId &&
+      !String(config.apiKey).includes('COLE_') &&
+      !String(config.projectId).includes('COLE_')
+    );
+  }
+
+  function createFirebaseStorage({
+    firebaseConfig,
+    key = defaultKey,
+    collection = 'copa2026Storage',
+    documentId = key,
+    appName = 'copa2026'
+  }) {
+    const localStorageFallback = createLocalStorage(key);
+    let remoteSaveQueue = Promise.resolve();
+
+    function shouldUseRemote() {
+      return hasFirebaseConfig(firebaseConfig);
+    }
+
+    function firebaseAvailable() {
+      return window.firebase &&
+        typeof window.firebase.initializeApp === 'function' &&
+        typeof window.firebase.firestore === 'function' &&
+        shouldUseRemote();
+    }
+
+    function getFirestore() {
+      if(!firebaseAvailable()) return null;
+      const firebaseApp = window.firebase.apps.find(app => app.name === appName) ||
+        window.firebase.initializeApp(firebaseConfig, appName);
+      return firebaseApp.firestore();
+    }
+
+    function documentRef() {
+      const firestore = getFirestore();
+      return firestore ? firestore.collection(collection).doc(documentId) : null;
+    }
+
+    async function loadRemote() {
+      const ref = documentRef();
+      if(!ref) return null;
+      const snapshot = await ref.get();
+      if(!snapshot.exists) return null;
+      const data = snapshot.data() || {};
+      return data.state || null;
+    }
+
+    async function saveRemote(snapshot) {
+      const ref = documentRef();
+      if(!ref) return {ok:false, fallback:true};
+      await ref.set({
+        key,
+        state:snapshot,
+        updatedAt: Date.now()
+      }, {merge:true});
+      return {ok:true};
+    }
+
+    async function load() {
+      let localState = null;
+      try {
+        localState = localStorageFallback.load();
+      } catch (error) {}
+      if(!shouldUseRemote()) return localState;
+      if(!firebaseAvailable()) {
+        throw new Error('Firebase SDK is not available.');
+      }
+      let remoteState = null;
+      try {
+        remoteState = await loadRemote();
+      } catch (error) {
+        throw error;
+      }
+      if(!remoteState) return localState;
+      if(!localState) return remoteState;
+      const newerState = stateFreshness(localState) > stateFreshness(remoteState) ? localState : remoteState;
+      const olderState = newerState === localState ? remoteState : localState;
+      const mergedState = mergeState(olderState, newerState);
+      localStorageFallback.save(mergedState);
+      if(JSON.stringify(mergedState) !== JSON.stringify(remoteState)) {
+        remoteSaveQueue = remoteSaveQueue.catch(() => {}).then(() => saveRemote(cloneState(mergedState)));
+      }
+      return mergedState;
+    }
+
+    async function save(state, options = {}) {
+      const snapshot = cloneState(state);
+      localStorageFallback.save(snapshot);
+      if(!shouldUseRemote()) return {ok:true, fallback:true};
+      if(!firebaseAvailable()) throw new Error('Firebase SDK is not available.');
+      if(options.replaceRemote) {
+        remoteSaveQueue = remoteSaveQueue.catch(() => {}).then(() => saveRemote(snapshot));
+        return remoteSaveQueue;
+      }
+      remoteSaveQueue = remoteSaveQueue.catch(() => {}).then(async () => {
+        let remoteState = null;
+        try {
+          remoteState = await loadRemote();
+        } catch (error) {}
+        const mergedState = mergeState(remoteState, snapshot);
+        localStorageFallback.save(mergedState);
+        return saveRemote(cloneState(mergedState));
+      });
+      return remoteSaveQueue;
+    }
+
+    return {
+      save,
+      load
+    };
+  }
+
   function create(config) {
     if(config && config.provider === 'googleSheets') {
       return createGoogleSheetsStorage(config);
+    }
+    if(config && config.provider === 'firebase') {
+      return createFirebaseStorage(config);
     }
     return createLocalStorage(config?.key || defaultKey);
   }
@@ -178,6 +298,7 @@
   window.StorageService = {
     create,
     createLocalStorage,
-    createGoogleSheetsStorage
+    createGoogleSheetsStorage,
+    createFirebaseStorage
   };
 })();
