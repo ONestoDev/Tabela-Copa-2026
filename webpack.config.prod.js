@@ -8,6 +8,7 @@ class VersionStaticAssetsPlugin {
     compiler.hooks.thisCompilation.tap('VersionStaticAssetsPlugin', compilation => {
       HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tap('VersionStaticAssetsPlugin', data => {
         const version = compilation.hash;
+        data.html = data.html.replace(/__APP_BUILD_VERSION__/g, version);
         data.html = data.html.replace(
           /((?:href|src)="(?!(?:https?:|\/\/|data:|#))([^"?]+?\.(?:css|js|png|svg|ico|webmanifest)))(?:\?[^"]*)?"/g,
           `$1?v=${version}"`

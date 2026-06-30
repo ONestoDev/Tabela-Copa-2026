@@ -44,8 +44,8 @@
         return sum + Number(item.score.a) + Number(item.score.b);
       }, 0);
       const leader = deps.state.users
-        .map(user => ({user, points:deps.userPredictionTotal(user)}))
-        .sort((a,b) => b.points-a.points || a.user.localeCompare(b.user))[0];
+        .map(user => ({user, points:deps.userPredictionTotal(user), exact:deps.userPredictionExactCount(user)}))
+        .sort((a,b) => b.points-a.points || b.exact-a.exact || a.user.localeCompare(b.user))[0];
       const next = [...groupItems, ...knockoutItems].find(item => {
         return item.type === 'group' ? !deps.scoreComplete(deps.state.scores[item.key]) : !knockoutScoreComplete(item.score);
       });

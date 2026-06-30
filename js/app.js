@@ -199,6 +199,7 @@
     escapeHtml,
     scoreComplete,
     userPredictionTotal: predictionsController.userPredictionTotal,
+    userPredictionExactCount: predictionsController.userPredictionExactCount,
     resolveSpec
   });
 

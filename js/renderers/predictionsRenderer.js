@@ -26,7 +26,7 @@
       </div>
       ${users
         .map(user => ({user, points:totalForUser(user), exact:exactForUser(user)}))
-        .sort((a,b) => b.points-a.points || a.user.localeCompare(b.user))
+        .sort((a,b) => b.points-a.points || b.exact-a.exact || a.user.localeCompare(b.user))
         .map((row, index) => `
           <div class="leaderboard-row ${index < 3 ? `top-${index+1}` : ''}">
             <div class="leaderboard-medal">${['1o','2o','3o'][index] || index+1}</div>
