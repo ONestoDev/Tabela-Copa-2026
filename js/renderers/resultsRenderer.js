@@ -13,25 +13,33 @@
     const team1 = deps.getTeamName(match[0]);
     const team2 = deps.getTeamName(match[1]);
     const date = deps.matchDates[group][index];
-    const scoreLabel = deps.scoreComplete(currentScore) ? `${currentScore.a} : ${currentScore.b}` : 'Pendente';
+    const isComplete = deps.scoreComplete(currentScore);
     return `
-        <div class="match-card ${deps.matchStateClass(currentScore)}">
-          <div class="team-slot${deps.winnerClass(currentScore, 'a')}">
-            <div class="flag" style="background-image:url('${deps.getFlagUrl(team1)}')"></div>
-            <div class="team-info">
-              <div class="team-name">${team1}</div>
-              <div class="team-code">Grupo ${group} - ${date}</div>
-            </div>
-          </div>
-          <div class="score-box">
+        <div class="match-card sports-card ${deps.matchStateClass(currentScore)}">
+          <div class="sports-card-top">
             <div class="match-date">${date}</div>
-            <strong>${scoreLabel}</strong>
+            <div class="match-status ${isComplete ? 'is-final' : 'is-scheduled'}">${isComplete ? 'Encerrado' : 'Pendente'}</div>
           </div>
-          <div class="team-slot${deps.winnerClass(currentScore, 'b')}" style="flex-direction:row-reverse;text-align:right">
-            <div class="flag" style="background-image:url('${deps.getFlagUrl(team2)}')"></div>
-            <div class="team-info" style="align-items:flex-end">
-              <div class="team-name">${team2}</div>
-              <div class="team-code">Grupo ${group} - ${date}</div>
+          <div class="sports-teams">
+            <div class="team-slot sports-team-row${deps.winnerClass(currentScore, 'a')}">
+              <div class="team-main">
+                <div class="flag" style="background-image:url('${deps.getFlagUrl(team1)}')"></div>
+                <div class="team-info">
+                  <div class="team-name">${team1}</div>
+                  <div class="team-code">Grupo ${group}</div>
+                </div>
+              </div>
+              <div class="score-value">${isComplete ? currentScore.a : '-'}</div>
+            </div>
+            <div class="team-slot sports-team-row${deps.winnerClass(currentScore, 'b')}">
+              <div class="team-main">
+                <div class="flag" style="background-image:url('${deps.getFlagUrl(team2)}')"></div>
+                <div class="team-info">
+                  <div class="team-name">${team2}</div>
+                  <div class="team-code">Grupo ${group}</div>
+                </div>
+              </div>
+              <div class="score-value">${isComplete ? currentScore.b : '-'}</div>
             </div>
           </div>
         </div>`;
@@ -48,25 +56,34 @@
     const scoreLabel = knockoutScoreLabel(currentScore, deps);
     const isComplete = deps.knockoutScoreComplete(currentScore);
     return `
-      <div class="match-card ${isComplete ? 'is-played' : 'is-pending'}">
-        <div class="team-slot${deps.knockoutWinnerClass(currentScore, 'a')}">
-          ${isAPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamA)}')"></div>`}
-          <div class="team-info">
-            <div class="team-name">${teamA}</div>
-            <div class="team-code">J${match.id}</div>
-          </div>
-        </div>
-        <div class="score-box">
+      <div class="match-card sports-card ${isComplete ? 'is-played' : 'is-pending'}">
+        <div class="sports-card-top">
           <div class="match-date">${match.label}</div>
-          <strong>${scoreLabel}</strong>
+          <div class="match-status ${isComplete ? 'is-final' : 'is-scheduled'}">${isComplete ? 'Encerrado' : 'Pendente'}</div>
         </div>
-        <div class="team-slot${deps.knockoutWinnerClass(currentScore, 'b')}" style="flex-direction:row-reverse;text-align:right">
-          ${isBPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamB)}')"></div>`}
-          <div class="team-info" style="align-items:flex-end">
-            <div class="team-name">${teamB}</div>
-            <div class="team-code">J${match.id}</div>
+        <div class="sports-teams">
+          <div class="team-slot sports-team-row${deps.knockoutWinnerClass(currentScore, 'a')}">
+            <div class="team-main">
+              ${isAPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamA)}')"></div>`}
+              <div class="team-info">
+                <div class="team-name">${teamA}</div>
+                <div class="team-code">J${match.id}</div>
+              </div>
+            </div>
+            <div class="score-value">${isComplete ? currentScore.a : '-'}</div>
+          </div>
+          <div class="team-slot sports-team-row${deps.knockoutWinnerClass(currentScore, 'b')}">
+            <div class="team-main">
+              ${isBPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamB)}')"></div>`}
+              <div class="team-info">
+                <div class="team-name">${teamB}</div>
+                <div class="team-code">J${match.id}</div>
+              </div>
+            </div>
+            <div class="score-value">${isComplete ? currentScore.b : '-'}</div>
           </div>
         </div>
+        ${isComplete && scoreLabel.includes('(') ? `<div class="sports-score-detail">${scoreLabel}</div>` : ''}
       </div>`;
   }
 
@@ -95,13 +112,14 @@
       html += `<div class="group-section">
         <div class="group-header">
           <div class="group-title">${selectedMeta.label} - Fase de grupos</div>
-        </div>`;
+        </div>
+        <div class="match-grid">`;
       deps.groups.forEach(group => {
         deps.matches[group].slice(start, start + 2).forEach((match, offset) => {
           html += renderGroupMatch(group, start + offset, match, true, deps);
         });
       });
-      html += '</div>';
+      html += '</div></div>';
     } else if(selectedPhase === 'all') {
       deps.groups.forEach(group => {
         let groupHtml = '';
@@ -113,16 +131,17 @@
           <div class="group-header">
             <div class="group-title">Grupo ${group}</div>
           </div>
-          ${groupHtml}
+          <div class="match-grid">${groupHtml}</div>
         </div>`;
       });
     } else {
       const phaseMatches = deps.knockoutMatches.filter(match => match.phase === selectedPhase);
+      const phaseHtml = phaseMatches.map(match => renderKnockoutMatch(match, true, deps)).join('');
       html += `<div class="group-section">
         <div class="group-header">
           <div class="group-title">${selectedMeta.label}</div>
         </div>
-        ${phaseMatches.map(match => renderKnockoutMatch(match, true, deps)).join('') || '<div class="empty-state">Os confrontos desta fase ainda não foram montados.</div>'}
+        ${phaseHtml ? `<div class="match-grid">${phaseHtml}</div>` : '<div class="empty-state">Os confrontos desta fase ainda não foram montados.</div>'}
       </div>`;
     }
 

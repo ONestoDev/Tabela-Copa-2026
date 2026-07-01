@@ -46,6 +46,28 @@
     return merged;
   }
 
+  function predictionCount(predictions, user) {
+    const userPredictions = predictions && predictions[user];
+    return userPredictions && typeof userPredictions === 'object' ? Object.keys(userPredictions).length : 0;
+  }
+
+  function chooseActiveUser(baseState, incomingState, users, predictions, knockoutPredictions) {
+    const incomingActiveUser = incomingState && users.includes(incomingState.activeUser) ? incomingState.activeUser : '';
+    const baseActiveUser = baseState && users.includes(baseState.activeUser) ? baseState.activeUser : '';
+    if(incomingActiveUser && (
+      predictionCount(predictions, incomingActiveUser) ||
+      predictionCount(knockoutPredictions, incomingActiveUser)
+    )) return incomingActiveUser;
+    if(baseActiveUser && (
+      predictionCount(predictions, baseActiveUser) ||
+      predictionCount(knockoutPredictions, baseActiveUser)
+    )) return baseActiveUser;
+    const userWithPredictions = users.find(user => {
+      return predictionCount(predictions, user) || predictionCount(knockoutPredictions, user);
+    });
+    return userWithPredictions || incomingActiveUser || baseActiveUser || users[0];
+  }
+
   function mergeState(baseState, incomingState) {
     if(!baseState) return incomingState;
     if(!incomingState) return baseState;
@@ -54,14 +76,20 @@
       ...(Array.isArray(incomingState.users) ? incomingState.users : [])
     ].filter((user, index, list) => user && list.indexOf(user) === index);
 
+    const scores = mergeObjects(baseState.scores, incomingState.scores);
+    const knockoutScores = mergeObjects(baseState.knockoutScores, incomingState.knockoutScores);
+    const predictions = mergePredictions(baseState.predictions, incomingState.predictions);
+    const knockoutPredictions = mergePredictions(baseState.knockoutPredictions, incomingState.knockoutPredictions);
+
     return {
       ...baseState,
       ...incomingState,
-      scores: mergeObjects(baseState.scores, incomingState.scores),
-      knockoutScores: mergeObjects(baseState.knockoutScores, incomingState.knockoutScores),
-      predictions: mergePredictions(baseState.predictions, incomingState.predictions),
-      knockoutPredictions: mergePredictions(baseState.knockoutPredictions, incomingState.knockoutPredictions),
+      scores,
+      knockoutScores,
+      predictions,
+      knockoutPredictions,
       users,
+      activeUser: chooseActiveUser(baseState, incomingState, users, predictions, knockoutPredictions),
       updatedAt: Math.max(stateFreshness(baseState), stateFreshness(incomingState))
     };
   }

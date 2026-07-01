@@ -36,6 +36,7 @@
       html += `<div class="group-section">
         <div class="group-header">
           <div class="group-title">Grupo ${group}</div>
+          <div class="section-meta">Top 2 avançam</div>
         </div>
         ${headerHtml()}
         ${renderRows(standingsByGroup[group], false, {qualifiedSlots:2}, getFlagUrl)}
@@ -44,6 +45,7 @@
     html += `<div class="group-section">
       <div class="group-header">
         <div class="group-title">Melhores terceiros lugares</div>
+        <div class="section-meta">Top 8 avançam</div>
       </div>
       ${headerHtml()}
       ${renderRows(thirds, true, {thirdSlots:8}, getFlagUrl)}

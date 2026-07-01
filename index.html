@@ -13,18 +13,15 @@
 <body>
 <div class="wrap">
   <div class="header">
+    <div class="title-kicker">FIFA World Cup 2026</div>
     <h1 class="title-cup">Copa do Mundo FIFA 2026 <span class="cup-icon" aria-hidden="true">&#127942;</span></h1>
     <p>Acompanhe a competição em tempo real</p>
     <div class="hero-stats" id="heroStats"></div>
   </div>
 
+  <div class="live-panel" id="livePanel"></div>
+
   <div class="toolbar">
-    <button id="exportBtn">&#128229; Exportar JSON</button>
-    <label>
-      <input id="fileIn" type="file" accept="application/json">
-      <button id="importBtn" class="secondary">&#128228; Importar JSON</button>
-    </label>
-    <button id="resetBtn" class="secondary">&#128260; Limpar tudo</button>
     <div class="sync-panel">
       <span id="syncStatus" class="sync-status is-idle">Salvo</span>
       <button id="syncNowBtn" class="secondary sync-btn" type="button">Sincronizar</button>
@@ -33,14 +30,24 @@
       <button class="theme-btn" type="button" data-theme-option="dark">Escuro</button>
       <button class="theme-btn" type="button" data-theme-option="brasil">Brasil</button>
     </div>
+    <details class="settings-menu">
+      <summary>Configurações</summary>
+      <div class="toolbar-actions">
+        <button id="exportBtn" class="secondary">Exportar JSON</button>
+        <label>
+          <input id="fileIn" type="file" accept="application/json">
+          <button id="importBtn" class="secondary">Importar JSON</button>
+        </label>
+        <button id="resetBtn" class="secondary">Limpar tudo</button>
+      </div>
+    </details>
   </div>
 
   <div class="tabs">
     <button class="tab-btn active" data-tab="jogos">Jogos</button>
     <button class="tab-btn" data-tab="resultados">Resultados</button>
     <button class="tab-btn" data-tab="tabela">Tabela</button>
-    <button class="tab-btn" data-tab="palpites">Palpites Fase de Grupos</button>
-    <button class="tab-btn" data-tab="palpites-mata-mata">Palpites Mata-Mata</button>
+    <button class="tab-btn" data-tab="palpites">Palpites</button>
     <button class="tab-btn" data-tab="mata-mata">Mata-Mata</button>
   </div>
 
@@ -53,11 +60,20 @@
   </div>
 
   <div class="tab-content" id="palpites">
-    <div id="palpitesContent"></div>
-  </div>
-
-  <div class="tab-content" id="palpites-mata-mata">
-    <div id="palpitesMataMataContent"></div>
+    <div class="subtabs" aria-label="Seções de palpites">
+      <button class="subtab-btn active" type="button" data-subtab="palpites-grupos-panel">Fase de grupos</button>
+      <button class="subtab-btn" type="button" data-subtab="palpites-mata-mata-panel">Mata-mata</button>
+      <button class="subtab-btn" type="button" data-subtab="palpites-ranking-panel">Ranking geral</button>
+    </div>
+    <div class="subtab-content active" id="palpites-grupos-panel">
+      <div id="palpitesContent"></div>
+    </div>
+    <div class="subtab-content" id="palpites-mata-mata-panel">
+      <div id="palpitesMataMataContent"></div>
+    </div>
+    <div class="subtab-content" id="palpites-ranking-panel">
+      <div id="palpitesRankingContent"></div>
+    </div>
   </div>
 
   <div class="tab-content" id="tabela">
@@ -111,6 +127,7 @@
 <script src="js/renderers/predictionsRenderer.js"></script>
 <script src="js/renderers/matchesRenderer.js"></script>
 <script src="js/renderers/knockoutRenderer.js"></script>
+<script src="js/renderers/livePanelRenderer.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

@@ -14,27 +14,79 @@
   }
 
   function leaderboard(users, totalForUser, exactForUser, escapeHtml, title) {
+    const rows = users
+      .map(user => ({user, points:totalForUser(user), exact:exactForUser(user)}))
+      .sort((a,b) => b.points-a.points || b.exact-a.exact || a.user.localeCompare(b.user));
+    const podium = rows.slice(0, 3);
+    const rest = rows.slice(3);
     return `<div class="group-section">
       <div class="group-header">
         <div class="group-title">${title}</div>
       </div>
+      <div class="leaderboard-podium">
+        ${podium.map((row, index) => `
+          <div class="podium-card top-${index+1}">
+            <div class="podium-rank">${['1o','2o','3o'][index]}</div>
+            <div class="podium-user">${escapeHtml(row.user)}</div>
+            <div class="podium-points">${row.points} pts</div>
+            <div class="podium-meta">${row.exact} exatos</div>
+          </div>`).join('')}
+      </div>
       <div class="leaderboard-row header">
         <div>#</div>
-        <div>Usu&aacute;rio</div>
+        <div>Usuário</div>
         <div>Exatos</div>
         <div>Pts</div>
       </div>
-      ${users
-        .map(user => ({user, points:totalForUser(user), exact:exactForUser(user)}))
-        .sort((a,b) => b.points-a.points || b.exact-a.exact || a.user.localeCompare(b.user))
+      ${(rest.length ? rest : rows)
         .map((row, index) => `
-          <div class="leaderboard-row ${index < 3 ? `top-${index+1}` : ''}">
-            <div class="leaderboard-medal">${['1o','2o','3o'][index] || index+1}</div>
+          <div class="leaderboard-row ${rest.length ? '' : (index < 3 ? `top-${index+1}` : '')}">
+            <div class="leaderboard-medal">${rest.length ? index+4 : (['1o','2o','3o'][index] || index+1)}</div>
             <div class="standings-team">${escapeHtml(row.user)}</div>
             <div class="standings-stat">${row.exact}</div>
             <div class="standings-pts">${row.points}</div>
           </div>`)
         .join('')}
+    </div>`;
+  }
+
+  function renderOverallRanking(container, deps) {
+    const rows = deps.users
+      .map(user => ({
+        user,
+        groupPoints: deps.groupTotalForUser(user),
+        knockoutPoints: deps.knockoutTotalForUser(user),
+        exact: deps.groupExactForUser(user) + deps.knockoutExactForUser(user)
+      }))
+      .map(row => ({...row, points: row.groupPoints + row.knockoutPoints}))
+      .sort((a,b) => b.points-a.points || b.exact-a.exact || a.user.localeCompare(b.user));
+    const leader = rows[0];
+    container.innerHTML = `<div class="overall-ranking">
+      <div class="overall-summary">
+        <div>
+          <div class="group-title">Ranking geral</div>
+          <h2>${leader ? deps.escapeHtml(leader.user) : '-'}</h2>
+          <p>${leader ? `${leader.points} pts · ${leader.exact} placares exatos` : 'Nenhum participante cadastrado'}</p>
+        </div>
+        <div class="overall-total">${leader ? leader.points : 0}<span>pts</span></div>
+      </div>
+      <div class="leaderboard-row header overall-row">
+        <div>#</div>
+        <div>Usuário</div>
+        <div>Grupos</div>
+        <div>Mata</div>
+        <div>Exatos</div>
+        <div>Pts</div>
+      </div>
+      ${rows.map((row, index) => `
+        <div class="leaderboard-row overall-row ${index < 3 ? `top-${index+1}` : ''}">
+          <div class="leaderboard-medal">${['1o','2o','3o'][index] || index+1}</div>
+          <div class="standings-team">${deps.escapeHtml(row.user)}</div>
+          <div class="standings-stat">${row.groupPoints}</div>
+          <div class="standings-stat">${row.knockoutPoints}</div>
+          <div class="standings-stat">${row.exact}</div>
+          <div class="standings-pts">${row.points}</div>
+        </div>`).join('')}
     </div>`;
   }
 
@@ -49,31 +101,35 @@
     const isPredictionLocked = deps.predictionLocked(result, date);
     const lockedLabel = deps.lockedPredictionLabel(result, date);
     return `
-        <div class="match-card ${deps.predictionStateClass(points)}">
-          <div class="team-slot${deps.winnerClass(result, 'a')}">
-            <div class="flag" style="background-image:url('${deps.getFlagUrl(team1)}')"></div>
-            <div class="team-info">
-              <div class="team-name">${team1}</div>
-              <div class="team-code">${match[0]}</div>
-            </div>
-          </div>
-          <div class="score-box">
+        <div class="match-card sports-card ${deps.predictionStateClass(points)}">
+          <div class="sports-card-top">
             <div class="match-date">${date}</div>
-            <div class="score-line">
+            ${lockedLabel ? '<div class="match-status is-final">Bloqueado</div>' : '<div class="match-status is-scheduled">Aberto</div>'}
+          </div>
+          <div class="sports-teams">
+            <div class="team-slot sports-team-row${deps.winnerClass(result, 'a')}">
+              <div class="team-main">
+                <div class="flag" style="background-image:url('${deps.getFlagUrl(team1)}')"></div>
+                <div class="team-info">
+                  <div class="team-name">${team1}</div>
+                  <div class="team-code">${match[0]}</div>
+                </div>
+              </div>
               <input class="score-input" type="number" min="0" max="99" data-pred="${key}-a" value="${pred.a === '' ? '' : pred.a}" placeholder="0" ${isPredictionLocked ? 'disabled' : ''}>
-              <div class="score-sep">:</div>
+            </div>
+            <div class="team-slot sports-team-row${deps.winnerClass(result, 'b')}">
+              <div class="team-main">
+                <div class="flag" style="background-image:url('${deps.getFlagUrl(team2)}')"></div>
+                <div class="team-info">
+                  <div class="team-name">${team2}</div>
+                  <div class="team-code">${match[1]}</div>
+                </div>
+              </div>
               <input class="score-input" type="number" min="0" max="99" data-pred="${key}-b" value="${pred.b === '' ? '' : pred.b}" placeholder="0" ${isPredictionLocked ? 'disabled' : ''}>
             </div>
-            <div class="prediction-points" data-pred-points="${key}">${deps.feedbackText(result, points, pred)}</div>
-            ${lockedLabel ? `<div class="lock-note">${lockedLabel}</div>` : ''}
           </div>
-          <div class="team-slot${deps.winnerClass(result, 'b')}" style="flex-direction:row-reverse;text-align:right">
-            <div class="flag" style="background-image:url('${deps.getFlagUrl(team2)}')"></div>
-            <div class="team-info" style="align-items:flex-end">
-              <div class="team-name">${team2}</div>
-              <div class="team-code">${match[1]}</div>
-            </div>
-          </div>
+          <div class="prediction-points" data-pred-points="${key}">${deps.feedbackText(result, points, pred)}</div>
+          ${lockedLabel ? `<div class="lock-note">${lockedLabel}</div>` : ''}
         </div>`;
   }
 
@@ -90,32 +146,36 @@
     const isDrawPrediction = pred.a !== '' && pred.b !== '' && Number(pred.a) === Number(pred.b);
     const tiebreakHtml = isDrawPrediction ? renderPredictionTiebreak(match.id, pred, isPredictionLocked) : '';
     return `
-      <div class="match-card ${deps.predictionStateClass(points)}">
-        <div class="team-slot${deps.knockoutWinnerClass(result, 'a')}">
-          ${isAPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamA)}')"></div>`}
-          <div class="team-info">
-            <div class="team-name">${teamA}</div>
-            <div class="team-code">J${match.id}</div>
-          </div>
-        </div>
-        <div class="score-box">
+      <div class="match-card sports-card ${deps.predictionStateClass(points)}">
+        <div class="sports-card-top">
           <div class="match-date">${match.label}</div>
-          <div class="score-line">
+          ${lockedLabel ? '<div class="match-status is-final">Bloqueado</div>' : '<div class="match-status is-scheduled">Aberto</div>'}
+        </div>
+        <div class="sports-teams">
+          <div class="team-slot sports-team-row${deps.knockoutWinnerClass(result, 'a')}">
+            <div class="team-main">
+              ${isAPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamA)}')"></div>`}
+              <div class="team-info">
+                <div class="team-name">${teamA}</div>
+                <div class="team-code">J${match.id}</div>
+              </div>
+            </div>
             <input class="score-input" type="number" min="0" max="99" data-ko-pred="${match.id}-a" value="${pred.a === '' ? '' : pred.a}" placeholder="0" ${isPredictionLocked ? 'disabled' : ''}>
-            <div class="score-sep">:</div>
+          </div>
+          <div class="team-slot sports-team-row${deps.knockoutWinnerClass(result, 'b')}">
+            <div class="team-main">
+              ${isBPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamB)}')"></div>`}
+              <div class="team-info">
+                <div class="team-name">${teamB}</div>
+                <div class="team-code">J${match.id}</div>
+              </div>
+            </div>
             <input class="score-input" type="number" min="0" max="99" data-ko-pred="${match.id}-b" value="${pred.b === '' ? '' : pred.b}" placeholder="0" ${isPredictionLocked ? 'disabled' : ''}>
           </div>
-          ${tiebreakHtml}
-          <div class="prediction-points" data-ko-pred-points="${match.id}">${deps.feedbackText(result, points, pred)}</div>
-          ${lockedLabel ? `<div class="lock-note">${lockedLabel}</div>` : ''}
         </div>
-        <div class="team-slot${deps.knockoutWinnerClass(result, 'b')}" style="flex-direction:row-reverse;text-align:right">
-          ${isBPlaceholder ? '<div class="flag"></div>' : `<div class="flag" style="background-image:url('${deps.getFlagUrl(teamB)}')"></div>`}
-          <div class="team-info" style="align-items:flex-end">
-            <div class="team-name">${teamB}</div>
-            <div class="team-code">J${match.id}</div>
-          </div>
-        </div>
+        ${tiebreakHtml}
+        <div class="prediction-points" data-ko-pred-points="${match.id}">${deps.feedbackText(result, points, pred)}</div>
+        ${lockedLabel ? `<div class="lock-note">${lockedLabel}</div>` : ''}
       </div>`;
   }
 
@@ -141,20 +201,25 @@
 
   function renderGroups(container, deps) {
     const options = userOptions(deps.users, deps.activeUser, deps.escapeHtml);
+    const savedCount = Object.keys(deps.userPredictions || {}).length;
     let html = `<div class="prediction-toolbar">
       <select id="userSelect">${options}</select>
       <div class="user-actions">
-        ${iconButton('edit', 'group', 'Editar usu&aacute;rio')}
-        ${iconButton('delete', 'group', 'Remover usu&aacute;rio', deps.users.length <= 1)}
+        ${iconButton('edit', 'group', 'Editar usuário')}
+        ${iconButton('delete', 'group', 'Remover usuário', deps.users.length <= 1)}
       </div>
-      <input id="newUserName" type="text" maxlength="30" placeholder="Nome do usu&aacute;rio" value="${deps.editingUser ? deps.escapeHtml(deps.activeUser) : ''}">
+      <input id="newUserName" type="text" maxlength="30" placeholder="Nome do usuário" value="${deps.editingUser ? deps.escapeHtml(deps.activeUser) : ''}">
       <button id="addUserBtn" class="secondary">${deps.editingUser ? 'Salvar' : 'Adicionar'}</button>
       <select id="predictionFilter">
         <option value="all" ${deps.filter === 'all' ? 'selected' : ''}>Todos os jogos</option>
         <option value="predicted" ${deps.filter === 'predicted' ? 'selected' : ''}>Jogos que palpitei</option>
-        <option value="available" ${deps.filter === 'available' ? 'selected' : ''}>Dispon&iacute;veis para palpite</option>
+        <option value="available" ${deps.filter === 'available' ? 'selected' : ''}>Disponíveis para palpite</option>
       </select>
       <div class="prediction-score" id="activePredictionScore">${deps.total} pts</div>
+    </div>
+    <div class="prediction-user-summary">
+      <strong>${deps.escapeHtml(deps.activeUser)}</strong>
+      <span>${savedCount} palpites salvos na fase de grupos</span>
     </div>`;
 
     html += leaderboard(deps.users, deps.totalForUser, deps.exactForUser, deps.escapeHtml, 'Ranking de palpites');
@@ -172,11 +237,12 @@
       html += `<div class="group-section">
         <div class="group-header">
           <div class="group-title">Palpites - Grupo ${group}</div>
-        </div>`;
+        </div>
+        <div class="match-grid">`;
       groupMatches.forEach(item => {
         html += groupMatch(group, item.index, item.match, deps);
       });
-      html += '</div>';
+      html += '</div></div>';
     });
 
     container.innerHTML = html;
@@ -184,15 +250,20 @@
 
   function renderKnockout(container, deps) {
     const options = userOptions(deps.users, deps.activeUser, deps.escapeHtml);
+    const savedCount = Object.keys(deps.userPredictions || {}).length;
     let html = `<div class="prediction-toolbar">
       <select id="koUserSelect">${options}</select>
       <div class="user-actions">
-        ${iconButton('edit', 'knockout', 'Editar usu&aacute;rio')}
-        ${iconButton('delete', 'knockout', 'Remover usu&aacute;rio', deps.users.length <= 1)}
+        ${iconButton('edit', 'knockout', 'Editar usuário')}
+        ${iconButton('delete', 'knockout', 'Remover usuário', deps.users.length <= 1)}
       </div>
-      <input id="koNewUserName" type="text" maxlength="30" placeholder="Nome do usu&aacute;rio" value="${deps.editingUser ? deps.escapeHtml(deps.activeUser) : ''}">
+      <input id="koNewUserName" type="text" maxlength="30" placeholder="Nome do usuário" value="${deps.editingUser ? deps.escapeHtml(deps.activeUser) : ''}">
       <button id="koAddUserBtn" class="secondary">${deps.editingUser ? 'Salvar' : 'Adicionar'}</button>
       <div class="prediction-score" id="activeKoPredictionScore">${deps.total} pts</div>
+    </div>
+    <div class="prediction-user-summary">
+      <strong>${deps.escapeHtml(deps.activeUser)}</strong>
+      <span>${savedCount} palpites salvos no mata-mata</span>
     </div>`;
 
     html += leaderboard(deps.users, deps.totalForUser, deps.exactForUser, deps.escapeHtml, 'Ranking de palpites - Mata-Mata');
@@ -201,11 +272,12 @@
       html += `<div class="group-section">
         <div class="group-header">
           <div class="group-title">Palpites - ${phase.label}</div>
-        </div>`;
+        </div>
+        <div class="match-grid">`;
       deps.knockoutMatches.filter(match => match.phase === phase.value).forEach(match => {
         html += knockoutMatch(match, deps);
       });
-      html += '</div>';
+      html += '</div></div>';
     });
 
     container.innerHTML = html;
@@ -213,6 +285,7 @@
 
   window.PredictionsRenderer = {
     renderGroups,
-    renderKnockout
+    renderKnockout,
+    renderOverallRanking
   };
 })();

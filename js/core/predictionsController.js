@@ -82,6 +82,7 @@
         predictionLocked,
         lockedPredictionLabel,
         predictionComplete,
+        scoreComplete: deps.scoreComplete,
         predictionStateClass: deps.predictionStateClass,
         winnerClass: deps.winnerClass
       });
@@ -116,6 +117,7 @@
         feedbackText: deps.feedbackText,
         predictionLocked: knockoutPredictionLocked,
         lockedPredictionLabel: lockedKnockoutPredictionLabel,
+        knockoutScoreComplete: deps.knockoutScoreComplete,
         predictionStateClass: deps.predictionStateClass,
         winnerClass: deps.winnerClass,
         knockoutWinnerClass: deps.knockoutWinnerClass,
@@ -131,6 +133,17 @@
       });
       document.querySelectorAll('[data-ko-pred-et], [data-ko-pred-pen]').forEach(input => {
         input.addEventListener('input', onKnockoutTiebreakInput);
+      });
+    }
+
+    function buildOverallRanking() {
+      window.PredictionsRenderer.renderOverallRanking(document.getElementById('palpitesRankingContent'), {
+        users: deps.state.users,
+        groupTotalForUser: userPredictionTotal,
+        knockoutTotalForUser: userKnockoutPredictionTotal,
+        groupExactForUser: userPredictionExactCount,
+        knockoutExactForUser: userKnockoutPredictionExactCount,
+        escapeHtml: deps.escapeHtml
       });
     }
 
@@ -258,6 +271,7 @@
       if(pointsEl) pointsEl.textContent = deps.feedbackText(deps.state.scores[matchKey], points, deps.state.predictions[user][matchKey]);
       const scoreEl = document.getElementById('activePredictionScore');
       if(scoreEl) scoreEl.textContent = `${userPredictionTotal(user)} pts`;
+      buildOverallRanking();
     }
 
     function onKnockoutPredictionInput(event) {
@@ -276,6 +290,7 @@
         }
       }
       deps.save();
+      buildOverallRanking();
       preserveViewport(buildKnockout, `[data-ko-pred="${event.target.dataset.koPred}"]`);
     }
 
@@ -295,12 +310,14 @@
         }
       }
       deps.save();
+      buildOverallRanking();
       preserveViewport(buildKnockout, `[data-ko-pred-${dataset.koPredEt ? 'et' : 'pen'}="${raw}"]`);
     }
 
     return {
       buildGroups,
       buildKnockout,
+      buildOverallRanking,
       userPredictionTotal,
       userKnockoutPredictionTotal,
       userPredictionExactCount,

@@ -243,6 +243,10 @@
     predictionsController.buildKnockout();
   }
 
+  function buildPalpitesRanking(){
+    predictionsController.buildOverallRanking();
+  }
+
   function render(){
     normalizeState();
     applyTheme();
@@ -252,6 +256,7 @@
     buildResultados();
     buildPalpites();
     buildPalpitesMataMata();
+    buildPalpitesRanking();
     buildMataMata();
   }
 
@@ -263,5 +268,9 @@
     resetState,
     render,
     syncNow,
-    load: storage.load
+    load: storage.load,
+    onLoadError: error => {
+      console.error(error);
+      setSyncStatus('error', 'Erro ao carregar');
+    }
   });

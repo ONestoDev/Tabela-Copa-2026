@@ -10,6 +10,21 @@
     });
   }
 
+  function bindSubtabs() {
+    document.querySelectorAll('.subtab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.subtab;
+        const parent = btn.closest('.tab-content');
+        if(!parent || !targetId) return;
+        parent.querySelectorAll('.subtab-btn').forEach(item => item.classList.remove('active'));
+        parent.querySelectorAll('.subtab-content').forEach(content => content.classList.remove('active'));
+        btn.classList.add('active');
+        const target = document.getElementById(targetId);
+        if(target) target.classList.add('active');
+      });
+    });
+  }
+
   function bindTheme({state, applyTheme, save}) {
     document.querySelectorAll('[data-theme-option]').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -51,15 +66,18 @@
     if(button && syncNow) button.addEventListener('click', syncNow);
   }
 
-  async function loadSavedState({load, restore}) {
+  async function loadSavedState({load, restore, onLoadError}) {
     try{
       const saved = await load();
       if(saved && typeof saved === 'object') restore(saved, false);
-    }catch(error){}
+    }catch(error){
+      if(onLoadError) onLoadError(error);
+    }
   }
 
   async function init(options) {
     bindTabs();
+    bindSubtabs();
     bindTheme(options);
     bindJsonActions(options);
     bindSyncAction(options);
