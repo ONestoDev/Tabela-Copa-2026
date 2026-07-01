@@ -59,6 +59,12 @@ Para um site publico, o ideal e separar permissoes:
 
 A estrutura atual grava tudo em um documento compartilhado para manter compatibilidade com o app existente. Isso funciona para grupos pequenos, mas nao e a melhor modelagem para muitos usuarios editando ao mesmo tempo.
 
+Um primeiro modelo para quando a autenticacao estiver ativa esta em `firebase-firestore/firestore.production.rules`. Ele mantem leitura publica e exige um usuario autenticado com claim `admin` para escrever no documento compartilhado.
+
+Para a evolucao com varios campeonatos, use como referencia `firebase-firestore/firestore.multi-tournament.rules`. Esse arquivo considera a estrutura futura documentada em `docs/architecture.md`, com dados separados por campeonato, temporada, placares oficiais, palpites por usuario e rankings.
+
+Nao publique `firestore.production.rules` nem `firestore.multi-tournament.rules` no Firebase enquanto o app ainda estiver usando o documento unico `copa2026Storage/shared-state`, porque isso bloquearia os salvamentos atuais.
+
 ## Onde os dados ficam
 
 Por padrao, o app grava em:

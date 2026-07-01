@@ -1,4 +1,9 @@
 (function () {
+  function leaderLabel(name, points, escapeHtml) {
+    if(!name) return '-';
+    return `${escapeHtml(name)} (${points} pts)`;
+  }
+
   function render(container, data) {
     const {
       completedMatches,
@@ -8,7 +13,10 @@
       completedKnockoutMatches,
       totalKnockoutMatches,
       goals,
-      leaderName,
+      groupLeaderName,
+      groupLeaderPoints,
+      knockoutLeaderName,
+      knockoutLeaderPoints,
       nextMatchLabel,
       escapeHtml
     } = data;
@@ -18,7 +26,8 @@
       <div class="hero-stat"><strong>${completedGroupMatches}/${totalGroupMatches}</strong><span>Fase de grupos</span></div>
       <div class="hero-stat"><strong>${completedKnockoutMatches}/${totalKnockoutMatches}</strong><span>Mata-mata</span></div>
       <div class="hero-stat"><strong>${goals}</strong><span>Gols registrados</span></div>
-      <div class="hero-stat"><strong>${leaderName ? escapeHtml(leaderName) : '-'}</strong><span>Líder dos palpites</span></div>
+      <div class="hero-stat"><strong>${leaderLabel(groupLeaderName, groupLeaderPoints, escapeHtml)}</strong><span>Líder grupos</span></div>
+      <div class="hero-stat"><strong>${leaderLabel(knockoutLeaderName, knockoutLeaderPoints, escapeHtml)}</strong><span>Líder mata-mata</span></div>
       <div class="hero-stat"><strong>${escapeHtml(nextMatchLabel)}</strong><span>Próximo sem resultado</span></div>
     `;
   }

@@ -210,6 +210,8 @@
     scoreComplete,
     userPredictionTotal: predictionsController.userPredictionTotal,
     userPredictionExactCount: predictionsController.userPredictionExactCount,
+    userKnockoutPredictionTotal: predictionsController.userKnockoutPredictionTotal,
+    userKnockoutPredictionExactCount: predictionsController.userKnockoutPredictionExactCount,
     resolveSpec
   });
 

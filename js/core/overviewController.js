@@ -32,6 +32,12 @@
       return score.pena !== '' && score.penb !== '' && Number(score.pena) !== Number(score.penb);
     }
 
+    function predictionLeader(totalForUser, exactForUser) {
+      return deps.state.users
+        .map(user => ({user, points:totalForUser(user), exact:exactForUser(user)}))
+        .sort((a,b) => b.points-a.points || b.exact-a.exact || a.user.localeCompare(b.user))[0];
+    }
+
     function buildHeroStats() {
       const groupItems = allMatches();
       const knockoutItems = allKnockoutMatches();
@@ -43,9 +49,8 @@
       }, 0) + knockoutCompleted.reduce((sum, item) => {
         return sum + Number(item.score.a) + Number(item.score.b);
       }, 0);
-      const leader = deps.state.users
-        .map(user => ({user, points:deps.userPredictionTotal(user), exact:deps.userPredictionExactCount(user)}))
-        .sort((a,b) => b.points-a.points || b.exact-a.exact || a.user.localeCompare(b.user))[0];
+      const groupLeader = predictionLeader(deps.userPredictionTotal, deps.userPredictionExactCount);
+      const knockoutLeader = predictionLeader(deps.userKnockoutPredictionTotal, deps.userKnockoutPredictionExactCount);
       const next = [...groupItems, ...knockoutItems].find(item => {
         return item.type === 'group' ? !deps.scoreComplete(deps.state.scores[item.key]) : !knockoutScoreComplete(item.score);
       });
@@ -58,7 +63,10 @@
         completedKnockoutMatches: knockoutCompleted.length,
         totalKnockoutMatches: knockoutItems.length,
         goals,
-        leaderName: leader?.user,
+        groupLeaderName: groupLeader?.user,
+        groupLeaderPoints: groupLeader?.points || 0,
+        knockoutLeaderName: knockoutLeader?.user,
+        knockoutLeaderPoints: knockoutLeader?.points || 0,
         nextMatchLabel: nextLabel,
         escapeHtml: deps.escapeHtml
       });
