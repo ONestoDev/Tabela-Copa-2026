@@ -34,13 +34,15 @@
     };
   }
 
-  function mergePredictions(base, incoming) {
+  function mergePredictions(base, incoming, activeUsers) {
     const merged = {};
-    const users = new Set([
+    const predictionUsers = new Set([
       ...Object.keys(base && typeof base === 'object' ? base : {}),
       ...Object.keys(incoming && typeof incoming === 'object' ? incoming : {})
     ]);
-    users.forEach(user => {
+    const allowedUsers = Array.isArray(activeUsers) ? new Set(activeUsers) : null;
+    predictionUsers.forEach(user => {
+      if(allowedUsers && !allowedUsers.has(user)) return;
       merged[user] = mergeObjects(base && base[user], incoming && incoming[user]);
     });
     return merged;
@@ -71,15 +73,20 @@
   function mergeState(baseState, incomingState) {
     if(!baseState) return incomingState;
     if(!incomingState) return baseState;
-    const users = [
+    const baseFreshness = stateFreshness(baseState);
+    const incomingFreshness = stateFreshness(incomingState);
+    const userSource = incomingFreshness > baseFreshness
+      ? incomingState.users
+      : (baseFreshness > incomingFreshness ? baseState.users : null);
+    const users = (Array.isArray(userSource) ? userSource : [
       ...(Array.isArray(baseState.users) ? baseState.users : []),
       ...(Array.isArray(incomingState.users) ? incomingState.users : [])
-    ].filter((user, index, list) => user && list.indexOf(user) === index);
+    ]).filter((user, index, list) => user && list.indexOf(user) === index);
 
     const scores = mergeObjects(baseState.scores, incomingState.scores);
     const knockoutScores = mergeObjects(baseState.knockoutScores, incomingState.knockoutScores);
-    const predictions = mergePredictions(baseState.predictions, incomingState.predictions);
-    const knockoutPredictions = mergePredictions(baseState.knockoutPredictions, incomingState.knockoutPredictions);
+    const predictions = mergePredictions(baseState.predictions, incomingState.predictions, users);
+    const knockoutPredictions = mergePredictions(baseState.knockoutPredictions, incomingState.knockoutPredictions, users);
 
     return {
       ...baseState,
