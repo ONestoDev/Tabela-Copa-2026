@@ -232,7 +232,13 @@
 
     function renameActiveUser(normalizedName) {
       const currentName = deps.state.activeUser;
-      if(!normalizedName || normalizedName === currentName || deps.state.users.includes(normalizedName)) return;
+      if(!normalizedName) return;
+      if(normalizedName === currentName) {
+        editingUser = false;
+        deps.render();
+        return;
+      }
+      if(deps.state.users.includes(normalizedName)) return;
       const index = deps.state.users.indexOf(currentName);
       if(index < 0) return;
       deps.state.users[index] = normalizedName;
@@ -243,7 +249,7 @@
       deps.state.activeUser = normalizedName;
       editingUser = false;
       deps.normalizeState();
-      deps.save();
+      deps.save({replaceRemote:true});
       deps.render();
     }
 
@@ -256,7 +262,7 @@
       deps.state.activeUser = deps.state.users[0];
       editingUser = false;
       deps.normalizeState();
-      deps.save();
+      deps.save({replaceRemote:true});
       deps.render();
     }
     function onPredictionInput(event) {
