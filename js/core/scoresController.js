@@ -97,7 +97,7 @@
         }
       }
       deps.save();
-      preserveViewport(buildMataMata, `[data-ko-${dataset.koEt ? 'et' : 'pen'}="${raw}"]`);
+      preserveViewport(deps.render, `[data-ko-${dataset.koEt ? 'et' : 'pen'}="${raw}"]`);
     }
 
     function onKnockoutResultEditToggle(event) {
