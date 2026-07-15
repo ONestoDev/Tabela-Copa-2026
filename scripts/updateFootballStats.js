@@ -214,7 +214,7 @@ function statsSummary(payload) {
 async function main() {
   const current = readCurrent();
   const state = normalize(current);
-  const apiKey = process.env.FOOTBALL_API_KEY;
+  const apiKey = String(process.env.FOOTBALL_API_KEY || "").trim();
 
   if (!apiKey) {
     if (process.env.GITHUB_ACTIONS) {
@@ -222,6 +222,10 @@ async function main() {
     }
     writeIfChanged(current, output(state, "FOOTBALL_API_KEY ausente; dados mantidos"));
     return;
+  }
+
+  if (apiKey === "***" || apiKey.includes("*")) {
+    throw new Error("FOOTBALL_API_KEY parece estar com valor mascarado/placeholder. Edite o secret e cole a chave real da API-Football.");
   }
 
   await refreshRankings(state, apiKey);
