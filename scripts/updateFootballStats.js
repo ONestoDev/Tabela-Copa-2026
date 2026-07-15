@@ -182,12 +182,26 @@ function writeIfChanged(current, next) {
   writePayload(next);
 }
 
+function statsSummary(payload) {
+  return {
+    topScorers: (payload.topScorers || []).length,
+    topAssists: (payload.topAssists || []).length,
+    topYellowCards: (payload.topYellowCards || []).length,
+    topRedCards: (payload.topRedCards || []).length,
+    fixtures: (payload.fixtures || []).length,
+    liveFixtures: (payload.liveFixtures || []).length,
+  };
+}
+
 async function main() {
   const current = readCurrent();
   const state = normalize(current);
   const apiKey = process.env.FOOTBALL_API_KEY;
 
   if (!apiKey) {
+    if (process.env.GITHUB_ACTIONS) {
+      throw new Error("FOOTBALL_API_KEY nao configurada nos Secrets do GitHub Actions.");
+    }
     writeIfChanged(current, output(state, "FOOTBALL_API_KEY ausente; dados mantidos"));
     return;
   }
@@ -195,7 +209,9 @@ async function main() {
   await refreshRankings(state, apiKey);
   await refreshFixtures(state, apiKey);
   await refreshLive(state, apiKey);
-  writeIfChanged(current, output(state));
+  const next = output(state);
+  console.log("Football stats summary:", statsSummary(next));
+  writeIfChanged(current, next);
 }
 
 main().catch((error) => {

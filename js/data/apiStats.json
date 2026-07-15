@@ -12,9 +12,9 @@
     "liveFetchedAt": 0,
     "requestCount": 0,
     "dailyLimit": 50,
-    "generatedAt": 1784154237866,
+    "generatedAt": 1784156424059,
     "fetchedAt": 0,
-    "nextRefreshAt": 1784157837866,
+    "nextRefreshAt": 1784160024059,
     "warning": "FOOTBALL_API_KEY ausente; dados mantidos"
   }
 }
