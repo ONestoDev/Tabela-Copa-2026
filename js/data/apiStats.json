@@ -7,14 +7,14 @@
   "liveFixtures": [],
   "meta": {
     "day": "2026-07-15",
-    "rankingsFetchedAt": 1784154954741,
-    "fixturesFetchedAt": 1784154954918,
+    "rankingsFetchedAt": 0,
+    "fixturesFetchedAt": 0,
     "liveFetchedAt": 0,
-    "requestCount": 5,
+    "requestCount": 0,
     "dailyLimit": 50,
-    "generatedAt": 1784154954918,
-    "fetchedAt": 1784154954918,
-    "nextRefreshAt": 1784158554918,
-    "warning": ""
+    "generatedAt": 1784154237866,
+    "fetchedAt": 0,
+    "nextRefreshAt": 1784157837866,
+    "warning": "FOOTBALL_API_KEY ausente; dados mantidos"
   }
 }
