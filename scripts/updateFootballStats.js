@@ -6,6 +6,7 @@ const API_BASE_URL = `https://${API_HOST}`;
 const LEAGUE_ID = 1;
 const SEASON = 2026;
 const DAILY_LIMIT = 50;
+const INFO_TTL_MS = 24 * 60 * 60 * 1000;
 const RANKINGS_TTL_MS = 24 * 60 * 60 * 1000;
 const FIXTURES_TTL_MS = 60 * 60 * 1000;
 const STANDINGS_TTL_MS = 60 * 60 * 1000;
@@ -43,6 +44,8 @@ function normalize(current) {
   const meta = current.meta || {};
   return {
     payload: {
+      leagues: current.leagues || [],
+      teams: current.teams || [],
       topScorers: current.topScorers || [],
       topAssists: current.topAssists || [],
       topYellowCards: current.topYellowCards || [],
@@ -53,6 +56,7 @@ function normalize(current) {
     },
     meta: {
       day,
+      infoFetchedAt: Number(meta.infoFetchedAt) || 0,
       rankingsFetchedAt: Number(meta.rankingsFetchedAt) || 0,
       fixturesFetchedAt: Number(meta.fixturesFetchedAt) || 0,
       standingsFetchedAt: Number(meta.standingsFetchedAt) || 0,
@@ -72,16 +76,49 @@ function canRequest(meta, amount = 1) {
   return meta.requestCount + amount <= DAILY_LIMIT;
 }
 
+function formatErrors(errors) {
+  if (!errors) return "";
+  if (Array.isArray(errors)) return errors.join("; ");
+  if (typeof errors === "object") {
+    return Object.entries(errors)
+        .map(([key, value]) => `${key}: ${Array.isArray(value) ? value.join(", ") : value}`)
+        .join("; ");
+  }
+  return String(errors);
+}
+
 async function apiGet(pathname, params, apiKey) {
   const query = new URLSearchParams(params);
   const response = await fetch(`${API_BASE_URL}${pathname}?${query}`, {
     headers: {"x-apisports-key": apiKey},
   });
+  const data = await response.json();
   if (!response.ok) {
     throw new Error(`API-Football ${pathname}: HTTP ${response.status}`);
   }
-  const data = await response.json();
+  const errorText = formatErrors(data.errors);
+  if (errorText) {
+    throw new Error(`API-Football ${pathname}: ${errorText}`);
+  }
   return Array.isArray(data.response) ? data.response : [];
+}
+
+async function refreshInfo(state, apiKey) {
+  if (isFresh(state.meta.infoFetchedAt, INFO_TTL_MS)) return;
+  if (!canRequest(state.meta, 2)) return;
+
+  state.payload.leagues = await apiGet("/leagues", {
+    id: String(LEAGUE_ID),
+    season: String(SEASON),
+  }, apiKey);
+  state.meta.requestCount += 1;
+
+  state.payload.teams = await apiGet("/teams", {
+    league: String(LEAGUE_ID),
+    season: String(SEASON),
+  }, apiKey);
+  state.meta.requestCount += 1;
+  state.meta.infoFetchedAt = Date.now();
 }
 
 async function refreshRankings(state, apiKey) {
@@ -151,6 +188,7 @@ async function refreshLive(state, apiKey) {
 
 function nextRefreshAt(meta) {
   const candidates = [
+    Number(meta.infoFetchedAt || Date.now()) + INFO_TTL_MS,
     Number(meta.rankingsFetchedAt || Date.now()) + RANKINGS_TTL_MS,
     Number(meta.fixturesFetchedAt || Date.now()) + FIXTURES_TTL_MS,
     Number(meta.standingsFetchedAt || Date.now()) + STANDINGS_TTL_MS,
@@ -161,6 +199,7 @@ function nextRefreshAt(meta) {
 
 function output(state, warning = "") {
   const fetchedAt = Math.max(
+    Number(state.meta.infoFetchedAt) || 0,
     Number(state.meta.rankingsFetchedAt) || 0,
     Number(state.meta.fixturesFetchedAt) || 0,
     Number(state.meta.standingsFetchedAt) || 0,
@@ -201,6 +240,8 @@ function writeIfChanged(current, next) {
 
 function statsSummary(payload) {
   return {
+    leagues: (payload.leagues || []).length,
+    teams: (payload.teams || []).length,
     topScorers: (payload.topScorers || []).length,
     topAssists: (payload.topAssists || []).length,
     topYellowCards: (payload.topYellowCards || []).length,
@@ -228,6 +269,7 @@ async function main() {
     throw new Error("FOOTBALL_API_KEY parece estar com valor mascarado/placeholder. Edite o secret e cole a chave real da API-Football.");
   }
 
+  await refreshInfo(state, apiKey);
   await refreshRankings(state, apiKey);
   await refreshFixtures(state, apiKey);
   await refreshStandings(state, apiKey);
