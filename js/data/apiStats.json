@@ -10,13 +10,13 @@
     "day": "2026-07-15",
     "rankingsFetchedAt": 1784155307273,
     "fixturesFetchedAt": 1784155307384,
-    "standingsFetchedAt": 0,
+    "standingsFetchedAt": 1784158088511,
     "liveFetchedAt": 0,
-    "requestCount": 5,
+    "requestCount": 6,
     "dailyLimit": 50,
-    "generatedAt": 1784157982452,
-    "fetchedAt": 1784155307384,
+    "generatedAt": 1784158088513,
+    "fetchedAt": 1784158088511,
     "nextRefreshAt": 1784158907384,
-    "warning": "FOOTBALL_API_KEY ausente; dados mantidos"
+    "warning": ""
   }
 }
