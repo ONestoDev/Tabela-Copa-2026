@@ -49,6 +49,7 @@ jobs:
         with:
           commit_message: "Update football statistics"
           file_pattern: js/data/apiStats.json
+          pull_options: --rebase
       - name: Build
         run: npm run build
       - name: Setup Pages
