@@ -197,6 +197,7 @@
     placeholderForSpec
   });
 
+  let statisticsController;
   const overviewController = window.OverviewController.create({
     state,
     groups: GROUPS,
@@ -212,7 +213,26 @@
     userPredictionExactCount: predictionsController.userPredictionExactCount,
     userKnockoutPredictionTotal: predictionsController.userKnockoutPredictionTotal,
     userKnockoutPredictionExactCount: predictionsController.userKnockoutPredictionExactCount,
-    resolveSpec
+    resolveSpec,
+    tournamentStats: () => statisticsController ? statisticsController.heroPayload() : null
+  });
+
+  statisticsController = window.StatisticsController.create({
+    state,
+    teams: TEAMS,
+    countryCodes: COUNTRY_CODES,
+    groups: GROUPS,
+    matches,
+    matchDates,
+    knockoutMatches: KNOCKOUT_MATCHES,
+    getTeamName,
+    getFlagUrl,
+    escapeHtml,
+    scoreComplete,
+    knockoutScoreComplete,
+    resolveSpec,
+    save,
+    render
   });
 
   function buildJogos(){
@@ -247,6 +267,10 @@
     predictionsController.buildOverallRanking();
   }
 
+  function buildEstatisticas(){
+    statisticsController.render();
+  }
+
   function render(){
     normalizeState();
     applyTheme();
@@ -258,6 +282,7 @@
     buildPalpitesMataMata();
     buildPalpitesRanking();
     buildMataMata();
+    buildEstatisticas();
   }
 
   window.AppController.init({
@@ -273,4 +298,7 @@
       console.error(error);
       setSyncStatus('error', 'Erro ao carregar');
     }
+  }).then(() => {
+    statisticsController.refresh();
+    window.setInterval(() => statisticsController.refresh(), 2 * 60 * 1000);
   });

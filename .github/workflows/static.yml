@@ -5,13 +5,15 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
+  schedule:
+    - cron: "*/15 * * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -38,6 +40,15 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Update API-Football static data
+        env:
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+        run: npm run stats:update
+      - name: Commit updated stats
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update football statistics"
+          file_pattern: js/data/apiStats.json
       - name: Build
         run: npm run build
       - name: Setup Pages

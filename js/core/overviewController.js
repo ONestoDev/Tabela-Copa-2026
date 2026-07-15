@@ -104,6 +104,8 @@
         groupLeaderPoints: groupLeader?.points || 0,
         knockoutLeaderName: knockoutLeader?.user,
         knockoutLeaderPoints: knockoutLeader?.points || 0,
+        tournamentStats: deps.tournamentStats ? deps.tournamentStats() : null,
+        getFlagUrl: deps.getFlagUrl,
         escapeHtml: deps.escapeHtml
       });
 

@@ -49,6 +49,7 @@
     <button class="tab-btn" data-tab="tabela">Tabela</button>
     <button class="tab-btn" data-tab="palpites">Palpites</button>
     <button class="tab-btn" data-tab="mata-mata">Mata-Mata</button>
+    <button class="tab-btn" data-tab="estatisticas">Estatísticas gerais</button>
   </div>
 
   <div class="tab-content active" id="jogos">
@@ -86,6 +87,24 @@
       Os 8 melhores terceiros colocados acessam a rodada de 32. O encaixe segue a lógica oficial FIFA.
     </div>
   </div>
+  <div class="tab-content" id="estatisticas">
+    <div class="subtabs" aria-label="Seções de estatísticas gerais">
+      <button class="subtab-btn active" type="button" data-subtab="stats-artilharia-panel">Artilharia</button>
+      <button class="subtab-btn" type="button" data-subtab="stats-assistencias-panel">Assistência</button>
+      <button class="subtab-btn" type="button" data-subtab="stats-cartoes-panel">Cartões</button>
+      <button class="subtab-btn" type="button" data-subtab="stats-gols-panel">Gols marcados e sofridos</button>
+      <button class="subtab-btn" type="button" data-subtab="stats-posse-panel">Média de posse</button>
+      <button class="subtab-btn" type="button" data-subtab="stats-goleada-panel">Maior goleada</button>
+      <button class="subtab-btn" type="button" data-subtab="stats-faltosas-panel">Ranking de faltas</button>
+    </div>
+    <div class="subtab-content active" id="stats-artilharia-panel"></div>
+    <div class="subtab-content" id="stats-assistencias-panel"></div>
+    <div class="subtab-content" id="stats-cartoes-panel"></div>
+    <div class="subtab-content" id="stats-gols-panel"></div>
+    <div class="subtab-content" id="stats-posse-panel"></div>
+    <div class="subtab-content" id="stats-goleada-panel"></div>
+    <div class="subtab-content" id="stats-faltosas-panel"></div>
+  </div>
 </div>
 
 <script>
@@ -121,6 +140,7 @@
 <script src="js/services/storageService.js"></script>
 <script src="js/services/standingsService.js"></script>
 <script src="js/services/knockoutService.js"></script>
+<script src="js/services/footballApiService.js"></script>
 <script src="js/renderers/heroRenderer.js"></script>
 <script src="js/renderers/resultsRenderer.js"></script>
 <script src="js/renderers/standingsRenderer.js"></script>
@@ -128,6 +148,8 @@
 <script src="js/renderers/matchesRenderer.js"></script>
 <script src="js/renderers/knockoutRenderer.js"></script>
 <script src="js/renderers/livePanelRenderer.js"></script>
+<script src="js/renderers/statisticsRenderer.js"></script>
+<script src="js/core/statisticsController.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

@@ -26,7 +26,7 @@
     'França': 'FR', 'Senegal': 'SN', 'Iraque': 'IQ', 'Noruega': 'NO',
     'Argentina': 'AR', 'Argélia': 'DZ', 'Áustria': 'AT', 'Jordânia': 'JO',
     'Portugal': 'PT', 'República Democrática do Congo': 'CD', 'Uzbequistão': 'UZ', 'Colômbia': 'CO',
-    'Inglaterra': 'GB', 'Croácia': 'HR', 'Gana': 'GH', 'Panamá': 'PA'
+    'Inglaterra': 'GB-ENG', 'Croácia': 'HR', 'Gana': 'GH', 'Panamá': 'PA'
   };
 
   const GROUPS = 'ABCDEFGHIJKL'.split('');

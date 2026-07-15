@@ -48,7 +48,7 @@
       background:var(--surface-glow);border:1px solid var(--border);border-radius:8px;padding:8px 10px;min-width:0;
     }
     .hero-stat strong{display:block;font-size:1rem;color:var(--text)}
-    .hero-stat span{display:block;color:var(--text-muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .hero-stat > span{display:block;color:var(--text-muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .toolbar{
       display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center;
       background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:8px;
@@ -310,7 +310,60 @@
     .hero-stat.is-primary{background:var(--surface-glow);border-color:rgba(29,155,240,.35)}
     .hero-stat.is-wide{grid-column:span 2}
     .hero-stat strong{font-size:1.05rem;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .hero-stat span{letter-spacing:.04em}
+    .hero-stat > span{letter-spacing:.04em}
+    .hero-stat.is-wide strong{
+      font-size:.82rem;
+      line-height:1.25;
+      white-space:normal;
+      display:block;
+      min-height:4.9em;
+    }
+    .hero-top-list{
+      display:grid;
+      gap:4px;
+      min-width:0;
+    }
+    .hero-top-item{
+      display:grid;
+      grid-template-columns:28px minmax(0,1fr) auto;
+      align-items:center;
+      gap:8px;
+      min-width:0;
+      white-space:nowrap;
+      color:var(--text);
+      font-size:.82rem;
+      line-height:1.15;
+      text-transform:none;
+      letter-spacing:0;
+    }
+    .hero-top-flag{
+      width:28px;
+      height:28px;
+      flex:0 0 28px;
+      border-radius:999px;
+      background-size:cover;
+      background-position:center;
+      border:1px solid var(--border);
+      box-shadow:0 2px 8px rgba(0,0,0,.24);
+    }
+    .hero-top-item:not(:has(.hero-top-name)){
+      grid-template-columns:28px auto;
+      justify-content:start;
+    }
+    .hero-top-name{
+      min-width:0;
+      flex:1 1 auto;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      font-weight:700;
+    }
+    .hero-top-item em{
+      flex:0 0 auto;
+      color:var(--accent);
+      font-style:normal;
+      font-weight:900;
+    }
     .toolbar{
       display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;
       background:transparent;border:none;border-radius:0;padding:0;margin-bottom:14px;
@@ -489,6 +542,97 @@
     .leaderboard-medal{
       display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;
       border-radius:999px;background:rgba(255,255,255,.06);font-size:.75rem;
+    }
+    .stats-table{
+      display:grid;
+      gap:0;
+    }
+    .stats-row{
+      display:grid;
+      grid-template-columns:42px minmax(0,1.6fr) minmax(0,1fr) 90px 90px;
+      gap:10px;
+      align-items:center;
+      padding:9px 10px;
+      background:var(--surface-elevated);
+      border:1px solid var(--border);
+      border-bottom:none;
+      font-size:.86rem;
+    }
+    .stats-row.header{
+      color:var(--text-muted);
+      font-size:.72rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      background:rgba(255,255,255,.035);
+      border-radius:8px 8px 0 0;
+    }
+    .stats-row:last-child{
+      border-bottom:1px solid var(--border);
+      border-radius:0 0 8px 8px;
+    }
+    .stats-row > div{
+      min-width:0;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .stats-team-cell{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      min-width:0;
+    }
+    .stats-team-cell span:last-child{
+      min-width:0;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .stats-flag{
+      width:26px;
+      height:26px;
+      flex:0 0 26px;
+      border-radius:999px;
+      background-size:cover;
+      background-position:center;
+      border:1px solid var(--border);
+      box-shadow:0 2px 8px rgba(0,0,0,.24);
+    }
+    .stats-highlight{
+      background:var(--surface-elevated);
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:16px;
+    }
+    .stats-highlight strong{
+      display:block;
+      font-size:1.35rem;
+      line-height:1.2;
+      margin-bottom:6px;
+    }
+    .stats-highlight strong{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .stats-highlight-team{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-width:0;
+    }
+    .stats-highlight-score{
+      color:var(--accent);
+      font-weight:950;
+    }
+    .stats-highlight > span{
+      color:var(--text-muted);
+      font-size:.82rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.04em;
     }
     .prediction-toolbar{
       display:grid;grid-template-columns:minmax(150px,190px) auto minmax(170px,1fr) auto minmax(170px,220px) auto;
@@ -1087,6 +1231,8 @@
       .tabs{top:0;border-radius:0;margin-left:-14px;margin-right:-14px}
       .subtabs{border-radius:0;margin-left:-14px;margin-right:-14px}
       .overall-summary{align-items:flex-start}
+      .stats-table{overflow-x:auto}
+      .stats-row{min-width:540px}
       .bracket-board{display:block;overflow:visible}
       .bracket-column{min-width:0;margin-bottom:18px}
       .bracket-column:not(:last-child)::after,.bracket-card::after{display:none}
