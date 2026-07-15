@@ -56,12 +56,34 @@
     }
 
     function goalsRanking() {
+      const officialRows = officialGoalsRanking();
+      if(officialRows.length) return officialRows;
       const rows = emptyTeamStats();
       completedMatches().forEach(match => {
         addGoals(rows, match.teamA, match.scoreA, match.scoreB);
         addGoals(rows, match.teamB, match.scoreB, match.scoreA);
       });
       return Object.values(rows).sort((a,b) => b.gf - a.gf || a.ga - b.ga || b.gd - a.gd || a.team.localeCompare(b.team));
+    }
+
+    function officialGoalsRanking() {
+      return (apiData.standings || [])
+        .flatMap(item => item.league?.standings || [])
+        .flat()
+        .map(row => {
+          const team = apiTeamToLocal(row.team?.name);
+          const gf = Number(row.all?.goals?.for) || 0;
+          const ga = Number(row.all?.goals?.against) || 0;
+          return {
+            team,
+            gf,
+            ga,
+            gd: Number(row.goalsDiff) || gf - ga,
+            played: Number(row.all?.played) || 0
+          };
+        })
+        .filter(row => row.team && !isPlaceholder(row.team))
+        .sort((a,b) => b.gf - a.gf || a.ga - b.ga || b.gd - a.gd || a.team.localeCompare(b.team));
     }
 
     function sufferedGoalsRanking() {

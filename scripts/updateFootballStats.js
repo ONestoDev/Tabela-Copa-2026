@@ -8,6 +8,7 @@ const SEASON = 2026;
 const DAILY_LIMIT = 50;
 const RANKINGS_TTL_MS = 24 * 60 * 60 * 1000;
 const FIXTURES_TTL_MS = 60 * 60 * 1000;
+const STANDINGS_TTL_MS = 60 * 60 * 1000;
 const LIVE_TTL_MS = 2 * 60 * 1000;
 const LIVE_WINDOW_MS = 4 * 60 * 60 * 1000;
 const OUT_FILE = path.resolve(__dirname, "..", "js", "data", "apiStats.json");
@@ -47,12 +48,14 @@ function normalize(current) {
       topYellowCards: current.topYellowCards || [],
       topRedCards: current.topRedCards || [],
       fixtures: current.fixtures || [],
+      standings: current.standings || [],
       liveFixtures: current.liveFixtures || [],
     },
     meta: {
       day,
       rankingsFetchedAt: Number(meta.rankingsFetchedAt) || 0,
       fixturesFetchedAt: Number(meta.fixturesFetchedAt) || 0,
+      standingsFetchedAt: Number(meta.standingsFetchedAt) || 0,
       liveFetchedAt: Number(meta.liveFetchedAt) || 0,
       requestCount: meta.day === day ? Number(meta.requestCount) || 0 : 0,
       dailyLimit: DAILY_LIMIT,
@@ -107,6 +110,18 @@ async function refreshFixtures(state, apiKey) {
   state.meta.requestCount += 1;
 }
 
+async function refreshStandings(state, apiKey) {
+  if (isFresh(state.meta.standingsFetchedAt, STANDINGS_TTL_MS)) return;
+  if (!canRequest(state.meta)) return;
+
+  state.payload.standings = await apiGet("/standings", {
+    league: String(LEAGUE_ID),
+    season: String(SEASON),
+  }, apiKey);
+  state.meta.standingsFetchedAt = Date.now();
+  state.meta.requestCount += 1;
+}
+
 function shouldRefreshLive(fixtures) {
   const now = Date.now();
   return (fixtures || []).some((item) => {
@@ -128,7 +143,7 @@ async function refreshLive(state, apiKey) {
   state.payload.liveFixtures = await apiGet("/fixtures", {
     league: String(LEAGUE_ID),
     season: String(SEASON),
-    live: "all",
+    status: "1H-HT-2H-ET-P-BT-LIVE",
   }, apiKey);
   state.meta.liveFetchedAt = Date.now();
   state.meta.requestCount += 1;
@@ -138,6 +153,7 @@ function nextRefreshAt(meta) {
   const candidates = [
     Number(meta.rankingsFetchedAt || Date.now()) + RANKINGS_TTL_MS,
     Number(meta.fixturesFetchedAt || Date.now()) + FIXTURES_TTL_MS,
+    Number(meta.standingsFetchedAt || Date.now()) + STANDINGS_TTL_MS,
   ];
   if (meta.liveFetchedAt) candidates.push(Number(meta.liveFetchedAt) + LIVE_TTL_MS);
   return Math.min(...candidates);
@@ -147,6 +163,7 @@ function output(state, warning = "") {
   const fetchedAt = Math.max(
     Number(state.meta.rankingsFetchedAt) || 0,
     Number(state.meta.fixturesFetchedAt) || 0,
+    Number(state.meta.standingsFetchedAt) || 0,
     Number(state.meta.liveFetchedAt) || 0,
   );
   return {
@@ -189,6 +206,7 @@ function statsSummary(payload) {
     topYellowCards: (payload.topYellowCards || []).length,
     topRedCards: (payload.topRedCards || []).length,
     fixtures: (payload.fixtures || []).length,
+    standings: (payload.standings || []).length,
     liveFixtures: (payload.liveFixtures || []).length,
   };
 }
@@ -208,6 +226,7 @@ async function main() {
 
   await refreshRankings(state, apiKey);
   await refreshFixtures(state, apiKey);
+  await refreshStandings(state, apiKey);
   await refreshLive(state, apiKey);
   const next = output(state);
   console.log("Football stats summary:", statsSummary(next));
