@@ -21379,15 +21379,15 @@
     "day": "2026-07-16",
     "provider": "football-data.org",
     "infoFetchedAt": 1784168078766,
-    "rankingsFetchedAt": 1784200795130,
-    "fixturesFetchedAt": 1784200795362,
-    "standingsFetchedAt": 1784200795521,
-    "liveFetchedAt": 1784200795628,
-    "requestCount": 24,
+    "rankingsFetchedAt": 1784206917323,
+    "fixturesFetchedAt": 1784206917546,
+    "standingsFetchedAt": 1784206917703,
+    "liveFetchedAt": 1784206917809,
+    "requestCount": 28,
     "dailyLimit": 50,
-    "generatedAt": 1784200795636,
-    "fetchedAt": 1784200795628,
-    "nextRefreshAt": 1784200915628,
+    "generatedAt": 1784206917816,
+    "fetchedAt": 1784206917809,
+    "nextRefreshAt": 1784207037809,
     "warning": ""
   }
 }
