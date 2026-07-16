@@ -60,7 +60,7 @@
       <div class="group-section">
         <div class="group-header">
           <div class="group-title">${escapeHtml(title)}</div>
-          <div class="section-meta">API-Football</div>
+          <div class="section-meta">football-data.org</div>
         </div>
         ${listRows(rows, [
           {label:'Selecao', html:true, render: row => teamCell(row, getFlagUrl, escapeHtml)},

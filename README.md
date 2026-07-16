@@ -84,18 +84,19 @@ npm start
 npm run build
 ```
 
-### Configure a chave da API-Football
+### Configure a chave da football-data.org
 
-A chave da API-Football nao deve ficar em arquivos do frontend. Configure-a em
+A chave da API nao deve ficar em arquivos do frontend. Configure-a em
 `GitHub > Settings > Secrets and variables > Actions` com o nome:
 
 ```text
-FOOTBALL_API_KEY
+FOOTBALL_DATA_TOKEN
 ```
 
 O workflow `.github/workflows/static.yml` roda o script `npm run stats:update`,
 gera `js/data/apiStats.json`, faz commit quando os dados mudam e publica o site
-no GitHub Pages. O limite do script e de 50 chamadas por dia.
+no GitHub Pages. O script usa football-data.org pelo header `X-Auth-Token` e
+mantem um limite interno de 50 chamadas por dia.
 
 ---
 

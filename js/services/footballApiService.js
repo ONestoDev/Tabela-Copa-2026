@@ -1,6 +1,6 @@
 (function () {
   const API_ENDPOINT = window.FOOTBALL_STATS_ENDPOINT || 'js/data/apiStats.json';
-  const CACHE_KEY = 'copa2026-football-api-cache-v1';
+  const CACHE_KEY = 'copa2026-football-data-cache-v1';
   const FALLBACK_CACHE_TTL_MS = 5 * 60 * 1000;
 
   function todayKey() {

@@ -40,9 +40,9 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Update API-Football static data
+      - name: Update football-data.org static data
         env:
-          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
         run: npm run stats:update
       - name: Commit updated stats
         uses: stefanzweifel/git-auto-commit-action@v5
