@@ -38,14 +38,15 @@
 
   function listRows(rows, columns, escapeHtml) {
     if(!rows.length) return '<div class="empty-state">Sem dados disponiveis ainda.</div>';
+    const columnClass = `stats-cols-${columns.length + 1}`;
     return `
       <div class="stats-table">
-        <div class="stats-row header">
+        <div class="stats-row ${columnClass} header">
           <div>#</div>
           ${columns.map(column => `<div>${escapeHtml(column.label)}</div>`).join('')}
         </div>
         ${rows.map((row, index) => `
-          <div class="stats-row">
+          <div class="stats-row ${columnClass}">
             <div class="leaderboard-medal">${index + 1}</div>
             ${columns.map(column => `<div>${column.html ? column.render(row) : escapeHtml(column.render(row))}</div>`).join('')}
           </div>

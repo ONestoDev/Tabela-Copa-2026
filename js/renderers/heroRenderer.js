@@ -26,7 +26,7 @@
       let value = row[valueKey] ?? '-';
       if(valueKey === 'performance' && value !== '-') value = `${value}%`;
       if(valueKey === 'played' && value !== '-') value = `${value}J`;
-      return `<span class="hero-top-item">${flag(team, getFlagUrl, escapeHtml)}<em>${value}</em></span>`;
+      return `<span class="hero-top-item">${flag(team, getFlagUrl, escapeHtml)}<span class="hero-top-name">${escapeHtml(team)}</span><em>${value}</em></span>`;
     }).join('')}</div>`;
   }
 

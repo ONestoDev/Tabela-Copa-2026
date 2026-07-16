@@ -347,7 +347,7 @@
       box-shadow:0 2px 8px rgba(0,0,0,.24);
     }
     .hero-top-item:not(:has(.hero-top-name)){
-      grid-template-columns:28px auto;
+      grid-template-columns:28px minmax(0,1fr) auto;
       justify-content:start;
     }
     .hero-top-name{
@@ -557,6 +557,18 @@
       border:1px solid var(--border);
       border-bottom:none;
       font-size:.86rem;
+    }
+    .stats-row.stats-cols-4{
+      grid-template-columns:42px minmax(180px,1.7fr) repeat(2,minmax(88px,.5fr));
+    }
+    .stats-row.stats-cols-5{
+      grid-template-columns:42px minmax(180px,1.7fr) repeat(3,minmax(88px,.5fr));
+    }
+    .stats-row.stats-cols-7{
+      grid-template-columns:42px minmax(180px,1.7fr) repeat(5,minmax(58px,.42fr));
+    }
+    .stats-row.stats-cols-8{
+      grid-template-columns:42px minmax(180px,1.7fr) repeat(6,minmax(58px,.42fr));
     }
     .stats-row.header{
       color:var(--text-muted);
