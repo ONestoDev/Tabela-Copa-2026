@@ -18290,8 +18290,8 @@
           "name": "France"
         },
         "away": {
-          "id": null,
-          "name": null
+          "id": 770,
+          "name": "England"
         }
       },
       "goals": {
@@ -18322,8 +18322,8 @@
           "name": "Spain"
         },
         "away": {
-          "id": null,
-          "name": null
+          "id": 762,
+          "name": "Argentina"
         }
       },
       "goals": {
@@ -21379,15 +21379,15 @@
     "day": "2026-07-16",
     "provider": "football-data.org",
     "infoFetchedAt": 1784168078766,
-    "rankingsFetchedAt": 1784176026873,
-    "fixturesFetchedAt": 1784176027108,
-    "standingsFetchedAt": 1784176027284,
-    "liveFetchedAt": 1784176027392,
-    "requestCount": 12,
+    "rankingsFetchedAt": 1784185424592,
+    "fixturesFetchedAt": 1784185424859,
+    "standingsFetchedAt": 1784185425077,
+    "liveFetchedAt": 1784185425243,
+    "requestCount": 16,
     "dailyLimit": 50,
-    "generatedAt": 1784176027398,
-    "fetchedAt": 1784176027392,
-    "nextRefreshAt": 1784176147392,
+    "generatedAt": 1784185425250,
+    "fetchedAt": 1784185425243,
+    "nextRefreshAt": 1784185545243,
     "warning": ""
   }
 }
