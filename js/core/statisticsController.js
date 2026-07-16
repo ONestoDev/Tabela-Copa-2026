@@ -10,18 +10,33 @@
     function emptyTeamStats() {
       const rows = {};
       Object.values(deps.teams).flat().forEach(team => {
-        rows[team] = {team, gf:0, ga:0, gd:0, played:0};
+        rows[team] = {team, gf:0, ga:0, gd:0, played:0, wins:0, draws:0, losses:0, points:0, performance:0};
       });
       return rows;
     }
 
     function addGoals(rows, teamFor, goalsFor, goalsAgainst) {
       if(!teamFor || isPlaceholder(teamFor)) return;
-      rows[teamFor] = rows[teamFor] || {team:teamFor, gf:0, ga:0, gd:0, played:0};
+      rows[teamFor] = rows[teamFor] || {team:teamFor, gf:0, ga:0, gd:0, played:0, wins:0, draws:0, losses:0, points:0, performance:0};
       rows[teamFor].gf += goalsFor;
       rows[teamFor].ga += goalsAgainst;
       rows[teamFor].gd = rows[teamFor].gf - rows[teamFor].ga;
       rows[teamFor].played += 1;
+      if(goalsFor > goalsAgainst) {
+        rows[teamFor].wins += 1;
+        rows[teamFor].points += 3;
+      } else if(goalsFor === goalsAgainst) {
+        rows[teamFor].draws += 1;
+        rows[teamFor].points += 1;
+      } else {
+        rows[teamFor].losses += 1;
+      }
+      rows[teamFor].performance = performanceValue(rows[teamFor]);
+    }
+
+    function performanceValue(row) {
+      if(!row.played) return 0;
+      return Number(((row.points / (row.played * 3)) * 100).toFixed(1));
     }
 
     function completedMatches() {
@@ -56,14 +71,32 @@
     }
 
     function goalsRanking() {
-      const officialRows = officialGoalsRanking();
+      const officialRows = officialFixtureGoalsRanking();
       if(officialRows.length) return officialRows;
+      const standingsRows = officialGoalsRanking();
+      if(standingsRows.length) return standingsRows;
+      const rows = localFixtureGoalsRanking();
+      return rows.sort((a,b) => b.gf - a.gf || a.ga - b.ga || b.gd - a.gd || a.team.localeCompare(b.team));
+    }
+
+    function localFixtureGoalsRanking() {
       const rows = emptyTeamStats();
       completedMatches().forEach(match => {
         addGoals(rows, match.teamA, match.scoreA, match.scoreB);
         addGoals(rows, match.teamB, match.scoreB, match.scoreA);
       });
-      return Object.values(rows).sort((a,b) => b.gf - a.gf || a.ga - b.ga || b.gd - a.gd || a.team.localeCompare(b.team));
+      return Object.values(rows);
+    }
+
+    function officialFixtureGoalsRanking() {
+      const rows = emptyTeamStats();
+      officialCompletedMatches().forEach(match => {
+        addGoals(rows, match.teamA, match.scoreA, match.scoreB);
+        addGoals(rows, match.teamB, match.scoreB, match.scoreA);
+      });
+      return Object.values(rows)
+        .filter(row => row.played > 0 && row.team && !isPlaceholder(row.team))
+        .sort((a,b) => b.gf - a.gf || a.ga - b.ga || b.gd - a.gd || a.team.localeCompare(b.team));
     }
 
     function officialGoalsRanking() {
@@ -79,37 +112,67 @@
             gf,
             ga,
             gd: Number(row.goalsDiff) || gf - ga,
-            played: Number(row.all?.played) || 0
+            played: Number(row.all?.played) || 0,
+            wins: Number(row.all?.win) || 0,
+            draws: Number(row.all?.draw) || 0,
+            losses: Number(row.all?.lose) || 0,
+            points: Number(row.points) || 0,
+            performance: performanceValue({
+              played: Number(row.all?.played) || 0,
+              points: Number(row.points) || 0
+            })
           };
         })
         .filter(row => row.team && !isPlaceholder(row.team))
         .sort((a,b) => b.gf - a.gf || a.ga - b.ga || b.gd - a.gd || a.team.localeCompare(b.team));
     }
 
+    function statsMatches() {
+      const officialRows = officialCompletedMatches();
+      if(officialRows.length) return officialRows;
+      return completedMatches();
+    }
+
+    function officialCompletedMatches() {
+      return officialFixtures()
+        .map(fixture => {
+          const score = officialScore(fixture);
+          if(!score) return null;
+          const teamA = apiTeamToLocal(fixture.teams?.home?.name);
+          const teamB = apiTeamToLocal(fixture.teams?.away?.name);
+          if(!teamA || !teamB || isPlaceholder(teamA) || isPlaceholder(teamB)) return null;
+          return {
+            label: fixture.league?.round || fixture.fixture?.date || 'Partida',
+            teamA,
+            teamB,
+            scoreA: score.home,
+            scoreB: score.away
+          };
+        })
+        .filter(Boolean);
+    }
+
     function sufferedGoalsRanking() {
       return goalsRanking().slice().sort((a,b) => b.ga - a.ga || a.team.localeCompare(b.team));
     }
 
+    function performanceRanking() {
+      return goalsRanking()
+        .filter(row => row.played > 0)
+        .sort((a,b) => b.performance - a.performance || b.points - a.points || b.gd - a.gd || b.gf - a.gf || a.team.localeCompare(b.team));
+    }
+
+    function unbeatenTeams() {
+      return performanceRanking()
+        .filter(row => row.losses === 0)
+        .sort((a,b) => b.played - a.played || b.performance - a.performance || b.gd - a.gd || b.gf - a.gf || a.team.localeCompare(b.team));
+    }
+
     function biggestWin() {
-      return completedMatches()
+      return statsMatches()
         .map(match => ({...match, margin: Math.abs(match.scoreA - match.scoreB)}))
         .filter(match => match.margin > 0)
         .sort((a,b) => b.margin - a.margin || (b.scoreA + b.scoreB) - (a.scoreA + a.scoreB))[0] || null;
-    }
-
-    function cardRanking() {
-      const rows = {};
-      function add(row, color) {
-        const team = apiTeamToLocal(window.StatisticsRenderer.playerTeam(row));
-        if(!team || team === '-') return;
-        rows[team] = rows[team] || {team, yellow:0, red:0, total:0};
-        const value = Number(window.StatisticsRenderer.statValue(row, color)) || 0;
-        rows[team][color] += value;
-        rows[team].total += value;
-      }
-      (apiData.topYellowCards || []).forEach(row => add(row, 'yellow'));
-      (apiData.topRedCards || []).forEach(row => add(row, 'red'));
-      return Object.values(rows).sort((a,b) => b.total - a.total || b.red - a.red || a.team.localeCompare(b.team));
     }
 
     function enrichPlayerRow(row) {
@@ -298,14 +361,13 @@
     }
 
     function heroPayload() {
-      const cards = cardRanking();
       return {
         topScorers: takeValid(playerRows(apiData.topScorers), 'goals'),
         topAssists: takeValid(playerRows(apiData.topAssists), 'assists'),
         topGoalsFor: goalsRanking().filter(row => row.gf > 0).slice(0, 3),
         topGoalsAgainst: sufferedGoalsRanking().filter(row => row.ga > 0).slice(0, 3),
-        mostCards: cards.slice(0, 3),
-        fewestCards: cards.slice().reverse().slice(0, 3)
+        topPerformance: performanceRanking().slice(0, 3),
+        unbeatenTeams: unbeatenTeams().slice(0, 3)
       };
     }
 
@@ -313,7 +375,8 @@
       window.StatisticsRenderer.renderAll({
         topScorers: takeValid(playerRows(apiData.topScorers), 'goals', 50),
         topAssists: takeValid(playerRows(apiData.topAssists), 'assists', 50),
-        cardRanking: cardRanking(),
+        performanceRanking: performanceRanking(),
+        unbeatenTeams: unbeatenTeams(),
         goalsRanking: goalsRanking(),
         biggestWin: biggestWin(),
         getFlagUrl: deps.getFlagUrl,

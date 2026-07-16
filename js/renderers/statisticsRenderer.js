@@ -104,28 +104,23 @@
     `;
   }
 
-  function renderPossession(container) {
-    if(!container) return;
-    container.innerHTML = `
-      <div class="group-section">
-        <div class="group-header">
-          <div class="group-title">Media de posse de bola</div>
-          <div class="section-meta">Pendente</div>
-        </div>
-        <div class="empty-state">Esse dado exige estatisticas por partida na API. Para manter 2 a 4 requisicoes por dia, ele fica reservado para uma integracao com cache de backend ou coleta manual.</div>
-      </div>
-    `;
+  function percent(value) {
+    if(value === undefined || value === null || value === '') return '-';
+    return `${value}%`;
   }
 
   function renderAll(data) {
     const {escapeHtml, getFlagUrl} = data;
     renderPlayerRanking(document.getElementById('stats-artilharia-panel'), 'Artilharia', data.topScorers, 'goals', 'Gols', escapeHtml, getFlagUrl);
     renderPlayerRanking(document.getElementById('stats-assistencias-panel'), 'Assistencias', data.topAssists, 'assists', 'Assist.', escapeHtml, getFlagUrl);
-    renderTeamRanking(document.getElementById('stats-cartoes-panel'), 'Cartoes por selecao', data.cardRanking, [
+    renderTeamRanking(document.getElementById('stats-desempenho-panel'), 'Desempenho das selecoes', data.performanceRanking, [
       {label:'Selecao', html:true, render: row => teamCell(row, getFlagUrl, escapeHtml)},
-      {label:'Amarelos', render: row => valueOrDash(row.yellow)},
-      {label:'Vermelhos', render: row => valueOrDash(row.red)},
-      {label:'Total', render: row => valueOrDash(row.total)}
+      {label:'J', render: row => valueOrDash(row.played)},
+      {label:'V', render: row => valueOrDash(row.wins)},
+      {label:'E', render: row => valueOrDash(row.draws)},
+      {label:'D', render: row => valueOrDash(row.losses)},
+      {label:'Pts', render: row => valueOrDash(row.points)},
+      {label:'Aprov.', render: row => percent(row.performance)}
     ], escapeHtml);
     renderTeamRanking(document.getElementById('stats-gols-panel'), 'Gols marcados e sofridos', data.goalsRanking, [
       {label:'Selecao', html:true, render: row => teamCell(row, getFlagUrl, escapeHtml)},
@@ -133,12 +128,15 @@
       {label:'GC', render: row => valueOrDash(row.ga)},
       {label:'Saldo', render: row => row.gd > 0 ? `+${row.gd}` : row.gd}
     ], escapeHtml);
-    renderPossession(document.getElementById('stats-posse-panel'));
-    renderBiggestWin(document.getElementById('stats-goleada-panel'), data.biggestWin, escapeHtml, getFlagUrl);
-    renderTeamRanking(document.getElementById('stats-faltosas-panel'), 'Selecoes mais faltosas ate as menos faltosas', data.cardRanking, [
+    renderTeamRanking(document.getElementById('stats-invictas-panel'), 'Selecoes invictas', data.unbeatenTeams, [
       {label:'Selecao', html:true, render: row => teamCell(row, getFlagUrl, escapeHtml)},
-      {label:'Cartoes', render: row => valueOrDash(row.total)}
+      {label:'J', render: row => valueOrDash(row.played)},
+      {label:'V', render: row => valueOrDash(row.wins)},
+      {label:'E', render: row => valueOrDash(row.draws)},
+      {label:'GP', render: row => valueOrDash(row.gf)},
+      {label:'GC', render: row => valueOrDash(row.ga)}
     ], escapeHtml);
+    renderBiggestWin(document.getElementById('stats-goleada-panel'), data.biggestWin, escapeHtml, getFlagUrl);
   }
 
   window.StatisticsRenderer = {

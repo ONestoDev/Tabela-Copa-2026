@@ -23,7 +23,9 @@
     if(!rows || !rows.length) return '-';
     return `<div class="hero-top-list">${rows.slice(0, 3).map(row => {
       const team = row.team || '-';
-      const value = row[valueKey] ?? '-';
+      let value = row[valueKey] ?? '-';
+      if(valueKey === 'performance' && value !== '-') value = `${value}%`;
+      if(valueKey === 'played' && value !== '-') value = `${value}J`;
       return `<span class="hero-top-item">${flag(team, getFlagUrl, escapeHtml)}<em>${value}</em></span>`;
     }).join('')}</div>`;
   }
@@ -57,8 +59,8 @@
       <div class="hero-stat is-wide"><strong>${playerTopList(tournamentStats?.topAssists, 'assists', escapeHtml, getFlagUrl)}</strong><span>Top 3 assistencias</span></div>
       <div class="hero-stat is-wide"><strong>${teamTopList(tournamentStats?.topGoalsFor, 'gf', escapeHtml, getFlagUrl)}</strong><span>Top 3 gols marcados</span></div>
       <div class="hero-stat is-wide"><strong>${teamTopList(tournamentStats?.topGoalsAgainst, 'ga', escapeHtml, getFlagUrl)}</strong><span>Top 3 gols sofridos</span></div>
-      <div class="hero-stat is-wide"><strong>${teamTopList(tournamentStats?.mostCards, 'total', escapeHtml, getFlagUrl)}</strong><span>Mais faltosas (cartoes)</span></div>
-      <div class="hero-stat is-wide"><strong>${teamTopList(tournamentStats?.fewestCards, 'total', escapeHtml, getFlagUrl)}</strong><span>Menos faltosas (cartoes)</span></div>
+      <div class="hero-stat is-wide"><strong>${teamTopList(tournamentStats?.topPerformance, 'performance', escapeHtml, getFlagUrl)}</strong><span>Melhor aproveitamento</span></div>
+      <div class="hero-stat is-wide"><strong>${teamTopList(tournamentStats?.unbeatenTeams, 'played', escapeHtml, getFlagUrl)}</strong><span>Selecoes invictas</span></div>
     `;
   }
 
