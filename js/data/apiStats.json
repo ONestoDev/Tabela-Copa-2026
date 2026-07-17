@@ -11392,7 +11392,7 @@
       "team": "France",
       "name": "Kylian Mbappé",
       "goals": 8,
-      "assists": 2,
+      "assists": 3,
       "statistics": [
         {
           "team": {
@@ -11401,7 +11401,7 @@
           },
           "goals": {
             "total": 8,
-            "assists": 2
+            "assists": 3
           },
           "cards": {
             "yellow": 0,
@@ -14014,6 +14014,32 @@
     },
     {
       "player": {
+        "id": 3374,
+        "name": "Kylian Mbappé"
+      },
+      "team": "France",
+      "name": "Kylian Mbappé",
+      "goals": 8,
+      "assists": 3,
+      "statistics": [
+        {
+          "team": {
+            "id": 773,
+            "name": "France"
+          },
+          "goals": {
+            "total": 8,
+            "assists": 3
+          },
+          "cards": {
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      ]
+    },
+    {
+      "player": {
         "id": 6486,
         "name": "Alexander Isak"
       },
@@ -14030,32 +14056,6 @@
           "goals": {
             "total": 1,
             "assists": 3
-          },
-          "cards": {
-            "yellow": 0,
-            "red": 0
-          }
-        }
-      ]
-    },
-    {
-      "player": {
-        "id": 3374,
-        "name": "Kylian Mbappé"
-      },
-      "team": "France",
-      "name": "Kylian Mbappé",
-      "goals": 8,
-      "assists": 2,
-      "statistics": [
-        {
-          "team": {
-            "id": 773,
-            "name": "France"
-          },
-          "goals": {
-            "total": 8,
-            "assists": 2
           },
           "cards": {
             "yellow": 0,
@@ -21379,15 +21379,15 @@
     "day": "2026-07-17",
     "provider": "football-data.org",
     "infoFetchedAt": 1784262493669,
-    "rankingsFetchedAt": 1784271517982,
-    "fixturesFetchedAt": 1784271518250,
-    "standingsFetchedAt": 1784271518439,
-    "liveFetchedAt": 1784271518597,
-    "requestCount": 14,
+    "rankingsFetchedAt": 1784279809849,
+    "fixturesFetchedAt": 1784279810106,
+    "standingsFetchedAt": 1784279810290,
+    "liveFetchedAt": 1784279810453,
+    "requestCount": 18,
     "dailyLimit": 50,
-    "generatedAt": 1784271518603,
-    "fetchedAt": 1784271518597,
-    "nextRefreshAt": 1784271638597,
+    "generatedAt": 1784279810459,
+    "fetchedAt": 1784279810453,
+    "nextRefreshAt": 1784279930453,
     "warning": ""
   }
 }
