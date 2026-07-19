@@ -11391,8 +11391,8 @@
       },
       "team": "France",
       "name": "Kylian Mbappé",
-      "goals": 8,
-      "assists": 3,
+      "goals": 10,
+      "assists": 4,
       "statistics": [
         {
           "team": {
@@ -11400,8 +11400,8 @@
             "name": "France"
           },
           "goals": {
-            "total": 8,
-            "assists": 3
+            "total": 10,
+            "assists": 4
           },
           "cards": {
             "yellow": 0,
@@ -11464,6 +11464,32 @@
     },
     {
       "player": {
+        "id": 125010,
+        "name": "Jude Bellingham"
+      },
+      "team": "England",
+      "name": "Jude Bellingham",
+      "goals": 7,
+      "assists": 1,
+      "statistics": [
+        {
+          "team": {
+            "id": 770,
+            "name": "England"
+          },
+          "goals": {
+            "total": 7,
+            "assists": 1
+          },
+          "cards": {
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      ]
+    },
+    {
+      "player": {
         "id": 8004,
         "name": "Harry Kane"
       },
@@ -11490,22 +11516,22 @@
     },
     {
       "player": {
-        "id": 125010,
-        "name": "Jude Bellingham"
+        "id": 3373,
+        "name": "Ousmane Dembélé"
       },
-      "team": "England",
-      "name": "Jude Bellingham",
+      "team": "France",
+      "name": "Ousmane Dembélé",
       "goals": 6,
-      "assists": 1,
+      "assists": 2,
       "statistics": [
         {
           "team": {
-            "id": 770,
-            "name": "England"
+            "id": 773,
+            "name": "France"
           },
           "goals": {
             "total": 6,
-            "assists": 1
+            "assists": 2
           },
           "cards": {
             "yellow": 0,
@@ -11532,32 +11558,6 @@
           "goals": {
             "total": 5,
             "assists": 1
-          },
-          "cards": {
-            "yellow": 0,
-            "red": 0
-          }
-        }
-      ]
-    },
-    {
-      "player": {
-        "id": 3373,
-        "name": "Ousmane Dembélé"
-      },
-      "team": "France",
-      "name": "Ousmane Dembélé",
-      "goals": 5,
-      "assists": 2,
-      "statistics": [
-        {
-          "team": {
-            "id": 773,
-            "name": "France"
-          },
-          "goals": {
-            "total": 5,
-            "assists": 2
           },
           "cards": {
             "yellow": 0,
@@ -11792,6 +11792,32 @@
           "goals": {
             "total": 3,
             "assists": 0
+          },
+          "cards": {
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      ]
+    },
+    {
+      "player": {
+        "id": 172762,
+        "name": "Bradley Barcola"
+      },
+      "team": "France",
+      "name": "Bradley Barcola",
+      "goals": 3,
+      "assists": 1,
+      "statistics": [
+        {
+          "team": {
+            "id": 773,
+            "name": "France"
+          },
+          "goals": {
+            "total": 3,
+            "assists": 1
           },
           "cards": {
             "yellow": 0,
@@ -12062,6 +12088,32 @@
     },
     {
       "player": {
+        "id": 99813,
+        "name": "Bukayo Saka"
+      },
+      "team": "England",
+      "name": "Bukayo Saka",
+      "goals": 3,
+      "assists": 3,
+      "statistics": [
+        {
+          "team": {
+            "id": 770,
+            "name": "England"
+          },
+          "goals": {
+            "total": 3,
+            "assists": 3
+          },
+          "cards": {
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      ]
+    },
+    {
+      "player": {
         "id": 15958,
         "name": "Cyle Larin"
       },
@@ -12282,32 +12334,6 @@
           "team": {
             "id": 840,
             "name": "Iran"
-          },
-          "goals": {
-            "total": 2,
-            "assists": 1
-          },
-          "cards": {
-            "yellow": 0,
-            "red": 0
-          }
-        }
-      ]
-    },
-    {
-      "player": {
-        "id": 172762,
-        "name": "Bradley Barcola"
-      },
-      "team": "France",
-      "name": "Bradley Barcola",
-      "goals": 2,
-      "assists": 1,
-      "statistics": [
-        {
-          "team": {
-            "id": 773,
-            "name": "France"
           },
           "goals": {
             "total": 2,
@@ -13654,7 +13680,7 @@
       "team": "England",
       "name": "Marcus Rashford",
       "goals": 1,
-      "assists": 0,
+      "assists": 1,
       "statistics": [
         {
           "team": {
@@ -13663,7 +13689,7 @@
           },
           "goals": {
             "total": 1,
-            "assists": 0
+            "assists": 1
           },
           "cards": {
             "yellow": 0,
@@ -13957,25 +13983,27 @@
           }
         }
       ]
-    },
+    }
+  ],
+  "topAssists": [
     {
       "player": {
-        "id": 1747,
-        "name": "Franck Kessié"
+        "id": 3374,
+        "name": "Kylian Mbappé"
       },
-      "team": "Ivory Coast",
-      "name": "Franck Kessié",
-      "goals": 1,
-      "assists": 0,
+      "team": "France",
+      "name": "Kylian Mbappé",
+      "goals": 10,
+      "assists": 4,
       "statistics": [
         {
           "team": {
-            "id": 1935,
-            "name": "Ivory Coast"
+            "id": 773,
+            "name": "France"
           },
           "goals": {
-            "total": 1,
-            "assists": 0
+            "total": 10,
+            "assists": 4
           },
           "cards": {
             "yellow": 0,
@@ -13983,9 +14011,7 @@
           }
         }
       ]
-    }
-  ],
-  "topAssists": [
+    },
     {
       "player": {
         "id": 3218,
@@ -14014,21 +14040,21 @@
     },
     {
       "player": {
-        "id": 3374,
-        "name": "Kylian Mbappé"
+        "id": 99813,
+        "name": "Bukayo Saka"
       },
-      "team": "France",
-      "name": "Kylian Mbappé",
-      "goals": 8,
+      "team": "England",
+      "name": "Bukayo Saka",
+      "goals": 3,
       "assists": 3,
       "statistics": [
         {
           "team": {
-            "id": 773,
-            "name": "France"
+            "id": 770,
+            "name": "England"
           },
           "goals": {
-            "total": 8,
+            "total": 3,
             "assists": 3
           },
           "cards": {
@@ -14071,7 +14097,7 @@
       },
       "team": "France",
       "name": "Ousmane Dembélé",
-      "goals": 5,
+      "goals": 6,
       "assists": 2,
       "statistics": [
         {
@@ -14080,7 +14106,7 @@
             "name": "France"
           },
           "goals": {
-            "total": 5,
+            "total": 6,
             "assists": 2
           },
           "cards": {
@@ -14274,12 +14300,12 @@
     },
     {
       "player": {
-        "id": 8004,
-        "name": "Harry Kane"
+        "id": 125010,
+        "name": "Jude Bellingham"
       },
       "team": "England",
-      "name": "Harry Kane",
-      "goals": 6,
+      "name": "Jude Bellingham",
+      "goals": 7,
       "assists": 1,
       "statistics": [
         {
@@ -14288,7 +14314,7 @@
             "name": "England"
           },
           "goals": {
-            "total": 6,
+            "total": 7,
             "assists": 1
           },
           "cards": {
@@ -14300,11 +14326,11 @@
     },
     {
       "player": {
-        "id": 125010,
-        "name": "Jude Bellingham"
+        "id": 8004,
+        "name": "Harry Kane"
       },
       "team": "England",
-      "name": "Jude Bellingham",
+      "name": "Harry Kane",
       "goals": 6,
       "assists": 1,
       "statistics": [
@@ -14419,6 +14445,32 @@
           },
           "goals": {
             "total": 4,
+            "assists": 1
+          },
+          "cards": {
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      ]
+    },
+    {
+      "player": {
+        "id": 172762,
+        "name": "Bradley Barcola"
+      },
+      "team": "France",
+      "name": "Bradley Barcola",
+      "goals": 3,
+      "assists": 1,
+      "statistics": [
+        {
+          "team": {
+            "id": 773,
+            "name": "France"
+          },
+          "goals": {
+            "total": 3,
             "assists": 1
           },
           "cards": {
@@ -14572,32 +14624,6 @@
           "team": {
             "id": 840,
             "name": "Iran"
-          },
-          "goals": {
-            "total": 2,
-            "assists": 1
-          },
-          "cards": {
-            "yellow": 0,
-            "red": 0
-          }
-        }
-      ]
-    },
-    {
-      "player": {
-        "id": 172762,
-        "name": "Bradley Barcola"
-      },
-      "team": "France",
-      "name": "Bradley Barcola",
-      "goals": 2,
-      "assists": 1,
-      "statistics": [
-        {
-          "team": {
-            "id": 773,
-            "name": "France"
           },
           "goals": {
             "total": 2,
@@ -14884,6 +14910,32 @@
           "team": {
             "id": 766,
             "name": "Japan"
+          },
+          "goals": {
+            "total": 1,
+            "assists": 1
+          },
+          "cards": {
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      ]
+    },
+    {
+      "player": {
+        "id": 3331,
+        "name": "Marcus Rashford"
+      },
+      "team": "England",
+      "name": "Marcus Rashford",
+      "goals": 1,
+      "assists": 1,
+      "statistics": [
+        {
+          "team": {
+            "id": 770,
+            "name": "England"
           },
           "goals": {
             "total": 1,
@@ -18273,8 +18325,8 @@
         "id": 537389,
         "date": "2026-07-18T21:00:00Z",
         "status": {
-          "short": "NS",
-          "long": "TIMED",
+          "short": "FT",
+          "long": "FINISHED",
           "elapsed": null
         }
       },
@@ -18295,8 +18347,8 @@
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 4,
+        "away": 6
       },
       "bookings": []
     },
@@ -21376,18 +21428,18 @@
   ],
   "liveFixtures": [],
   "meta": {
-    "day": "2026-07-18",
+    "day": "2026-07-19",
     "provider": "football-data.org",
     "infoFetchedAt": 1784353970541,
-    "rankingsFetchedAt": 1784404367081,
-    "fixturesFetchedAt": 1784404367314,
-    "standingsFetchedAt": 1784396519804,
-    "liveFetchedAt": 1784399929908,
-    "requestCount": 50,
+    "rankingsFetchedAt": 1784431984680,
+    "fixturesFetchedAt": 1784431984924,
+    "standingsFetchedAt": 1784431985110,
+    "liveFetchedAt": 1784431985296,
+    "requestCount": 4,
     "dailyLimit": 50,
-    "generatedAt": 1784404367321,
-    "fetchedAt": 1784404367314,
-    "nextRefreshAt": 1784400049908,
+    "generatedAt": 1784431985300,
+    "fetchedAt": 1784431985296,
+    "nextRefreshAt": 1784432105296,
     "warning": ""
   }
 }
