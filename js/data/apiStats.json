@@ -18357,8 +18357,8 @@
         "id": 537390,
         "date": "2026-07-19T19:00:00Z",
         "status": {
-          "short": "NS",
-          "long": "TIMED",
+          "short": "LIVE",
+          "long": "LIVE",
           "elapsed": null
         }
       },
@@ -18379,8 +18379,8 @@
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "bookings": []
     }
@@ -21431,15 +21431,15 @@
     "day": "2026-07-19",
     "provider": "football-data.org",
     "infoFetchedAt": 1784441784530,
-    "rankingsFetchedAt": 1784486372411,
-    "fixturesFetchedAt": 1784486372622,
-    "standingsFetchedAt": 1784486372776,
-    "liveFetchedAt": 1784486372920,
-    "requestCount": 43,
+    "rankingsFetchedAt": 1784490928381,
+    "fixturesFetchedAt": 1784490928640,
+    "standingsFetchedAt": 1784490928821,
+    "liveFetchedAt": 1784490929006,
+    "requestCount": 47,
     "dailyLimit": 50,
-    "generatedAt": 1784486372928,
-    "fetchedAt": 1784486372920,
-    "nextRefreshAt": 1784486492920,
+    "generatedAt": 1784490929011,
+    "fetchedAt": 1784490929006,
+    "nextRefreshAt": 1784491049006,
     "warning": ""
   }
 }
