@@ -18357,8 +18357,8 @@
         "id": 537390,
         "date": "2026-07-19T19:00:00Z",
         "status": {
-          "short": "LIVE",
-          "long": "LIVE",
+          "short": "FT",
+          "long": "FINISHED",
           "elapsed": null
         }
       },
@@ -21426,53 +21426,20 @@
       }
     }
   ],
-  "liveFixtures": [
-    {
-      "fixture": {
-        "id": 537390,
-        "date": "2026-07-19T19:00:00Z",
-        "status": {
-          "short": "LIVE",
-          "long": "IN_PLAY",
-          "elapsed": null
-        }
-      },
-      "league": {
-        "id": 2000,
-        "name": "FIFA World Cup",
-        "season": 2026,
-        "round": "FINAL"
-      },
-      "teams": {
-        "home": {
-          "id": 760,
-          "name": "Spain"
-        },
-        "away": {
-          "id": 762,
-          "name": "Argentina"
-        }
-      },
-      "goals": {
-        "home": 0,
-        "away": 0
-      },
-      "bookings": []
-    }
-  ],
+  "liveFixtures": [],
   "meta": {
-    "day": "2026-07-19",
+    "day": "2026-07-20",
     "provider": "football-data.org",
     "infoFetchedAt": 1784441784530,
-    "rankingsFetchedAt": 1784498196990,
-    "fixturesFetchedAt": 1784498197306,
-    "standingsFetchedAt": 1784490928821,
-    "liveFetchedAt": 1784494468437,
-    "requestCount": 50,
+    "rankingsFetchedAt": 1784505914752,
+    "fixturesFetchedAt": 1784505914999,
+    "standingsFetchedAt": 1784505915124,
+    "liveFetchedAt": 1784505915251,
+    "requestCount": 4,
     "dailyLimit": 50,
-    "generatedAt": 1784498197313,
-    "fetchedAt": 1784498197306,
-    "nextRefreshAt": 1784494528821,
+    "generatedAt": 1784505915258,
+    "fetchedAt": 1784505915251,
+    "nextRefreshAt": 1784506035251,
     "warning": ""
   }
 }
