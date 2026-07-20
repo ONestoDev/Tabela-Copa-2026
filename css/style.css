@@ -285,6 +285,13 @@
       --surface-glow:rgba(234,189,44,.11); --surface-elevated:#092F26; --score-surface:#03101B;
       --card-shadow:0 18px 42px rgba(0,0,0,.24);
     }
+    body[data-theme="campeao"]{
+      --primary:#14110A; --secondary:#3B0609; --accent:#F7C600; --accent-light:#FFE169;
+      --text:#FFF7DF; --text-muted:#E8CBA2; --border:#7D1D1F; --success:#F7C600;
+      --warning:#F59E0B; --danger:#EF4444; --bg:#170406;
+      --surface-glow:rgba(247,198,0,.12); --surface-elevated:#520C10; --score-surface:#120306;
+      --card-shadow:0 18px 42px rgba(0,0,0,.28);
+    }
     body{background:var(--bg)}
     .wrap{max-width:1180px;padding:18px}
     .header{
@@ -561,8 +568,14 @@
     .stats-row.stats-cols-4{
       grid-template-columns:42px minmax(180px,1.7fr) repeat(2,minmax(88px,.5fr));
     }
+    .stats-row.stats-cols-3{
+      grid-template-columns:42px minmax(180px,1.4fr) minmax(120px,.6fr);
+    }
     .stats-row.stats-cols-5{
       grid-template-columns:42px minmax(180px,1.7fr) repeat(3,minmax(88px,.5fr));
+    }
+    .stats-row.stats-cols-6{
+      grid-template-columns:42px minmax(180px,1.7fr) repeat(4,minmax(76px,.45fr));
     }
     .stats-row.stats-cols-7{
       grid-template-columns:42px minmax(180px,1.7fr) repeat(5,minmax(58px,.42fr));
@@ -588,6 +601,9 @@
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
+    }
+    .stats-row.stats-cols-6 > div:nth-child(n+3){
+      text-align:center;
     }
     .stats-team-cell{
       display:flex;
@@ -786,6 +802,29 @@
     body[data-theme="brasil"] .progress-track div{background:linear-gradient(90deg,#1B7F5F,#EABD2C)}
     body[data-theme="brasil"] .match-card.is-played{border-left-color:#2DD47F}
     body[data-theme="brasil"] .match-card.is-pending{border-left-color:#164A3B}
+    body[data-theme="campeao"] .header{
+      background:
+        linear-gradient(135deg,rgba(247,198,0,.12),transparent 34%),
+        linear-gradient(180deg,#7A1014,#3B0609);
+      border-color:rgba(247,198,0,.22);
+    }
+    body[data-theme="campeao"] .header::after{
+      background:linear-gradient(90deg,#AA151B,#F1BF00,#AA151B);
+    }
+    body[data-theme="campeao"] .title-kicker{color:#FFE169}
+    body[data-theme="campeao"] .cup-icon{
+      color:#3B0609;background:linear-gradient(180deg,#FFE169,#F7C600);
+      box-shadow:0 10px 22px rgba(247,198,0,.18);
+    }
+    body[data-theme="campeao"] .tab-btn.active,
+    body[data-theme="campeao"] .subtab-btn.active,
+    body[data-theme="campeao"] .theme-btn.active{
+      background:linear-gradient(180deg,#FFE169,#F7C600);
+      color:#3B0609;
+    }
+    body[data-theme="campeao"] .match-card{
+      background:linear-gradient(90deg,rgba(247,198,0,.035),var(--surface-elevated) 18%,var(--surface-elevated) 82%,rgba(170,21,27,.12));
+    }
 
     /* Compact sports-app match rows */
     .match-card{

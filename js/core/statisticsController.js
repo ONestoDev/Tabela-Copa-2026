@@ -175,6 +175,80 @@
         .sort((a,b) => b.margin - a.margin || (b.scoreA + b.scoreB) - (a.scoreA + a.scoreB))[0] || null;
     }
 
+    function predictionComplete(prediction) {
+      return prediction && prediction.a !== '' && prediction.b !== '';
+    }
+
+    function isExactPrediction(prediction, result) {
+      return predictionComplete(prediction) && result && result.a !== '' && result.b !== '' &&
+        Number(prediction.a) === Number(result.a) &&
+        Number(prediction.b) === Number(result.b);
+    }
+
+    function addUserPredictionStats(row, prediction, result, completeResult) {
+      if(!predictionComplete(prediction)) return;
+      row.guesses += 1;
+      if(!completeResult) return;
+      row.evaluated += 1;
+      const exact = isExactPrediction(prediction, result);
+      const points = window.PredictionService.predictionPoints(prediction, result);
+      if(exact) row.exact += 1;
+      else if(points > 0) row.near += 1;
+      else if(points === 0) row.missed += 1;
+    }
+
+    function userStatistics() {
+      const rows = deps.state.users.map(user => ({
+        user,
+        guesses: 0,
+        evaluated: 0,
+        exact: 0,
+        missed: 0,
+        near: 0
+      }));
+      const byUser = new Map(rows.map(row => [row.user, row]));
+
+      deps.groups.forEach(group => {
+        deps.matches[group].forEach((pair, index) => {
+          const key = `${group}${index + 1}`;
+          const result = deps.state.scores[key];
+          const completeResult = deps.scoreComplete(result);
+          deps.state.users.forEach(user => {
+            addUserPredictionStats(byUser.get(user), deps.state.predictions[user]?.[key], result, completeResult);
+          });
+        });
+      });
+
+      deps.knockoutMatches.forEach(match => {
+        const result = deps.state.knockoutScores[match.id];
+        const completeResult = deps.knockoutScoreComplete(result);
+        deps.state.users.forEach(user => {
+          addUserPredictionStats(byUser.get(user), deps.state.knockoutPredictions[user]?.[match.id], result, completeResult);
+        });
+      });
+
+      const sortBy = key => rows.slice().sort((a,b) => b[key] - a[key] || b.evaluated - a.evaluated || a.user.localeCompare(b.user));
+      return {
+        mostGuesses: sortBy('guesses'),
+        mostExact: sortBy('exact'),
+        mostMissed: sortBy('missed'),
+        mostNear: sortBy('near')
+      };
+    }
+
+    function worldCupChampions() {
+      return [
+        {team:'Uruguai', countryCode:'UY', years:[1930, 1950]},
+        {team:'It\u00e1lia', countryCode:'IT', years:[1934, 1938, 1982, 2006]},
+        {team:'Alemanha', countryCode:'DE', years:[1954, 1974, 1990, 2014]},
+        {team:'Brasil', countryCode:'BR', years:[1958, 1962, 1970, 1994, 2002]},
+        {team:'Inglaterra', countryCode:'GB-ENG', years:[1966]},
+        {team:'Argentina', countryCode:'AR', years:[1978, 1986, 2022]},
+        {team:'Fran\u00e7a', countryCode:'FR', years:[1998, 2018]},
+        {team:'Espanha', countryCode:'ES', years:[2010, 2026]}
+      ].sort((a,b) => b.years.length - a.years.length || a.team.localeCompare(b.team));
+    }
+
     function enrichPlayerRow(row) {
       const localTeam = apiTeamToLocal(window.StatisticsRenderer.playerTeam(row));
       return {
@@ -379,6 +453,8 @@
         unbeatenTeams: unbeatenTeams(),
         goalsRanking: goalsRanking(),
         biggestWin: biggestWin(),
+        userStatistics: userStatistics(),
+        champions: worldCupChampions(),
         getFlagUrl: deps.getFlagUrl,
         escapeHtml: deps.escapeHtml
       });

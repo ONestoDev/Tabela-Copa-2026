@@ -96,7 +96,7 @@
     return result;
   }
   function applyTheme(){
-    state.theme = ['dark', 'light', 'brasil'].includes(state.theme) ? state.theme : 'dark';
+    state.theme = ['dark', 'light', 'brasil', 'campeao'].includes(state.theme) ? state.theme : 'dark';
     document.body.dataset.theme = state.theme;
     document.querySelectorAll('[data-theme-option]').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.themeOption === state.theme);

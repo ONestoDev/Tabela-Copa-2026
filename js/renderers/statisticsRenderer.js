@@ -31,6 +31,11 @@
     return `<span class="stats-flag" style="background-image:url('${getFlagUrl(team)}')" aria-label="${escapeHtml(team)}"></span>`;
   }
 
+  function flagByCodeHtml(team, countryCode, escapeHtml) {
+    if(!countryCode) return '';
+    return `<span class="stats-flag" style="background-image:url('https://flagcdn.com/w160/${String(countryCode).toLowerCase()}.png')" aria-label="${escapeHtml(team)}"></span>`;
+  }
+
   function teamCell(row, getFlagUrl, escapeHtml) {
     const team = teamName(row);
     return `<span class="stats-team-cell">${flagHtml(team, getFlagUrl, escapeHtml)}<span>${escapeHtml(team)}</span></span>`;
@@ -105,6 +110,36 @@
     `;
   }
 
+  function renderUserRanking(container, data, escapeHtml) {
+    if(!container) return;
+    const rows = (data?.mostGuesses || [])
+      .slice()
+      .sort((a,b) => b.guesses - a.guesses || b.exact - a.exact || b.near - a.near || a.user.localeCompare(b.user));
+    container.innerHTML = `
+      <div class="group-section">
+        <div class="group-header">
+          <div class="group-title">Estatisticas dos usuarios</div>
+        </div>
+        ${listRows(rows, [
+          {label:'Usuario', render: row => row.user},
+          {label:'Total', render: row => valueOrDash(row.guesses)},
+          {label:'Acertos', render: row => valueOrDash(row.exact)},
+          {label:'Quase', render: row => valueOrDash(row.near)},
+          {label:'Erros', render: row => valueOrDash(row.missed)}
+        ], escapeHtml)}
+      </div>
+    `;
+  }
+
+  function renderChampions(container, rows, escapeHtml) {
+    if(!container) return;
+    renderTeamRanking(container, 'Campeas de todos os tempos', rows || [], [
+      {label:'Selecao', html:true, render: row => `<span class="stats-team-cell">${flagByCodeHtml(row.team, row.countryCode, escapeHtml)}<span>${escapeHtml(row.team)}</span></span>`},
+      {label:'Titulos', render: row => valueOrDash(row.years.length)},
+      {label:'Anos', render: row => row.years.join(', ')}
+    ], escapeHtml);
+  }
+
   function percent(value) {
     if(value === undefined || value === null || value === '') return '-';
     return `${value}%`;
@@ -138,6 +173,8 @@
       {label:'GC', render: row => valueOrDash(row.ga)}
     ], escapeHtml);
     renderBiggestWin(document.getElementById('stats-goleada-panel'), data.biggestWin, escapeHtml, getFlagUrl);
+    renderUserRanking(document.getElementById('stats-usuarios-panel'), data.userStatistics, escapeHtml);
+    renderChampions(document.getElementById('stats-campeas-panel'), data.champions, escapeHtml);
   }
 
   window.StatisticsRenderer = {

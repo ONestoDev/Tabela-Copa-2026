@@ -31,7 +31,7 @@
     state.knockoutPredictions = state.knockoutPredictions || {};
     state.users = Array.isArray(state.users) && state.users.length ? state.users : [defaultUserName()];
     state.activeUser = state.users.includes(state.activeUser) ? state.activeUser : state.users[0];
-    state.theme = ['dark', 'light', 'brasil'].includes(state.theme) ? state.theme : 'dark';
+    state.theme = ['dark', 'light', 'brasil', 'campeao'].includes(state.theme) ? state.theme : 'dark';
     state.resultsFilter = resultPhases.some(phase => phase.value === state.resultsFilter) ? state.resultsFilter : 'all';
     state.updatedAt = Number(state.updatedAt) || 0;
     state.thirds = state.thirds || [];
