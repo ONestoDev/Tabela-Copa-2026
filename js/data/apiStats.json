@@ -2430,13 +2430,6 @@
           "nationality": "Japan"
         },
         {
-          "id": 145293,
-          "name": "Yuito Suzuki",
-          "position": "Midfield",
-          "dateOfBirth": "2001-10-25",
-          "nationality": "Japan"
-        },
-        {
           "id": 7531,
           "name": "Ritsu Doan",
           "position": "Offence",
@@ -2476,6 +2469,13 @@
           "name": "Ayase Ueda",
           "position": "Offence",
           "dateOfBirth": "1998-08-28",
+          "nationality": "Japan"
+        },
+        {
+          "id": 145293,
+          "name": "Yuito Suzuki",
+          "position": "Offence",
+          "dateOfBirth": "2001-10-25",
           "nationality": "Japan"
         },
         {
@@ -6318,6 +6318,13 @@
           "nationality": "Turkey"
         },
         {
+          "id": 193605,
+          "name": "Can Uzun",
+          "position": "Midfield",
+          "dateOfBirth": "2005-11-11",
+          "nationality": "Turkey"
+        },
+        {
           "id": 79906,
           "name": "Yunus Akgün",
           "position": "Offence",
@@ -6357,13 +6364,6 @@
           "name": "Kenan Yıldız",
           "position": "Offence",
           "dateOfBirth": "2005-05-04",
-          "nationality": "Turkey"
-        },
-        {
-          "id": 193605,
-          "name": "Can Uzun",
-          "position": "Offence",
-          "dateOfBirth": "2005-11-11",
           "nationality": "Turkey"
         }
       ],
@@ -7169,17 +7169,17 @@
           "nationality": "Austria"
         },
         {
+          "id": 9549,
+          "name": "Konrad Laimer",
+          "position": "Defence",
+          "dateOfBirth": "1997-05-27",
+          "nationality": "Austria"
+        },
+        {
           "id": 61968,
           "name": "Michael Svoboda",
           "position": "Defence",
           "dateOfBirth": "1998-10-15",
-          "nationality": "Austria"
-        },
-        {
-          "id": 113457,
-          "name": "Alexander Prass",
-          "position": "Defence",
-          "dateOfBirth": "2001-05-26",
           "nationality": "Austria"
         },
         {
@@ -7201,13 +7201,6 @@
           "name": "Alessandro Schöpf",
           "position": "Midfield",
           "dateOfBirth": "1994-02-07",
-          "nationality": "Austria"
-        },
-        {
-          "id": 9549,
-          "name": "Konrad Laimer",
-          "position": "Midfield",
-          "dateOfBirth": "1997-05-27",
           "nationality": "Austria"
         },
         {
@@ -7246,10 +7239,10 @@
           "nationality": "Austria"
         },
         {
-          "id": 124324,
-          "name": "Patrick Wimmer",
+          "id": 113457,
+          "name": "Alexander Prass",
           "position": "Midfield",
-          "dateOfBirth": "2001-05-30",
+          "dateOfBirth": "2001-05-26",
           "nationality": "Austria"
         },
         {
@@ -7285,6 +7278,13 @@
           "name": "Saša Kalajdžić",
           "position": "Offence",
           "dateOfBirth": "1997-07-07",
+          "nationality": "Austria"
+        },
+        {
+          "id": 124324,
+          "name": "Patrick Wimmer",
+          "position": "Offence",
+          "dateOfBirth": "2001-05-30",
           "nationality": "Austria"
         }
       ],
@@ -10873,13 +10873,6 @@
           "nationality": "Norway"
         },
         {
-          "id": 169295,
-          "name": "Antonio Nusa",
-          "position": "Midfield",
-          "dateOfBirth": "2005-04-17",
-          "nationality": "Norway"
-        },
-        {
           "id": 8167,
           "name": "Alexander Sørloth",
           "position": "Offence",
@@ -10905,6 +10898,13 @@
           "name": "Andreas Schjelderup",
           "position": "Offence",
           "dateOfBirth": "2004-06-01",
+          "nationality": "Norway"
+        },
+        {
+          "id": 169295,
+          "name": "Antonio Nusa",
+          "position": "Offence",
+          "dateOfBirth": "2005-04-17",
           "nationality": "Norway"
         },
         {
@@ -21430,16 +21430,16 @@
   "meta": {
     "day": "2026-07-21",
     "provider": "football-data.org",
-    "infoFetchedAt": 1784532647282,
-    "rankingsFetchedAt": 1784618506154,
-    "fixturesFetchedAt": 1784618506389,
-    "standingsFetchedAt": 1784618506568,
-    "liveFetchedAt": 1784618506732,
-    "requestCount": 12,
+    "infoFetchedAt": 1784628212028,
+    "rankingsFetchedAt": 1784628212543,
+    "fixturesFetchedAt": 1784628212821,
+    "standingsFetchedAt": 1784628213011,
+    "liveFetchedAt": 1784628213181,
+    "requestCount": 18,
     "dailyLimit": 50,
-    "generatedAt": 1784618506737,
-    "fetchedAt": 1784618506732,
-    "nextRefreshAt": 1784618626732,
+    "generatedAt": 1784628213187,
+    "fetchedAt": 1784628213181,
+    "nextRefreshAt": 1784628333181,
     "warning": ""
   }
 }
