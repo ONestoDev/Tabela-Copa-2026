@@ -6065,24 +6065,10 @@
           "nationality": "Tunisia"
         },
         {
-          "id": 161414,
-          "name": "Ismaël Gharbi",
-          "position": "Midfield",
-          "dateOfBirth": "2004-04-10",
-          "nationality": "Tunisia"
-        },
-        {
           "id": 169325,
           "name": "Hannibal Mejbri",
           "position": "Midfield",
           "dateOfBirth": "2003-01-21",
-          "nationality": "Tunisia"
-        },
-        {
-          "id": 171368,
-          "name": "Elias Achouri",
-          "position": "Midfield",
-          "dateOfBirth": "1999-02-10",
           "nationality": "Tunisia"
         },
         {
@@ -6104,6 +6090,20 @@
           "name": "Firas Chaouat",
           "position": "Offence",
           "dateOfBirth": "1996-05-08",
+          "nationality": "Tunisia"
+        },
+        {
+          "id": 161414,
+          "name": "Ismaël Gharbi",
+          "position": "Offence",
+          "dateOfBirth": "2004-04-10",
+          "nationality": "Tunisia"
+        },
+        {
+          "id": 171368,
+          "name": "Elias Achouri",
+          "position": "Offence",
+          "dateOfBirth": "1999-02-10",
           "nationality": "Tunisia"
         },
         {
@@ -7450,13 +7450,6 @@
           "nationality": "Colombia"
         },
         {
-          "id": 170245,
-          "name": "Jaminton Campaz",
-          "position": "Midfield",
-          "dateOfBirth": "2000-05-24",
-          "nationality": "Colombia"
-        },
-        {
           "id": 170657,
           "name": "Richard Rios",
           "position": "Midfield",
@@ -7503,6 +7496,13 @@
           "name": "Cucho Hernández",
           "position": "Offence",
           "dateOfBirth": "1999-04-20",
+          "nationality": "Colombia"
+        },
+        {
+          "id": 170245,
+          "name": "Jaminton Campaz",
+          "position": "Offence",
+          "dateOfBirth": "2000-05-24",
           "nationality": "Colombia"
         },
         {
@@ -8786,13 +8786,6 @@
           "nationality": "Panama"
         },
         {
-          "id": 28668,
-          "name": "Cecilio Waterman",
-          "position": "Midfield",
-          "dateOfBirth": "1991-04-13",
-          "nationality": "Panama"
-        },
-        {
           "id": 39139,
           "name": "Édgar Bárcenas",
           "position": "Midfield",
@@ -8821,13 +8814,6 @@
           "nationality": "Panama"
         },
         {
-          "id": 110577,
-          "name": "César Yanis",
-          "position": "Midfield",
-          "dateOfBirth": "1996-01-28",
-          "nationality": "Panama"
-        },
-        {
           "id": 166946,
           "name": "Christian Martinez",
           "position": "Midfield",
@@ -8849,6 +8835,13 @@
           "nationality": "Panama"
         },
         {
+          "id": 28668,
+          "name": "Cecilio Waterman",
+          "position": "Offence",
+          "dateOfBirth": "1991-04-13",
+          "nationality": "Panama"
+        },
+        {
           "id": 43795,
           "name": "Ismael Díaz",
           "position": "Offence",
@@ -8860,6 +8853,13 @@
           "name": "Tomas Rodriguez",
           "position": "Offence",
           "dateOfBirth": "1999-03-09",
+          "nationality": "Panama"
+        },
+        {
+          "id": 110577,
+          "name": "César Yanis",
+          "position": "Offence",
+          "dateOfBirth": "1996-01-28",
           "nationality": "Panama"
         },
         {
@@ -9025,13 +9025,6 @@
           "nationality": "Cape Verde Islands"
         },
         {
-          "id": 145346,
-          "name": "Telmo Arcanjo",
-          "position": "Midfield",
-          "dateOfBirth": "2001-06-21",
-          "nationality": "Cape Verde Islands"
-        },
-        {
           "id": 167455,
           "name": "Jamiro Monteiro",
           "position": "Midfield",
@@ -9064,6 +9057,13 @@
           "name": "Jovane Cabral",
           "position": "Offence",
           "dateOfBirth": "1998-06-14",
+          "nationality": "Cape Verde Islands"
+        },
+        {
+          "id": 145346,
+          "name": "Telmo Arcanjo",
+          "position": "Offence",
+          "dateOfBirth": "2001-06-21",
           "nationality": "Cape Verde Islands"
         },
         {
@@ -21430,16 +21430,16 @@
   "meta": {
     "day": "2026-07-22",
     "provider": "football-data.org",
-    "infoFetchedAt": 1784628212028,
-    "rankingsFetchedAt": 1784711768979,
-    "fixturesFetchedAt": 1784711769207,
-    "standingsFetchedAt": 1784711769328,
-    "liveFetchedAt": 1784711769432,
-    "requestCount": 13,
+    "infoFetchedAt": 1784719553683,
+    "rankingsFetchedAt": 1784719554258,
+    "fixturesFetchedAt": 1784719554491,
+    "standingsFetchedAt": 1784719554674,
+    "liveFetchedAt": 1784719554845,
+    "requestCount": 19,
     "dailyLimit": 50,
-    "generatedAt": 1784711769439,
-    "fetchedAt": 1784711769432,
-    "nextRefreshAt": 1784711889432,
+    "generatedAt": 1784719554853,
+    "fetchedAt": 1784719554845,
+    "nextRefreshAt": 1784719674845,
     "warning": ""
   }
 }
