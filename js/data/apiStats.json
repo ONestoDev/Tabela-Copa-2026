@@ -4455,6 +4455,13 @@
           "nationality": "New Zealand"
         },
         {
+          "id": 118981,
+          "name": "Elijah Just",
+          "position": "Midfield",
+          "dateOfBirth": "2000-05-01",
+          "nationality": "New Zealand"
+        },
+        {
           "id": 125117,
           "name": "Callum McCowatt",
           "position": "Midfield",
@@ -4508,13 +4515,6 @@
           "name": "Ben Waine",
           "position": "Offence",
           "dateOfBirth": "2001-06-11",
-          "nationality": "New Zealand"
-        },
-        {
-          "id": 118981,
-          "name": "Elijah Just",
-          "position": "Offence",
-          "dateOfBirth": "2000-05-01",
           "nationality": "New Zealand"
         },
         {
@@ -5151,6 +5151,13 @@
           "nationality": "Sweden"
         },
         {
+          "id": 72511,
+          "name": "Benjamin Nygren",
+          "position": "Midfield",
+          "dateOfBirth": "2001-07-08",
+          "nationality": "Sweden"
+        },
+        {
           "id": 145613,
           "name": "Yasin Ayari",
           "position": "Midfield",
@@ -5197,13 +5204,6 @@
           "name": "Gustaf Nilsson",
           "position": "Offence",
           "dateOfBirth": "1997-05-23",
-          "nationality": "Sweden"
-        },
-        {
-          "id": 72511,
-          "name": "Benjamin Nygren",
-          "position": "Offence",
-          "dateOfBirth": "2001-07-08",
           "nationality": "Sweden"
         },
         {
@@ -11098,13 +11098,6 @@
           "nationality": "Scotland"
         },
         {
-          "id": 270697,
-          "name": "Findlay Curtis",
-          "position": "Midfield",
-          "dateOfBirth": null,
-          "nationality": "Scotland"
-        },
-        {
           "id": 290139,
           "name": "Tyler Fletcher",
           "position": "Midfield",
@@ -11151,6 +11144,13 @@
           "name": "Ben Doak",
           "position": "Offence",
           "dateOfBirth": "2005-11-11",
+          "nationality": "Scotland"
+        },
+        {
+          "id": 270697,
+          "name": "Findlay Curtis",
+          "position": "Offence",
+          "dateOfBirth": null,
           "nationality": "Scotland"
         }
       ],
@@ -21430,16 +21430,16 @@
   "meta": {
     "day": "2026-07-23",
     "provider": "football-data.org",
-    "infoFetchedAt": 1784719553683,
-    "rankingsFetchedAt": 1784800805167,
-    "fixturesFetchedAt": 1784800808634,
-    "standingsFetchedAt": 1784800809019,
-    "liveFetchedAt": 1784800809217,
-    "requestCount": 16,
+    "infoFetchedAt": 1784807942103,
+    "rankingsFetchedAt": 1784807943904,
+    "fixturesFetchedAt": 1784807944184,
+    "standingsFetchedAt": 1784807944366,
+    "liveFetchedAt": 1784807944553,
+    "requestCount": 22,
     "dailyLimit": 50,
-    "generatedAt": 1784800809225,
-    "fetchedAt": 1784800809217,
-    "nextRefreshAt": 1784800929217,
+    "generatedAt": 1784807944562,
+    "fetchedAt": 1784807944553,
+    "nextRefreshAt": 1784808064553,
     "warning": ""
   }
 }
