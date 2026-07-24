@@ -1613,6 +1613,13 @@
           "code": "WC",
           "type": "CUP",
           "emblem": "https://crests.football-data.org/wm26.png"
+        },
+        {
+          "id": 2193,
+          "name": "Africa Cup Of Nations - Qualification",
+          "code": "ACQ",
+          "type": "CUP",
+          "emblem": null
         }
       ],
       "coach": {
@@ -3659,6 +3666,13 @@
           "code": "WC",
           "type": "CUP",
           "emblem": "https://crests.football-data.org/wm26.png"
+        },
+        {
+          "id": 2193,
+          "name": "Africa Cup Of Nations - Qualification",
+          "code": "ACQ",
+          "type": "CUP",
+          "emblem": null
         }
       ],
       "coach": {
@@ -3884,6 +3898,13 @@
           "code": "WC",
           "type": "CUP",
           "emblem": "https://crests.football-data.org/wm26.png"
+        },
+        {
+          "id": 2193,
+          "name": "Africa Cup Of Nations - Qualification",
+          "code": "ACQ",
+          "type": "CUP",
+          "emblem": null
         }
       ],
       "coach": {
@@ -5937,6 +5958,13 @@
           "code": "WC",
           "type": "CUP",
           "emblem": "https://crests.football-data.org/wm26.png"
+        },
+        {
+          "id": 2193,
+          "name": "Africa Cup Of Nations - Qualification",
+          "code": "ACQ",
+          "type": "CUP",
+          "emblem": null
         }
       ],
       "coach": {
@@ -6394,6 +6422,13 @@
           "code": "WC",
           "type": "CUP",
           "emblem": "https://crests.football-data.org/wm26.png"
+        },
+        {
+          "id": 2193,
+          "name": "Africa Cup Of Nations - Qualification",
+          "code": "ACQ",
+          "type": "CUP",
+          "emblem": null
         }
       ],
       "coach": {
@@ -6858,6 +6893,13 @@
           "code": "WC",
           "type": "CUP",
           "emblem": "https://crests.football-data.org/wm26.png"
+        },
+        {
+          "id": 2193,
+          "name": "Africa Cup Of Nations - Qualification",
+          "code": "ACQ",
+          "type": "CUP",
+          "emblem": null
         }
       ],
       "coach": {
@@ -7540,6 +7582,13 @@
           "code": "WC",
           "type": "CUP",
           "emblem": "https://crests.football-data.org/wm26.png"
+        },
+        {
+          "id": 2193,
+          "name": "Africa Cup Of Nations - Qualification",
+          "code": "ACQ",
+          "type": "CUP",
+          "emblem": null
         }
       ],
       "coach": {
@@ -8897,6 +8946,13 @@
           "code": "WC",
           "type": "CUP",
           "emblem": "https://crests.football-data.org/wm26.png"
+        },
+        {
+          "id": 2193,
+          "name": "Africa Cup Of Nations - Qualification",
+          "code": "ACQ",
+          "type": "CUP",
+          "emblem": null
         }
       ],
       "coach": {
@@ -9122,6 +9178,13 @@
           "code": "WC",
           "type": "CUP",
           "emblem": "https://crests.football-data.org/wm26.png"
+        },
+        {
+          "id": 2193,
+          "name": "Africa Cup Of Nations - Qualification",
+          "code": "ACQ",
+          "type": "CUP",
+          "emblem": null
         }
       ],
       "coach": {
@@ -9347,6 +9410,13 @@
           "code": "WC",
           "type": "CUP",
           "emblem": "https://crests.football-data.org/wm26.png"
+        },
+        {
+          "id": 2193,
+          "name": "Africa Cup Of Nations - Qualification",
+          "code": "ACQ",
+          "type": "CUP",
+          "emblem": null
         }
       ],
       "coach": {
@@ -21430,16 +21500,16 @@
   "meta": {
     "day": "2026-07-24",
     "provider": "football-data.org",
-    "infoFetchedAt": 1784807942103,
-    "rankingsFetchedAt": 1784893642244,
-    "fixturesFetchedAt": 1784893642482,
-    "standingsFetchedAt": 1784893642664,
-    "liveFetchedAt": 1784893642856,
-    "requestCount": 20,
+    "infoFetchedAt": 1784901052974,
+    "rankingsFetchedAt": 1784901053202,
+    "fixturesFetchedAt": 1784901053381,
+    "standingsFetchedAt": 1784901053528,
+    "liveFetchedAt": 1784901053633,
+    "requestCount": 26,
     "dailyLimit": 50,
-    "generatedAt": 1784893642862,
-    "fetchedAt": 1784893642856,
-    "nextRefreshAt": 1784893762856,
+    "generatedAt": 1784901053639,
+    "fetchedAt": 1784901053633,
+    "nextRefreshAt": 1784901173633,
     "warning": ""
   }
 }
