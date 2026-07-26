@@ -21504,12 +21504,12 @@
     "rankingsFetchedAt": 1785080397913,
     "fixturesFetchedAt": 1785080398201,
     "standingsFetchedAt": 1785080398350,
-    "liveFetchedAt": 1785080398506,
-    "requestCount": 34,
+    "liveFetchedAt": 1785083824660,
+    "requestCount": 35,
     "dailyLimit": 50,
-    "generatedAt": 1785080398513,
-    "fetchedAt": 1785080398506,
-    "nextRefreshAt": 1785080518506,
+    "generatedAt": 1785083824670,
+    "fetchedAt": 1785083824660,
+    "nextRefreshAt": 1785083944660,
     "warning": ""
   }
 }
