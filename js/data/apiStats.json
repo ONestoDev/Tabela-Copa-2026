@@ -1298,6 +1298,13 @@
           "nationality": "Paraguay"
         },
         {
+          "id": 168949,
+          "name": "Julio Enciso",
+          "position": "Midfield",
+          "dateOfBirth": "2004-01-23",
+          "nationality": "Paraguay"
+        },
+        {
           "id": 168954,
           "name": "Damian Bobadilla",
           "position": "Midfield",
@@ -1337,13 +1344,6 @@
           "name": "Ramón Sosa",
           "position": "Offence",
           "dateOfBirth": "1999-08-31",
-          "nationality": "Paraguay"
-        },
-        {
-          "id": 168949,
-          "name": "Julio Enciso",
-          "position": "Offence",
-          "dateOfBirth": "2004-01-23",
           "nationality": "Paraguay"
         },
         {
@@ -1481,13 +1481,6 @@
           "nationality": "Argentina"
         },
         {
-          "id": 170261,
-          "name": "Valentin Barco",
-          "position": "Defence",
-          "dateOfBirth": "2004-07-23",
-          "nationality": "Argentina"
-        },
-        {
           "id": 2127,
           "name": "Rodrigo de Paul",
           "position": "Midfield",
@@ -1534,6 +1527,13 @@
           "name": "Enzo Fernández",
           "position": "Midfield",
           "dateOfBirth": "2001-01-17",
+          "nationality": "Argentina"
+        },
+        {
+          "id": 170261,
+          "name": "Valentin Barco",
+          "position": "Midfield",
+          "dateOfBirth": "2004-07-23",
           "nationality": "Argentina"
         },
         {
@@ -2416,13 +2416,6 @@
           "nationality": "Japan"
         },
         {
-          "id": 48595,
-          "name": "Keito Nakamura",
-          "position": "Midfield",
-          "dateOfBirth": "2000-07-28",
-          "nationality": "Japan"
-        },
-        {
           "id": 49105,
           "name": "Ao Tanaka",
           "position": "Midfield",
@@ -2448,6 +2441,13 @@
           "name": "Daizen Maeda",
           "position": "Offence",
           "dateOfBirth": "1997-10-20",
+          "nationality": "Japan"
+        },
+        {
+          "id": 48595,
+          "name": "Keito Nakamura",
+          "position": "Offence",
+          "dateOfBirth": "2000-07-28",
           "nationality": "Japan"
         },
         {
@@ -3091,6 +3091,13 @@
           "nationality": "USA"
         },
         {
+          "id": 8492,
+          "name": "Tim Weah",
+          "position": "Midfield",
+          "dateOfBirth": "2000-02-22",
+          "nationality": "USA"
+        },
+        {
           "id": 77029,
           "name": "Cristian Roldan",
           "position": "Midfield",
@@ -3137,13 +3144,6 @@
           "name": "Christian Pulisic",
           "position": "Offence",
           "dateOfBirth": "1998-09-18",
-          "nationality": "USA"
-        },
-        {
-          "id": 8492,
-          "name": "Tim Weah",
-          "position": "Offence",
-          "dateOfBirth": "2000-02-22",
           "nationality": "USA"
         },
         {
@@ -3576,20 +3576,6 @@
           "nationality": "France"
         },
         {
-          "id": 175701,
-          "name": "Maghnes Akliouche",
-          "position": "Midfield",
-          "dateOfBirth": "2002-02-25",
-          "nationality": "France"
-        },
-        {
-          "id": 177522,
-          "name": "Desire Doue",
-          "position": "Midfield",
-          "dateOfBirth": "2005-06-03",
-          "nationality": "France"
-        },
-        {
           "id": 186089,
           "name": "Warren Zaïre-Emery",
           "position": "Midfield",
@@ -3636,6 +3622,20 @@
           "name": "Bradley Barcola",
           "position": "Offence",
           "dateOfBirth": "2002-09-02",
+          "nationality": "France"
+        },
+        {
+          "id": 175701,
+          "name": "Maghnes Akliouche",
+          "position": "Offence",
+          "dateOfBirth": "2002-02-25",
+          "nationality": "France"
+        },
+        {
+          "id": 177522,
+          "name": "Desire Doue",
+          "position": "Offence",
+          "dateOfBirth": "2005-06-03",
           "nationality": "France"
         }
       ],
@@ -4286,6 +4286,13 @@
           "nationality": "Australia"
         },
         {
+          "id": 176991,
+          "name": "Nestor Irankunda",
+          "position": "Midfield",
+          "dateOfBirth": "2006-02-09",
+          "nationality": "Australia"
+        },
+        {
           "id": 263718,
           "name": "Paul Okon-Engstler",
           "position": "Midfield",
@@ -4312,13 +4319,6 @@
           "position": "Offence",
           "dateOfBirth": "2003-11-15",
           "nationality": "Italy"
-        },
-        {
-          "id": 176991,
-          "name": "Nestor Irankunda",
-          "position": "Offence",
-          "dateOfBirth": "2006-02-09",
-          "nationality": "Australia"
         },
         {
           "id": 181753,
@@ -4448,6 +4448,13 @@
           "nationality": "New Zealand"
         },
         {
+          "id": 177602,
+          "name": "Ben Old",
+          "position": "Defence",
+          "dateOfBirth": "2002-08-13",
+          "nationality": "New Zealand"
+        },
+        {
           "id": 214425,
           "name": "Tyler Bindon",
           "position": "Defence",
@@ -4501,13 +4508,6 @@
           "name": "Marko Stamenic",
           "position": "Midfield",
           "dateOfBirth": "2002-02-19",
-          "nationality": "New Zealand"
-        },
-        {
-          "id": 177602,
-          "name": "Ben Old",
-          "position": "Midfield",
-          "dateOfBirth": "2002-08-13",
           "nationality": "New Zealand"
         },
         {
@@ -9538,13 +9538,6 @@
           "nationality": "Ivory Coast"
         },
         {
-          "id": 144698,
-          "name": "Parfait Guiagon",
-          "position": "Midfield",
-          "dateOfBirth": "2001-02-22",
-          "nationality": "Ivory Coast"
-        },
-        {
           "id": 269161,
           "name": "Christ Ravynel Inao Oulaï",
           "position": "Midfield",
@@ -9570,6 +9563,13 @@
           "name": "Amad Diallo",
           "position": "Offence",
           "dateOfBirth": "2002-07-11",
+          "nationality": "Ivory Coast"
+        },
+        {
+          "id": 144698,
+          "name": "Parfait Guiagon",
+          "position": "Offence",
+          "dateOfBirth": "2001-02-22",
           "nationality": "Ivory Coast"
         },
         {
@@ -21500,16 +21500,16 @@
   "meta": {
     "day": "2026-07-27",
     "provider": "football-data.org",
-    "infoFetchedAt": 1785080396767,
-    "rankingsFetchedAt": 1785164176268,
-    "fixturesFetchedAt": 1785164176547,
-    "standingsFetchedAt": 1785164176703,
-    "liveFetchedAt": 1785164176841,
-    "requestCount": 20,
+    "infoFetchedAt": 1785178099292,
+    "rankingsFetchedAt": 1785178100246,
+    "fixturesFetchedAt": 1785178100493,
+    "standingsFetchedAt": 1785178100615,
+    "liveFetchedAt": 1785178100740,
+    "requestCount": 26,
     "dailyLimit": 50,
-    "generatedAt": 1785164176846,
-    "fetchedAt": 1785164176841,
-    "nextRefreshAt": 1785164296841,
+    "generatedAt": 1785178100747,
+    "fetchedAt": 1785178100740,
+    "nextRefreshAt": 1785178220740,
     "warning": ""
   }
 }
