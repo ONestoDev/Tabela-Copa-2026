@@ -21500,16 +21500,16 @@
   "meta": {
     "day": "2026-07-29",
     "provider": "football-data.org",
-    "infoFetchedAt": 1785269855205,
-    "rankingsFetchedAt": 1785352884035,
-    "fixturesFetchedAt": 1785352884262,
-    "standingsFetchedAt": 1785352884465,
-    "liveFetchedAt": 1785352884623,
-    "requestCount": 36,
+    "infoFetchedAt": 1785357084716,
+    "rankingsFetchedAt": 1785357085814,
+    "fixturesFetchedAt": 1785357086162,
+    "standingsFetchedAt": 1785357086337,
+    "liveFetchedAt": 1785357086499,
+    "requestCount": 42,
     "dailyLimit": 50,
-    "generatedAt": 1785352884631,
-    "fetchedAt": 1785352884623,
-    "nextRefreshAt": 1785353004623,
+    "generatedAt": 1785357086506,
+    "fetchedAt": 1785357086499,
+    "nextRefreshAt": 1785357206499,
     "warning": ""
   }
 }
