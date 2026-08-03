@@ -467,22 +467,14 @@
       "founded": 1900,
       "clubColors": "Sky Blue / White / Black",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 56079,
-        "firstName": "Marcelo",
-        "lastName": "Bielsa",
-        "name": "Marcelo Bielsa",
-        "dateOfBirth": "1955-07-21",
-        "nationality": "Argentina",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -694,13 +686,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -709,12 +694,12 @@
         }
       ],
       "coach": {
-        "id": 336,
-        "firstName": "Julian",
-        "lastName": "Nagelsmann",
-        "name": "Julian Nagelsmann",
-        "dateOfBirth": "1987-07-23",
-        "nationality": "Germany",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -926,13 +911,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -941,12 +919,12 @@
         }
       ],
       "coach": {
-        "id": 192542,
-        "firstName": "Luis",
-        "lastName": "de la Fuente",
-        "name": "Luis de la Fuente",
-        "dateOfBirth": "1961-06-21",
-        "nationality": "Spain",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -1156,22 +1134,14 @@
       "founded": 1906,
       "clubColors": "Red / White / Blue",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 45894,
-        "firstName": "Gustavo",
-        "lastName": "Alfaro",
-        "name": "Gustavo Alfaro",
-        "dateOfBirth": "1962-08-14",
-        "nationality": "Argentina",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -1381,22 +1351,14 @@
       "founded": 1893,
       "clubColors": "Sky Blue / White / Black",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 82990,
-        "firstName": "Lionel",
-        "lastName": "Scaloni",
-        "name": "Lionel Scaloni",
-        "dateOfBirth": "1978-05-16",
-        "nationality": "Argentina",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -1608,13 +1570,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2193,
           "name": "Africa Cup Of Nations - Qualification",
           "code": "ACQ",
@@ -1623,12 +1578,12 @@
         }
       ],
       "coach": {
-        "id": 43784,
-        "firstName": "",
-        "lastName": "Carlos Queiroz",
-        "name": "Carlos Queiroz",
-        "dateOfBirth": "1953-03-01",
-        "nationality": "Portugal",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -1838,22 +1793,14 @@
       "founded": 1914,
       "clubColors": "Yellow / Green / Blue",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 43919,
-        "firstName": "Carlo",
-        "lastName": "Ancelotti",
-        "name": "Carlo Ancelotti",
-        "dateOfBirth": "1959-06-10",
-        "nationality": "Italy",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -2065,13 +2012,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -2080,12 +2020,12 @@
         }
       ],
       "coach": {
-        "id": 10211,
-        "firstName": "",
-        "lastName": "Roberto Martínez",
-        "name": "Roberto Martínez",
-        "dateOfBirth": "1973-07-13",
-        "nationality": "Spain",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -2295,22 +2235,14 @@
       "founded": 1921,
       "clubColors": "Blue / White",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 83225,
-        "firstName": "Hajime",
-        "lastName": "Moriyasu",
-        "name": "Hajime Moriyasu",
-        "dateOfBirth": "1968-08-23",
-        "nationality": "Japan",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -2520,22 +2452,14 @@
       "founded": 1927,
       "clubColors": "Green / White / Red",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 83066,
-        "firstName": "Javier",
-        "lastName": "Aguirre",
-        "name": "Javier Aguirre",
-        "dateOfBirth": "1958-12-01",
-        "nationality": "Mexico",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -2747,13 +2671,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -2762,12 +2679,12 @@
         }
       ],
       "coach": {
-        "id": 72766,
-        "firstName": "Thomas",
-        "lastName": "Tuchel",
-        "name": "Thomas Tuchel",
-        "dateOfBirth": "1973-08-29",
-        "nationality": "Germany",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -2977,22 +2894,14 @@
       "founded": 1913,
       "clubColors": "White / Navy Blue / Red",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 11609,
-        "firstName": "Mauricio",
-        "lastName": "Pochettino",
-        "name": "Mauricio Pochettino",
-        "dateOfBirth": "1972-03-02",
-        "nationality": "Argentina",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -3202,22 +3111,14 @@
       "founded": 1928,
       "clubColors": "Red / White / Blue",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 173877,
-        "firstName": "Myungbo",
-        "lastName": "Hong",
-        "name": "Hong Myungbo",
-        "dateOfBirth": "1969-02-12",
-        "nationality": "South Korea",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -3429,13 +3330,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -3444,12 +3338,12 @@
         }
       ],
       "coach": {
-        "id": 10187,
-        "firstName": "Didier",
-        "lastName": "Deschamps",
-        "name": "Didier Deschamps",
-        "dateOfBirth": "1968-10-15",
-        "nationality": "France",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -3661,13 +3555,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2193,
           "name": "Africa Cup Of Nations - Qualification",
           "code": "ACQ",
@@ -3676,12 +3563,12 @@
         }
       ],
       "coach": {
-        "id": 113599,
-        "firstName": "Hugo",
-        "lastName": "Broos",
-        "name": "Hugo Broos",
-        "dateOfBirth": "1952-04-10",
-        "nationality": "Belgium",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -3893,13 +3780,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2193,
           "name": "Africa Cup Of Nations - Qualification",
           "code": "ACQ",
@@ -3908,12 +3788,12 @@
         }
       ],
       "coach": {
-        "id": 10197,
-        "firstName": "Vladimir",
-        "lastName": "Petković",
-        "name": "Vladimir Petković",
-        "dateOfBirth": "1963-08-15",
-        "nationality": "Switzerland",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -4123,22 +4003,14 @@
       "founded": 1961,
       "clubColors": "Gold / Green",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 33573,
-        "firstName": "Tony",
-        "lastName": "Popovic",
-        "name": "Tony Popović",
-        "dateOfBirth": "1973-07-04",
-        "nationality": "Australia",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -4348,22 +4220,14 @@
       "founded": 1891,
       "clubColors": "White / Black",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 259947,
-        "firstName": "Darren",
-        "lastName": "Bazeley",
-        "name": "Darren Bazeley",
-        "dateOfBirth": "1972-10-05",
-        "nationality": "England",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -4575,13 +4439,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -4590,12 +4447,12 @@
         }
       ],
       "coach": {
-        "id": 32308,
-        "firstName": "Murat",
-        "lastName": "Yakin",
-        "name": "Murat Yakin",
-        "dateOfBirth": "1974-09-15",
-        "nationality": "Switzerland",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -4805,22 +4662,14 @@
       "founded": 1925,
       "clubColors": "Yellow / Blue / Red",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 72715,
-        "firstName": "Sebastián",
-        "lastName": "Beccacece",
-        "name": "Sebastián Beccacece",
-        "dateOfBirth": "1980-12-17",
-        "nationality": "Argentina",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -5032,13 +4881,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -5047,12 +4889,12 @@
         }
       ],
       "coach": {
-        "id": 31097,
-        "firstName": "Graham",
-        "lastName": "Potter",
-        "name": "Graham Potter",
-        "dateOfBirth": "1975-05-20",
-        "nationality": "England",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -5264,13 +5106,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -5279,12 +5114,12 @@
         }
       ],
       "coach": {
-        "id": 216348,
-        "firstName": "Miroslav",
-        "lastName": "Koubek",
-        "name": "Miroslav Koubek",
-        "dateOfBirth": "1951-09-01",
-        "nationality": "Czech Republic",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -5496,13 +5331,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -5511,12 +5339,12 @@
         }
       ],
       "coach": {
-        "id": 10209,
-        "firstName": "Zlatko",
-        "lastName": "Dalić",
-        "name": "Zlatko Dalić",
-        "dateOfBirth": "1966-10-26",
-        "nationality": "Croatia",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -5726,22 +5554,14 @@
       "founded": 1956,
       "clubColors": "White / Green",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 43848,
-        "firstName": "Giorgios",
+        "id": null,
+        "firstName": null,
         "lastName": null,
-        "name": "Giorgios Donis",
-        "dateOfBirth": "1969-10-22",
-        "nationality": "Greece",
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -5953,13 +5773,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2193,
           "name": "Africa Cup Of Nations - Qualification",
           "code": "ACQ",
@@ -5968,12 +5781,12 @@
         }
       ],
       "coach": {
-        "id": 10170,
-        "firstName": "Hervé",
-        "lastName": "Renard",
-        "name": "Hervé Renard",
-        "dateOfBirth": "1968-09-30",
-        "nationality": "France",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -6185,13 +5998,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -6200,12 +6006,12 @@
         }
       ],
       "coach": {
-        "id": 133,
-        "firstName": "Vincenzo",
-        "lastName": "Montella",
-        "name": "Vincenzo Montella",
-        "dateOfBirth": "1974-06-18",
-        "nationality": "Italy",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -6416,13 +6222,6 @@
       "clubColors": "White / Green",
       "venue": null,
       "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
         {
           "id": 2193,
           "name": "Africa Cup Of Nations - Qualification",
@@ -6656,13 +6455,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -6671,12 +6463,12 @@
         }
       ],
       "coach": {
-        "id": 45094,
-        "firstName": "Rudi",
-        "lastName": "García",
-        "name": "Rudi Garcia",
-        "dateOfBirth": "1964-02-20",
-        "nationality": "France",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -6888,13 +6680,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2193,
           "name": "Africa Cup Of Nations - Qualification",
           "code": "ACQ",
@@ -6903,12 +6688,12 @@
         }
       ],
       "coach": {
-        "id": 295847,
-        "firstName": "Mohamed",
-        "lastName": "Ouahbi",
-        "name": "Mohamed Ouahbi",
-        "dateOfBirth": "1976-09-07",
-        "nationality": "Belgium",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -7120,13 +6905,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -7135,12 +6913,12 @@
         }
       ],
       "coach": {
-        "id": 59070,
-        "firstName": "Ralf",
-        "lastName": "Rangnick",
-        "name": "Ralf Rangnick",
-        "dateOfBirth": "1958-06-29",
-        "nationality": "Germany",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -7350,22 +7128,14 @@
       "founded": 1924,
       "clubColors": "Yellow / Red / Blue",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 166025,
-        "firstName": "Néstor",
-        "lastName": "Lorenzo",
-        "name": "Néstor Lorenzo",
-        "dateOfBirth": "1966-02-28",
-        "nationality": "Argentina",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -7577,13 +7347,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2193,
           "name": "Africa Cup Of Nations - Qualification",
           "code": "ACQ",
@@ -7592,12 +7355,12 @@
         }
       ],
       "coach": {
-        "id": 287681,
-        "firstName": "Hossam",
-        "lastName": "Hassan",
-        "name": "Hossam Hassan",
-        "dateOfBirth": "1966-08-10",
-        "nationality": "Egypt",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -7807,22 +7570,14 @@
       "founded": null,
       "clubColors": null,
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 59069,
-        "firstName": "Jesse",
-        "lastName": "Marsch",
-        "name": "Jesse Marsch",
-        "dateOfBirth": "1973-11-08",
-        "nationality": "USA",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -8032,22 +7787,14 @@
       "founded": 1904,
       "clubColors": "Blue / White / Red",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 123774,
-        "firstName": "Sébastien",
-        "lastName": "Migné",
-        "name": "Sébastien Migné",
-        "dateOfBirth": "1972-11-30",
-        "nationality": "France",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -8257,22 +8004,14 @@
       "founded": 1920,
       "clubColors": "White / Green / Red",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 244440,
-        "firstName": "Amir",
-        "lastName": "Ghalenoei",
-        "name": "Amir Ghalenoei",
-        "dateOfBirth": "1963-11-23",
-        "nationality": "Iran",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -8484,13 +8223,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -8499,12 +8231,12 @@
         }
       ],
       "coach": {
-        "id": 196807,
-        "firstName": "Sergej",
-        "lastName": "Barbarez",
-        "name": "Sergej Barbarez",
-        "dateOfBirth": "1971-09-17",
-        "nationality": "Bosnia-Herzegovina",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -8714,22 +8446,14 @@
       "founded": 1937,
       "clubColors": "Red / White / Navy Blue",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 11429,
-        "firstName": "Thomas",
-        "lastName": "Christiansen",
-        "name": "Thomas Christiansen",
-        "dateOfBirth": "1973-03-11",
-        "nationality": "Spain",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -8941,13 +8665,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2193,
           "name": "Africa Cup Of Nations - Qualification",
           "code": "ACQ",
@@ -8956,12 +8673,12 @@
         }
       ],
       "coach": {
-        "id": 144004,
-        "firstName": "",
-        "lastName": "Bubista",
-        "name": "Bubista",
-        "dateOfBirth": "1970-01-06",
-        "nationality": "Cape Verde Islands",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -9173,13 +8890,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2193,
           "name": "Africa Cup Of Nations - Qualification",
           "code": "ACQ",
@@ -9188,12 +8898,12 @@
         }
       ],
       "coach": {
-        "id": 147881,
-        "firstName": "Sébastien",
-        "lastName": "Desabre",
-        "name": "Sébastien Desabre",
-        "dateOfBirth": "1976-08-02",
-        "nationality": "France",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -9405,13 +9115,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2193,
           "name": "Africa Cup Of Nations - Qualification",
           "code": "ACQ",
@@ -9420,12 +9123,12 @@
         }
       ],
       "coach": {
-        "id": 173370,
-        "firstName": "Emerse",
-        "lastName": "Faé",
-        "name": "Emerse Faé",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
         "dateOfBirth": null,
-        "nationality": "Ivory Coast",
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -9635,22 +9338,14 @@
       "founded": 1960,
       "clubColors": "Maroon / White",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 10180,
-        "firstName": "",
-        "lastName": "Julen Lopetegui",
-        "name": "Julen Lopetegui",
-        "dateOfBirth": "1966-08-28",
-        "nationality": "Spain",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -9860,15 +9555,7 @@
       "founded": 1949,
       "clubColors": "Red / White",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
         "id": null,
         "firstName": null,
@@ -10065,20 +9752,7 @@
           "nationality": "Jordan"
         }
       ],
-      "staff": [
-        {
-          "id": 10169,
-          "firstName": "Jamal",
-          "lastName": "Sellami",
-          "name": "Jamal Sellami",
-          "dateOfBirth": "1970-10-06",
-          "nationality": "Morocco",
-          "contract": {
-            "start": null,
-            "until": null
-          }
-        }
-      ],
+      "staff": [],
       "lastUpdated": "2026-04-17T11:47:01Z"
     },
     {
@@ -10098,22 +9772,14 @@
       "founded": 1948,
       "clubColors": "White / Green",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 10224,
-        "firstName": "Graham",
-        "lastName": "Arnold",
-        "name": "Graham Arnold",
-        "dateOfBirth": "1963-08-03",
-        "nationality": "Australia",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -10323,22 +9989,14 @@
       "founded": 1946,
       "clubColors": "White / Blue / Green",
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 21440,
-        "firstName": "Fabio",
-        "lastName": "Cannavaro",
-        "name": "Fabio Cannavaro",
-        "dateOfBirth": "1973-09-13",
-        "nationality": "Italy",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -10550,13 +10208,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -10565,12 +10216,12 @@
         }
       ],
       "coach": {
-        "id": 11591,
-        "firstName": "Ronald",
-        "lastName": "Koeman",
-        "name": "Ronald Koeman",
-        "dateOfBirth": "1963-03-21",
-        "nationality": "Netherlands",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -10782,13 +10433,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -10797,12 +10441,12 @@
         }
       ],
       "coach": {
-        "id": 15543,
-        "firstName": "Ståle",
-        "lastName": "Solbakken",
-        "name": "Ståle Solbakken",
-        "dateOfBirth": "1968-02-27",
-        "nationality": "Norway",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -11014,13 +10658,6 @@
       "venue": null,
       "runningCompetitions": [
         {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        },
-        {
           "id": 2182,
           "name": "UEFA Nations League",
           "code": "UNL",
@@ -11029,12 +10666,12 @@
         }
       ],
       "coach": {
-        "id": 34834,
-        "firstName": "Steve",
-        "lastName": "Clarke",
-        "name": "Steve Clarke",
-        "dateOfBirth": "1963-08-29",
-        "nationality": "Scotland",
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -11244,22 +10881,14 @@
       "founded": null,
       "clubColors": null,
       "venue": null,
-      "runningCompetitions": [
-        {
-          "id": 2000,
-          "name": "FIFA World Cup",
-          "code": "WC",
-          "type": "CUP",
-          "emblem": "https://crests.football-data.org/wm26.png"
-        }
-      ],
+      "runningCompetitions": [],
       "coach": {
-        "id": 9591,
-        "firstName": "Dick",
+        "id": null,
+        "firstName": null,
         "lastName": null,
-        "name": "Dick Advocaat",
-        "dateOfBirth": "1947-09-27",
-        "nationality": "Netherlands",
+        "name": null,
+        "dateOfBirth": null,
+        "nationality": null,
         "contract": {
           "start": null,
           "until": null
@@ -21498,18 +21127,18 @@
   ],
   "liveFixtures": [],
   "meta": {
-    "day": "2026-08-02",
+    "day": "2026-08-03",
     "provider": "football-data.org",
-    "infoFetchedAt": 1785629672004,
-    "rankingsFetchedAt": 1785700532269,
-    "fixturesFetchedAt": 1785700532471,
-    "standingsFetchedAt": 1785700532610,
-    "liveFetchedAt": 1785700532727,
-    "requestCount": 50,
+    "infoFetchedAt": 1785716122300,
+    "rankingsFetchedAt": 1785716123574,
+    "fixturesFetchedAt": 1785716123868,
+    "standingsFetchedAt": 1785716124037,
+    "liveFetchedAt": 1785716124186,
+    "requestCount": 6,
     "dailyLimit": 50,
-    "generatedAt": 1785700532733,
-    "fetchedAt": 1785700532727,
-    "nextRefreshAt": 1785700652727,
+    "generatedAt": 1785716124193,
+    "fetchedAt": 1785716124186,
+    "nextRefreshAt": 1785716244186,
     "warning": ""
   }
 }
