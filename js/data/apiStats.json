@@ -601,13 +601,6 @@
           "nationality": "Uruguay"
         },
         {
-          "id": 122506,
-          "name": "Facundo Pellistri",
-          "position": "Midfield",
-          "dateOfBirth": "2001-12-20",
-          "nationality": "Uruguay"
-        },
-        {
           "id": 130957,
           "name": "Emiliano Martínez",
           "position": "Midfield",
@@ -661,6 +654,13 @@
           "name": "Federico Viñas",
           "position": "Offence",
           "dateOfBirth": "1998-06-30",
+          "nationality": "Uruguay"
+        },
+        {
+          "id": 122506,
+          "name": "Facundo Pellistri",
+          "position": "Offence",
+          "dateOfBirth": "2001-12-20",
           "nationality": "Uruguay"
         }
       ],
@@ -953,6 +953,13 @@
           "nationality": "Spain"
         },
         {
+          "id": 70,
+          "name": "Marcos Llorente",
+          "position": "Defence",
+          "dateOfBirth": "1995-01-30",
+          "nationality": "Spain"
+        },
+        {
           "id": 7884,
           "name": "Aymeric Laporte",
           "position": "Defence",
@@ -1009,13 +1016,6 @@
           "nationality": "Spain"
         },
         {
-          "id": 70,
-          "name": "Marcos Llorente",
-          "position": "Midfield",
-          "dateOfBirth": "1995-01-30",
-          "nationality": "Spain"
-        },
-        {
           "id": 3199,
           "name": "Rodri",
           "position": "Midfield",
@@ -1034,13 +1034,6 @@
           "name": "Dani Olmo",
           "position": "Midfield",
           "dateOfBirth": "1998-05-07",
-          "nationality": "Spain"
-        },
-        {
-          "id": 33154,
-          "name": "Ferrán Torres",
-          "position": "Midfield",
-          "dateOfBirth": "2000-02-29",
           "nationality": "Spain"
         },
         {
@@ -1065,13 +1058,6 @@
           "nationality": "Spain"
         },
         {
-          "id": 180137,
-          "name": "Mikel Oyarzabal",
-          "position": "Midfield",
-          "dateOfBirth": "1997-04-21",
-          "nationality": "Spain"
-        },
-        {
           "id": 213278,
           "name": "Álex Baena",
           "position": "Midfield",
@@ -1086,6 +1072,13 @@
           "nationality": "Spain"
         },
         {
+          "id": 33154,
+          "name": "Ferrán Torres",
+          "position": "Offence",
+          "dateOfBirth": "2000-02-29",
+          "nationality": "Spain"
+        },
+        {
           "id": 152505,
           "name": "Yeremi Pino",
           "position": "Offence",
@@ -1097,6 +1090,13 @@
           "name": "Nico Williams",
           "position": "Offence",
           "dateOfBirth": "2002-07-12",
+          "nationality": "Spain"
+        },
+        {
+          "id": 180137,
+          "name": "Mikel Oyarzabal",
+          "position": "Offence",
+          "dateOfBirth": "1997-04-21",
           "nationality": "Spain"
         },
         {
@@ -2138,13 +2138,6 @@
           "nationality": "Portugal"
         },
         {
-          "id": 3259,
-          "name": "Gonçalo Guedes",
-          "position": "Midfield",
-          "dateOfBirth": "1996-11-29",
-          "nationality": "Portugal"
-        },
-        {
           "id": 140814,
           "name": "Samuel Almeida Costa",
           "position": "Midfield",
@@ -2177,6 +2170,13 @@
           "name": "Pedro Neto",
           "position": "Offence",
           "dateOfBirth": "2000-03-09",
+          "nationality": "Portugal"
+        },
+        {
+          "id": 3259,
+          "name": "Gonçalo Guedes",
+          "position": "Offence",
+          "dateOfBirth": "1996-11-29",
           "nationality": "Portugal"
         },
         {
@@ -2341,13 +2341,6 @@
           "nationality": "Japan"
         },
         {
-          "id": 48555,
-          "name": "Takefusa Kubo",
-          "position": "Midfield",
-          "dateOfBirth": "2001-06-04",
-          "nationality": "Japan"
-        },
-        {
           "id": 49105,
           "name": "Ao Tanaka",
           "position": "Midfield",
@@ -2373,6 +2366,13 @@
           "name": "Daizen Maeda",
           "position": "Offence",
           "dateOfBirth": "1997-10-20",
+          "nationality": "Japan"
+        },
+        {
+          "id": 48555,
+          "name": "Takefusa Kubo",
+          "position": "Offence",
+          "dateOfBirth": "2001-06-04",
           "nationality": "Japan"
         },
         {
@@ -2583,7 +2583,7 @@
           "name": "Obed Vargas",
           "position": "Midfield",
           "dateOfBirth": "2005-08-05",
-          "nationality": "Mexico"
+          "nationality": "USA"
         },
         {
           "id": 264596,
@@ -2790,13 +2790,6 @@
           "nationality": "England"
         },
         {
-          "id": 7848,
-          "name": "Anthony Gordon",
-          "position": "Midfield",
-          "dateOfBirth": "2001-02-24",
-          "nationality": "England"
-        },
-        {
           "id": 8215,
           "name": "Declan Rice",
           "position": "Midfield",
@@ -2850,6 +2843,13 @@
           "name": "Ivan Toney",
           "position": "Offence",
           "dateOfBirth": "1996-03-16",
+          "nationality": "England"
+        },
+        {
+          "id": 7848,
+          "name": "Anthony Gordon",
+          "position": "Offence",
+          "dateOfBirth": "2001-02-24",
           "nationality": "England"
         },
         {
@@ -2944,6 +2944,13 @@
           "nationality": "USA"
         },
         {
+          "id": 8492,
+          "name": "Tim Weah",
+          "position": "Defence",
+          "dateOfBirth": "2000-02-22",
+          "nationality": "USA"
+        },
+        {
           "id": 76866,
           "name": "Miles Robinson",
           "position": "Defence",
@@ -2997,13 +3004,6 @@
           "name": "Weston McKennie",
           "position": "Midfield",
           "dateOfBirth": "1998-08-28",
-          "nationality": "USA"
-        },
-        {
-          "id": 8492,
-          "name": "Tim Weah",
-          "position": "Midfield",
-          "dateOfBirth": "2000-02-22",
           "nationality": "USA"
         },
         {
@@ -3695,13 +3695,6 @@
           "nationality": "South Africa"
         },
         {
-          "id": 245495,
-          "name": "Thapelo Maseko",
-          "position": "Midfield",
-          "dateOfBirth": "2003-11-11",
-          "nationality": "South Africa"
-        },
-        {
           "id": 277299,
           "name": "Thalente Mbatha",
           "position": "Midfield",
@@ -3734,6 +3727,13 @@
           "name": "Iqraam Rayners",
           "position": "Offence",
           "dateOfBirth": "1995-12-19",
+          "nationality": "South Africa"
+        },
+        {
+          "id": 245495,
+          "name": "Thapelo Maseko",
+          "position": "Offence",
+          "dateOfBirth": "2003-11-11",
           "nationality": "South Africa"
         },
         {
@@ -4158,13 +4158,6 @@
           "nationality": "Australia"
         },
         {
-          "id": 176991,
-          "name": "Nestor Irankunda",
-          "position": "Midfield",
-          "dateOfBirth": "2006-02-09",
-          "nationality": "Australia"
-        },
-        {
           "id": 263718,
           "name": "Paul Okon-Engstler",
           "position": "Midfield",
@@ -4190,7 +4183,14 @@
           "name": "Cristian Volpato",
           "position": "Offence",
           "dateOfBirth": "2003-11-15",
-          "nationality": "Italy"
+          "nationality": "Australia"
+        },
+        {
+          "id": 176991,
+          "name": "Nestor Irankunda",
+          "position": "Offence",
+          "dateOfBirth": "2006-02-09",
+          "nationality": "Australia"
         },
         {
           "id": 181753,
@@ -4579,13 +4579,6 @@
           "nationality": "Switzerland"
         },
         {
-          "id": 31913,
-          "name": "Ruben Vargas",
-          "position": "Midfield",
-          "dateOfBirth": "1998-08-05",
-          "nationality": "Switzerland"
-        },
-        {
           "id": 144909,
           "name": "Ardon Jasari",
           "position": "Midfield",
@@ -4625,6 +4618,13 @@
           "name": "Cédric Itten",
           "position": "Offence",
           "dateOfBirth": "1996-12-27",
+          "nationality": "Switzerland"
+        },
+        {
+          "id": 31913,
+          "name": "Ruben Vargas",
+          "position": "Offence",
+          "dateOfBirth": "1998-08-05",
           "nationality": "Switzerland"
         },
         {
@@ -4986,13 +4986,6 @@
           "nationality": "Sweden"
         },
         {
-          "id": 192811,
-          "name": "Elliot Stroud",
-          "position": "Defence",
-          "dateOfBirth": "2002-06-22",
-          "nationality": "Sweden"
-        },
-        {
           "id": 3500,
           "name": "Ken Sema",
           "position": "Midfield",
@@ -5035,13 +5028,6 @@
           "nationality": "Sweden"
         },
         {
-          "id": 180673,
-          "name": "Taha Ali",
-          "position": "Midfield",
-          "dateOfBirth": "1998-07-01",
-          "nationality": "Sweden"
-        },
-        {
           "id": 193622,
           "name": "Lucas Bergvall",
           "position": "Midfield",
@@ -5081,6 +5067,20 @@
           "name": "Anthony Elanga",
           "position": "Offence",
           "dateOfBirth": "2002-04-27",
+          "nationality": "Sweden"
+        },
+        {
+          "id": 180673,
+          "name": "Taha Ali",
+          "position": "Offence",
+          "dateOfBirth": "1998-07-01",
+          "nationality": "Sweden"
+        },
+        {
+          "id": 192811,
+          "name": "Elliot Stroud",
+          "position": "Offence",
+          "dateOfBirth": "2002-06-22",
           "nationality": "Sweden"
         }
       ],
@@ -5836,13 +5836,6 @@
           "nationality": "Tunisia"
         },
         {
-          "id": 130471,
-          "name": "Mortadha Ben Ouanes",
-          "position": "Defence",
-          "dateOfBirth": "1994-07-02",
-          "nationality": "Tunisia"
-        },
-        {
           "id": 144669,
           "name": "Omar Rekik",
           "position": "Defence",
@@ -5931,6 +5924,13 @@
           "name": "Firas Chaouat",
           "position": "Offence",
           "dateOfBirth": "1996-05-08",
+          "nationality": "Tunisia"
+        },
+        {
+          "id": 130471,
+          "name": "Mortadha Ben Ouanes",
+          "position": "Offence",
+          "dateOfBirth": "1994-07-02",
           "nationality": "Tunisia"
         },
         {
@@ -6145,13 +6145,6 @@
           "nationality": "Turkey"
         },
         {
-          "id": 172081,
-          "name": "Baris Yilmaz",
-          "position": "Midfield",
-          "dateOfBirth": "2000-05-23",
-          "nationality": "Turkey"
-        },
-        {
           "id": 193605,
           "name": "Can Uzun",
           "position": "Midfield",
@@ -6177,6 +6170,13 @@
           "name": "Oguz Aydin",
           "position": "Offence",
           "dateOfBirth": "2000-10-27",
+          "nationality": "Turkey"
+        },
+        {
+          "id": 172081,
+          "name": "Baris Yilmaz",
+          "position": "Offence",
+          "dateOfBirth": "2000-05-23",
           "nationality": "Turkey"
         },
         {
@@ -6609,6 +6609,13 @@
           "nationality": "Belgium"
         },
         {
+          "id": 129947,
+          "name": "Charles De Ketelaere",
+          "position": "Midfield",
+          "dateOfBirth": "2001-03-10",
+          "nationality": "Belgium"
+        },
+        {
           "id": 182192,
           "name": "Diego Moreira",
           "position": "Midfield",
@@ -6641,13 +6648,6 @@
           "name": "Jeremy Doku",
           "position": "Offence",
           "dateOfBirth": "2002-05-27",
-          "nationality": "Belgium"
-        },
-        {
-          "id": 129947,
-          "name": "Charles De Ketelaere",
-          "position": "Offence",
-          "dateOfBirth": "2001-03-10",
           "nationality": "Belgium"
         },
         {
@@ -6768,7 +6768,7 @@
           "name": "Redouane Halhal",
           "position": "Defence",
           "dateOfBirth": "2003-03-05",
-          "nationality": "France"
+          "nationality": "Morocco"
         },
         {
           "id": 213459,
@@ -6789,13 +6789,6 @@
           "name": "Sofyan Amrabat",
           "position": "Midfield",
           "dateOfBirth": "1996-08-21",
-          "nationality": "Morocco"
-        },
-        {
-          "id": 7887,
-          "name": "Brahim Diaz",
-          "position": "Midfield",
-          "dateOfBirth": "1999-08-03",
           "nationality": "Morocco"
         },
         {
@@ -6838,6 +6831,13 @@
           "name": "Samir El Mourabet",
           "position": "Midfield",
           "dateOfBirth": "2005-10-06",
+          "nationality": "Morocco"
+        },
+        {
+          "id": 7887,
+          "name": "Brahim Diaz",
+          "position": "Offence",
+          "dateOfBirth": "1999-08-03",
           "nationality": "Morocco"
         },
         {
@@ -7683,13 +7683,6 @@
           "nationality": "Canada"
         },
         {
-          "id": 113175,
-          "name": "Tajon Buchanan",
-          "position": "Midfield",
-          "dateOfBirth": "1999-02-08",
-          "nationality": "Canada"
-        },
-        {
           "id": 171216,
           "name": "Nathan-Dylan Saliba",
           "position": "Midfield",
@@ -7743,6 +7736,13 @@
           "name": "Jacob Shaffelburg",
           "position": "Offence",
           "dateOfBirth": "1999-11-26",
+          "nationality": "Canada"
+        },
+        {
+          "id": 113175,
+          "name": "Tajon Buchanan",
+          "position": "Offence",
+          "dateOfBirth": "1999-02-08",
           "nationality": "Canada"
         },
         {
@@ -10130,13 +10130,6 @@
           "nationality": "Uzbekistan"
         },
         {
-          "id": 214531,
-          "name": "Abbosbek Fayzullaev",
-          "position": "Midfield",
-          "dateOfBirth": "2003-10-03",
-          "nationality": "Uzbekistan"
-        },
-        {
           "id": 232740,
           "name": "Azizjon Ganiev",
           "position": "Midfield",
@@ -10176,6 +10169,13 @@
           "name": "Ruslanbek Jiyanov",
           "position": "Offence",
           "dateOfBirth": "2001-06-05",
+          "nationality": "Uzbekistan"
+        },
+        {
+          "id": 214531,
+          "name": "Abbosbek Fayzullaev",
+          "position": "Offence",
+          "dateOfBirth": "2003-10-03",
           "nationality": "Uzbekistan"
         },
         {
@@ -10313,13 +10313,6 @@
           "nationality": "Netherlands"
         },
         {
-          "id": 7457,
-          "name": "Donyell Malen",
-          "position": "Midfield",
-          "dateOfBirth": "1999-01-19",
-          "nationality": "Netherlands"
-        },
-        {
           "id": 7559,
           "name": "Frenkie de Jong",
           "position": "Midfield",
@@ -10331,13 +10324,6 @@
           "name": "Justin Kluivert",
           "position": "Midfield",
           "dateOfBirth": "1999-05-05",
-          "nationality": "Netherlands"
-        },
-        {
-          "id": 7565,
-          "name": "Noa Lang",
-          "position": "Midfield",
-          "dateOfBirth": "1999-06-17",
           "nationality": "Netherlands"
         },
         {
@@ -10376,10 +10362,24 @@
           "nationality": "Netherlands"
         },
         {
+          "id": 7457,
+          "name": "Donyell Malen",
+          "position": "Offence",
+          "dateOfBirth": "1999-01-19",
+          "nationality": "Netherlands"
+        },
+        {
           "id": 7459,
           "name": "Cody Gakpo",
           "position": "Offence",
           "dateOfBirth": "1999-05-07",
+          "nationality": "Netherlands"
+        },
+        {
+          "id": 7565,
+          "name": "Noa Lang",
+          "position": "Offence",
+          "dateOfBirth": "1999-06-17",
           "nationality": "Netherlands"
         },
         {
@@ -21127,18 +21127,18 @@
   ],
   "liveFixtures": [],
   "meta": {
-    "day": "2026-08-06",
+    "day": "2026-09-05",
     "provider": "football-data.org",
-    "infoFetchedAt": 1785996988718,
-    "rankingsFetchedAt": 1786022528138,
-    "fixturesFetchedAt": 1786022528418,
-    "standingsFetchedAt": 1786022528631,
-    "liveFetchedAt": 1786022528797,
-    "requestCount": 26,
+    "infoFetchedAt": 1788629072173,
+    "rankingsFetchedAt": 1788629073894,
+    "fixturesFetchedAt": 1788629074098,
+    "standingsFetchedAt": 1788629074248,
+    "liveFetchedAt": 1788629074382,
+    "requestCount": 6,
     "dailyLimit": 50,
-    "generatedAt": 1786022528803,
-    "fetchedAt": 1786022528797,
-    "nextRefreshAt": 1786022648797,
+    "generatedAt": 1788629074390,
+    "fetchedAt": 1788629074382,
+    "nextRefreshAt": 1788629194382,
     "warning": ""
   }
 }
