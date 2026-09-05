@@ -21133,12 +21133,12 @@
     "rankingsFetchedAt": 1788629073894,
     "fixturesFetchedAt": 1788629074098,
     "standingsFetchedAt": 1788629074248,
-    "liveFetchedAt": 1788629074382,
-    "requestCount": 6,
+    "liveFetchedAt": 1788629330963,
+    "requestCount": 7,
     "dailyLimit": 50,
-    "generatedAt": 1788629074390,
-    "fetchedAt": 1788629074382,
-    "nextRefreshAt": 1788629194382,
+    "generatedAt": 1788629330974,
+    "fetchedAt": 1788629330963,
+    "nextRefreshAt": 1788629450963,
     "warning": ""
   }
 }
