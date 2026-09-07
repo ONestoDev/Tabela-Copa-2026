@@ -4930,6 +4930,13 @@
           "nationality": "Sweden"
         },
         {
+          "id": 3500,
+          "name": "Ken Sema",
+          "position": "Defence",
+          "dateOfBirth": "1993-09-30",
+          "nationality": "Sweden"
+        },
+        {
           "id": 31019,
           "name": "Carl Starfelt",
           "position": "Defence",
@@ -4979,20 +4986,6 @@
           "nationality": "Sweden"
         },
         {
-          "id": 167409,
-          "name": "Herman Johansson",
-          "position": "Defence",
-          "dateOfBirth": "1997-10-16",
-          "nationality": "Sweden"
-        },
-        {
-          "id": 3500,
-          "name": "Ken Sema",
-          "position": "Midfield",
-          "dateOfBirth": "1993-09-30",
-          "nationality": "Sweden"
-        },
-        {
           "id": 15354,
           "name": "Mattias Svanberg",
           "position": "Midfield",
@@ -5018,6 +5011,13 @@
           "name": "Yasin Ayari",
           "position": "Midfield",
           "dateOfBirth": "2003-10-06",
+          "nationality": "Sweden"
+        },
+        {
+          "id": 167409,
+          "name": "Herman Johansson",
+          "position": "Midfield",
+          "dateOfBirth": "1997-10-16",
           "nationality": "Sweden"
         },
         {
@@ -5232,13 +5232,6 @@
           "nationality": "Czech Republic"
         },
         {
-          "id": 120279,
-          "name": "Lukáš Provod",
-          "position": "Midfield",
-          "dateOfBirth": "1996-10-23",
-          "nationality": "Czech Republic"
-        },
-        {
           "id": 121312,
           "name": "Pavel Šulc",
           "position": "Midfield",
@@ -5306,6 +5299,13 @@
           "name": "Mojmír Chytil",
           "position": "Offence",
           "dateOfBirth": "1999-04-29",
+          "nationality": "Czech Republic"
+        },
+        {
+          "id": 120279,
+          "name": "Lukáš Provod",
+          "position": "Offence",
+          "dateOfBirth": "1996-10-23",
           "nationality": "Czech Republic"
         }
       ],
@@ -6145,6 +6145,13 @@
           "nationality": "Turkey"
         },
         {
+          "id": 180964,
+          "name": "İrfan Kahveci",
+          "position": "Midfield",
+          "dateOfBirth": "1995-07-15",
+          "nationality": "Turkey"
+        },
+        {
           "id": 193605,
           "name": "Can Uzun",
           "position": "Midfield",
@@ -6177,13 +6184,6 @@
           "name": "Baris Yilmaz",
           "position": "Offence",
           "dateOfBirth": "2000-05-23",
-          "nationality": "Turkey"
-        },
-        {
-          "id": 180964,
-          "name": "İrfan Kahveci",
-          "position": "Offence",
-          "dateOfBirth": "1995-07-15",
           "nationality": "Turkey"
         },
         {
@@ -21129,16 +21129,16 @@
   "meta": {
     "day": "2026-09-07",
     "provider": "football-data.org",
-    "infoFetchedAt": 1788721980367,
-    "rankingsFetchedAt": 1788803770042,
-    "fixturesFetchedAt": 1788803770141,
-    "standingsFetchedAt": 1788803770237,
-    "liveFetchedAt": 1788803770352,
-    "requestCount": 16,
+    "infoFetchedAt": 1788815968893,
+    "rankingsFetchedAt": 1788815969029,
+    "fixturesFetchedAt": 1788815969166,
+    "standingsFetchedAt": 1788815969300,
+    "liveFetchedAt": 1788815969446,
+    "requestCount": 22,
     "dailyLimit": 50,
-    "generatedAt": 1788803770358,
-    "fetchedAt": 1788803770352,
-    "nextRefreshAt": 1788803890352,
+    "generatedAt": 1788815969455,
+    "fetchedAt": 1788815969446,
+    "nextRefreshAt": 1788816089446,
     "warning": ""
   }
 }
