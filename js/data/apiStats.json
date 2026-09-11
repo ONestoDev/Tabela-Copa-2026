@@ -4109,13 +4109,6 @@
           "nationality": "Australia"
         },
         {
-          "id": 3420,
-          "name": "Mathew Leckie",
-          "position": "Midfield",
-          "dateOfBirth": "1991-02-04",
-          "nationality": "Australia"
-        },
-        {
           "id": 3421,
           "name": "Jackson Irvine",
           "position": "Midfield",
@@ -4144,13 +4137,6 @@
           "nationality": "Australia"
         },
         {
-          "id": 45143,
-          "name": "Awer Mabil",
-          "position": "Midfield",
-          "dateOfBirth": "1995-09-15",
-          "nationality": "Australia"
-        },
-        {
           "id": 76250,
           "name": "Cameron Devlin",
           "position": "Midfield",
@@ -4162,6 +4148,20 @@
           "name": "Paul Okon-Engstler",
           "position": "Midfield",
           "dateOfBirth": "2005-01-24",
+          "nationality": "Australia"
+        },
+        {
+          "id": 3420,
+          "name": "Mathew Leckie",
+          "position": "Offence",
+          "dateOfBirth": "1991-02-04",
+          "nationality": "Australia"
+        },
+        {
+          "id": 45143,
+          "name": "Awer Mabil",
+          "position": "Offence",
+          "dateOfBirth": "1995-09-15",
           "nationality": "Australia"
         },
         {
@@ -4375,6 +4375,13 @@
           "nationality": "New Zealand"
         },
         {
+          "id": 218039,
+          "name": "Lachlan Bayliss",
+          "position": "Midfield",
+          "dateOfBirth": "2002-07-24",
+          "nationality": "New Zealand"
+        },
+        {
           "id": 4593,
           "name": "Kosta Barbarouses",
           "position": "Offence",
@@ -4400,13 +4407,6 @@
           "name": "Ben Waine",
           "position": "Offence",
           "dateOfBirth": "2001-06-11",
-          "nationality": "New Zealand"
-        },
-        {
-          "id": 218039,
-          "name": "Lachlan Bayliss",
-          "position": "Offence",
-          "dateOfBirth": "2002-07-24",
           "nationality": "New Zealand"
         },
         {
@@ -21129,16 +21129,16 @@
   "meta": {
     "day": "2026-09-11",
     "provider": "football-data.org",
-    "infoFetchedAt": 1789077438976,
-    "rankingsFetchedAt": 1789156613095,
-    "fixturesFetchedAt": 1789156613207,
-    "standingsFetchedAt": 1789156613317,
-    "liveFetchedAt": 1789156613438,
-    "requestCount": 20,
+    "infoFetchedAt": 1789165503743,
+    "rankingsFetchedAt": 1789165503887,
+    "fixturesFetchedAt": 1789165504029,
+    "standingsFetchedAt": 1789165504170,
+    "liveFetchedAt": 1789165504329,
+    "requestCount": 26,
     "dailyLimit": 50,
-    "generatedAt": 1789156613446,
-    "fetchedAt": 1789156613438,
-    "nextRefreshAt": 1789156733438,
+    "generatedAt": 1789165504334,
+    "fetchedAt": 1789165504329,
+    "nextRefreshAt": 1789165624329,
     "warning": ""
   }
 }
