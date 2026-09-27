@@ -21127,18 +21127,18 @@
   ],
   "liveFixtures": [],
   "meta": {
-    "day": "2026-09-26",
+    "day": "2026-09-27",
     "provider": "football-data.org",
-    "infoFetchedAt": 1790380923031,
-    "rankingsFetchedAt": 1790465104023,
-    "fixturesFetchedAt": 1790465104123,
-    "standingsFetchedAt": 1790465104220,
-    "liveFetchedAt": 1790465104334,
-    "requestCount": 30,
+    "infoFetchedAt": 1790473182973,
+    "rankingsFetchedAt": 1790473184698,
+    "fixturesFetchedAt": 1790473184822,
+    "standingsFetchedAt": 1790473184944,
+    "liveFetchedAt": 1790473185082,
+    "requestCount": 6,
     "dailyLimit": 50,
-    "generatedAt": 1790465104341,
-    "fetchedAt": 1790465104334,
-    "nextRefreshAt": 1790465224334,
+    "generatedAt": 1790473185088,
+    "fetchedAt": 1790473185082,
+    "nextRefreshAt": 1790473305082,
     "warning": ""
   }
 }
