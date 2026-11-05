@@ -1913,6 +1913,13 @@
           "nationality": "Brazil"
         },
         {
+          "id": 8491,
+          "name": "Neymar",
+          "position": "Midfield",
+          "dateOfBirth": "1992-02-05",
+          "nationality": "Brazil"
+        },
+        {
           "id": 8749,
           "name": "Fabinho",
           "position": "Midfield",
@@ -1931,13 +1938,6 @@
           "name": "Vinicius Junior",
           "position": "Offence",
           "dateOfBirth": "2000-07-12",
-          "nationality": "Brazil"
-        },
-        {
-          "id": 8491,
-          "name": "Neymar",
-          "position": "Offence",
-          "dateOfBirth": "1992-02-05",
           "nationality": "Brazil"
         },
         {
@@ -4768,13 +4768,6 @@
           "nationality": "Ecuador"
         },
         {
-          "id": 56066,
-          "name": "Gonzalo Plata",
-          "position": "Midfield",
-          "dateOfBirth": "2000-11-01",
-          "nationality": "Ecuador"
-        },
-        {
           "id": 121103,
           "name": "Moisés Caicedo",
           "position": "Midfield",
@@ -4786,13 +4779,6 @@
           "name": "Pedro Vite",
           "position": "Midfield",
           "dateOfBirth": "2002-03-09",
-          "nationality": "Ecuador"
-        },
-        {
-          "id": 179174,
-          "name": "Alan Minda",
-          "position": "Midfield",
-          "dateOfBirth": "2003-05-14",
           "nationality": "Ecuador"
         },
         {
@@ -4824,6 +4810,13 @@
           "nationality": "Ecuador"
         },
         {
+          "id": 56066,
+          "name": "Gonzalo Plata",
+          "position": "Offence",
+          "dateOfBirth": "2000-11-01",
+          "nationality": "Ecuador"
+        },
+        {
           "id": 98549,
           "name": "John Yeboah",
           "position": "Offence",
@@ -4835,6 +4828,13 @@
           "name": "Anthony Valencia",
           "position": "Offence",
           "dateOfBirth": "2003-07-21",
+          "nationality": "Ecuador"
+        },
+        {
+          "id": 179174,
+          "name": "Alan Minda",
+          "position": "Offence",
+          "dateOfBirth": "2003-05-14",
           "nationality": "Ecuador"
         },
         {
@@ -7241,13 +7241,6 @@
           "nationality": "Colombia"
         },
         {
-          "id": 22306,
-          "name": "Jhon Arias",
-          "position": "Midfield",
-          "dateOfBirth": "1997-09-21",
-          "nationality": "Colombia"
-        },
-        {
           "id": 29012,
           "name": "Jorge Carrascal",
           "position": "Midfield",
@@ -7287,6 +7280,13 @@
           "name": "Jhon Córdoba",
           "position": "Offence",
           "dateOfBirth": "1993-05-11",
+          "nationality": "Colombia"
+        },
+        {
+          "id": 22306,
+          "name": "Jhon Arias",
+          "position": "Offence",
+          "dateOfBirth": "1997-09-21",
           "nationality": "Colombia"
         },
         {
@@ -21127,18 +21127,18 @@
   ],
   "liveFixtures": [],
   "meta": {
-    "day": "2026-10-06",
+    "day": "2026-11-05",
     "provider": "football-data.org",
-    "infoFetchedAt": 1791217571596,
-    "rankingsFetchedAt": 1791254739327,
-    "fixturesFetchedAt": 1791254739511,
-    "standingsFetchedAt": 1791254739632,
-    "liveFetchedAt": 1791254739739,
-    "requestCount": 4,
+    "infoFetchedAt": 1793872396514,
+    "rankingsFetchedAt": 1793872398518,
+    "fixturesFetchedAt": 1793872398796,
+    "standingsFetchedAt": 1793872398989,
+    "liveFetchedAt": 1793872399167,
+    "requestCount": 6,
     "dailyLimit": 50,
-    "generatedAt": 1791254739744,
-    "fetchedAt": 1791254739739,
-    "nextRefreshAt": 1791254859739,
+    "generatedAt": 1793872399171,
+    "fetchedAt": 1793872399167,
+    "nextRefreshAt": 1793872519167,
     "warning": ""
   }
 }
