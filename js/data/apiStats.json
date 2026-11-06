@@ -2516,13 +2516,6 @@
           "nationality": "Mexico"
         },
         {
-          "id": 39927,
-          "name": "Luis Romo",
-          "position": "Defence",
-          "dateOfBirth": "1995-06-05",
-          "nationality": "Mexico"
-        },
-        {
           "id": 84096,
           "name": "Israel Reyes",
           "position": "Defence",
@@ -2555,6 +2548,13 @@
           "name": "Luis Chávez",
           "position": "Midfield",
           "dateOfBirth": "1996-01-15",
+          "nationality": "Mexico"
+        },
+        {
+          "id": 39927,
+          "name": "Luis Romo",
+          "position": "Midfield",
+          "dateOfBirth": "1995-06-05",
           "nationality": "Mexico"
         },
         {
@@ -10973,13 +10973,6 @@
           "nationality": "Curaçao"
         },
         {
-          "id": 166156,
-          "name": "Livano Comenencia",
-          "position": "Defence",
-          "dateOfBirth": "2004-02-03",
-          "nationality": "Curaçao"
-        },
-        {
           "id": 177433,
           "name": "Deveron Fonville",
           "position": "Defence",
@@ -11019,6 +11012,13 @@
           "name": "Tahith Chong",
           "position": "Midfield",
           "dateOfBirth": "1999-12-04",
+          "nationality": "Curaçao"
+        },
+        {
+          "id": 166156,
+          "name": "Livano Comenencia",
+          "position": "Midfield",
+          "dateOfBirth": "2004-02-03",
           "nationality": "Curaçao"
         },
         {
@@ -21129,16 +21129,16 @@
   "meta": {
     "day": "2026-11-06",
     "provider": "football-data.org",
-    "infoFetchedAt": 1793872396514,
-    "rankingsFetchedAt": 1793947809022,
-    "fixturesFetchedAt": 1793947809254,
-    "standingsFetchedAt": 1793947809453,
-    "liveFetchedAt": 1793947809605,
-    "requestCount": 8,
+    "infoFetchedAt": 1793976681289,
+    "rankingsFetchedAt": 1793976683119,
+    "fixturesFetchedAt": 1793976683528,
+    "standingsFetchedAt": 1793976683709,
+    "liveFetchedAt": 1793976683878,
+    "requestCount": 14,
     "dailyLimit": 50,
-    "generatedAt": 1793947809612,
-    "fetchedAt": 1793947809605,
-    "nextRefreshAt": 1793947929605,
+    "generatedAt": 1793976683885,
+    "fetchedAt": 1793976683878,
+    "nextRefreshAt": 1793976803878,
     "warning": ""
   }
 }
